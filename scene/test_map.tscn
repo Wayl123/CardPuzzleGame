@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr4gf4lvcf13c"]
+
+[ext_resource type="Texture2D" uid="uid://b1575e603jr43" path="res://image/empty_grid.png" id="1_fakr7"]
+[ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/boulder_wall.png" id="2_ij6q1"]
+[ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_q3xh8"]
+[ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/exit_portal.png" id="3_a322j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MapGrid" type="Control" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="GridNode1" type="PanelContainer" parent="MapGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="MapGrid/GridNode1"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode1"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode2" type="PanelContainer" parent="MapGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+anchor_left = -0.03125
+anchor_right = -0.03125
+offset_left = 132.0
+offset_right = 260.0
+offset_bottom = 128.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="MapGrid/GridNode2"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode2"]
+layout_mode = 2
+texture_normal = ExtResource("3_a322j")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode3" type="PanelContainer" parent="MapGrid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+anchor_left = 2.0
+anchor_top = -1.03125
+anchor_right = 2.0
+anchor_bottom = -1.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="MapGrid/GridNode3"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode3"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyy4jmudt23kj"]
+
+[ext_resource type="Script" path="res://scripts/DragPreview.gd" id="1_simve"]
+
+[node name="DragPreview" type="Sprite2D"]
+script = ExtResource("1_simve")
