@@ -1,21 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=10 format=3 uid="uid://cr4gf4lvcf13c"]
 
 [ext_resource type="Texture2D" uid="uid://b1575e603jr43" path="res://image/empty_grid.png" id="1_fakr7"]
 [ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/boulder_wall.png" id="2_ij6q1"]
 [ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_q3xh8"]
 [ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/exit_portal.png" id="3_a322j"]
 [ext_resource type="Texture2D" uid="uid://ct7xbivkudw5s" path="res://image/fog.png" id="4_wvbj6"]
-[ext_resource type="Texture2D" uid="uid://byu7bwy1ihagj" path="res://image/basic_enemy1.png" id="6_t0wv4"]
+[ext_resource type="Script" path="res://scripts/SpawnBasicEnemy1.gd" id="6_ush2y"]
 [ext_resource type="Texture2D" uid="uid://i7hm1w0kc1ce" path="res://image/base_camp.png" id="7_barnu"]
+[ext_resource type="PackedScene" uid="uid://c3ughviujit4g" path="res://scene/enemy.tscn" id="7_ogepn"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(256, -320)
 
 [node name="Map1Grid" type="Control" parent="."]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = -256.0
+offset_top = 320.0
+offset_right = -128.0
+offset_bottom = 448.0
 
 [node name="GridNode1" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
@@ -277,8 +282,9 @@ texture = ExtResource("1_fakr7")
 [node name="Content" type="TextureButton" parent="Map1Grid/GridNode12"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("6_t0wv4")
-script = ExtResource("2_q3xh8")
+script = ExtResource("6_ush2y")
+
+[node name="Enemy" parent="Map1Grid/GridNode12/Content" instance=ExtResource("7_ogepn")]
 
 [node name="GridNode13" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
@@ -300,8 +306,9 @@ texture = ExtResource("1_fakr7")
 [node name="Content" type="TextureButton" parent="Map1Grid/GridNode13"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("6_t0wv4")
-script = ExtResource("2_q3xh8")
+script = ExtResource("6_ush2y")
+
+[node name="Enemy" parent="Map1Grid/GridNode13/Content" instance=ExtResource("7_ogepn")]
 
 [node name="GridNode14" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
@@ -323,8 +330,9 @@ texture = ExtResource("1_fakr7")
 [node name="Content" type="TextureButton" parent="Map1Grid/GridNode14"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("6_t0wv4")
-script = ExtResource("2_q3xh8")
+script = ExtResource("6_ush2y")
+
+[node name="Enemy" parent="Map1Grid/GridNode14/Content" instance=ExtResource("7_ogepn")]
 
 [node name="GridNode15" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
@@ -496,6 +504,7 @@ texture = ExtResource("1_fakr7")
 
 [node name="Content" type="TextureButton" parent="Map1Grid/GridNode22"]
 layout_mode = 2
+texture_normal = ExtResource("2_ij6q1")
 script = ExtResource("2_q3xh8")
 
 [node name="GridNode23" type="PanelContainer" parent="Map1Grid"]
@@ -784,3 +793,7 @@ layout_mode = 2
 disabled = true
 texture_normal = ExtResource("2_ij6q1")
 script = ExtResource("2_q3xh8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(64, 896)
+script = ExtResource("9_n20ai")
