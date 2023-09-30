@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ughviujit4g"]
+
+[ext_resource type="Texture2D" uid="uid://byu7bwy1ihagj" path="res://image/basic_enemy1.png" id="1_t0gbl"]
+[ext_resource type="Script" path="res://scripts/BasicEnemy1.gd" id="2_27rs8"]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="BasicEnemy1" type="TextureButton" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+disabled = true
+texture_normal = ExtResource("1_t0gbl")
+script = ExtResource("2_27rs8")

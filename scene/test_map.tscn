@@ -1,37 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=10 format=3 uid="uid://cr4gf4lvcf13c"]
 
 [ext_resource type="Texture2D" uid="uid://b1575e603jr43" path="res://image/empty_grid.png" id="1_fakr7"]
 [ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/boulder_wall.png" id="2_ij6q1"]
 [ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_q3xh8"]
 [ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/exit_portal.png" id="3_a322j"]
+[ext_resource type="Texture2D" uid="uid://ct7xbivkudw5s" path="res://image/fog.png" id="4_wvbj6"]
+[ext_resource type="Script" path="res://scripts/SpawnBasicEnemy1.gd" id="6_ush2y"]
+[ext_resource type="Texture2D" uid="uid://i7hm1w0kc1ce" path="res://image/base_camp.png" id="7_barnu"]
+[ext_resource type="PackedScene" uid="uid://c3ughviujit4g" path="res://scene/enemy.tscn" id="7_ogepn"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(256, -320)
 
-[node name="MapGrid" type="Control" parent="."]
+[node name="Map1Grid" type="Control" parent="."]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = -256.0
+offset_top = 320.0
+offset_right = -128.0
+offset_bottom = 448.0
 
-[node name="GridNode1" type="PanelContainer" parent="MapGrid"]
+[node name="GridNode1" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
 metadata/_edit_use_anchors_ = true
 
-[node name="EmptyGrid" type="Sprite2D" parent="MapGrid/GridNode1"]
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode1"]
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode1"]
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode1"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("2_ij6q1")
 script = ExtResource("2_q3xh8")
 
-[node name="GridNode2" type="PanelContainer" parent="MapGrid"]
+[node name="GridNode2" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 anchor_left = -0.03125
@@ -41,16 +49,17 @@ offset_right = 260.0
 offset_bottom = 128.0
 metadata/_edit_use_anchors_ = true
 
-[node name="EmptyGrid" type="Sprite2D" parent="MapGrid/GridNode2"]
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode2"]
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode2"]
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode2"]
 layout_mode = 2
-texture_normal = ExtResource("3_a322j")
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
 script = ExtResource("2_q3xh8")
 
-[node name="GridNode3" type="PanelContainer" parent="MapGrid"]
+[node name="GridNode3" type="PanelContainer" parent="Map1Grid"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 anchor_left = 2.0
@@ -62,10 +71,729 @@ offset_right = 128.0
 offset_bottom = 260.0
 metadata/_edit_use_anchors_ = true
 
-[node name="EmptyGrid" type="Sprite2D" parent="MapGrid/GridNode3"]
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode3"]
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode3"]
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode3"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode4" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = -1.03125
+anchor_right = 3.0
+anchor_bottom = -1.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode4"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode4"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode5" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = -1.03125
+anchor_right = 4.0
+anchor_bottom = -1.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode5"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode5"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode6" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.03125
+anchor_bottom = -0.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode6"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode6"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode7" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = -0.03125
+anchor_right = 1.0
+anchor_bottom = -0.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode7"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode7"]
+layout_mode = 2
+disabled = true
+texture_disabled = ExtResource("4_wvbj6")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode8" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = -0.03125
+anchor_right = 2.0
+anchor_bottom = -0.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode8"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode8"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("3_a322j")
+texture_disabled = ExtResource("4_wvbj6")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode9" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = -0.03125
+anchor_right = 3.0
+anchor_bottom = -0.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode9"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode9"]
+layout_mode = 2
+disabled = true
+texture_disabled = ExtResource("4_wvbj6")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode10" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = -0.03125
+anchor_right = 4.0
+anchor_bottom = -0.03125
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode10"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode10"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode11" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.96875
+anchor_bottom = 0.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode11"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode11"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode12" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.96875
+anchor_right = 1.0
+anchor_bottom = 0.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode12"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode12"]
+layout_mode = 2
+disabled = true
+script = ExtResource("6_ush2y")
+
+[node name="Enemy" parent="Map1Grid/GridNode12/Content" instance=ExtResource("7_ogepn")]
+
+[node name="GridNode13" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 0.96875
+anchor_right = 2.0
+anchor_bottom = 0.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode13"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode13"]
+layout_mode = 2
+disabled = true
+script = ExtResource("6_ush2y")
+
+[node name="Enemy" parent="Map1Grid/GridNode13/Content" instance=ExtResource("7_ogepn")]
+
+[node name="GridNode14" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 0.96875
+anchor_right = 3.0
+anchor_bottom = 0.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode14"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode14"]
+layout_mode = 2
+disabled = true
+script = ExtResource("6_ush2y")
+
+[node name="Enemy" parent="Map1Grid/GridNode14/Content" instance=ExtResource("7_ogepn")]
+
+[node name="GridNode15" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 0.96875
+anchor_right = 4.0
+anchor_bottom = 0.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode15"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode15"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode16" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.96875
+anchor_bottom = 1.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode16"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode16"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode17" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.96875
+anchor_right = 1.0
+anchor_bottom = 1.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode17"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode17"]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
+
+[node name="GridNode18" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 1.96875
+anchor_right = 2.0
+anchor_bottom = 1.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode18"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode18"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode19" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 1.96875
+anchor_right = 3.0
+anchor_bottom = 1.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode19"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode19"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode20" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 1.96875
+anchor_right = 4.0
+anchor_bottom = 1.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode20"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode20"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode21" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 2.96875
+anchor_bottom = 2.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode21"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode21"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode22" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 2.96875
+anchor_right = 1.0
+anchor_bottom = 2.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode22"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode22"]
+layout_mode = 2
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode23" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 2.96875
+anchor_right = 2.0
+anchor_bottom = 2.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode23"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode23"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode24" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 2.96875
+anchor_right = 3.0
+anchor_bottom = 2.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode24"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode24"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode25" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 2.96875
+anchor_right = 4.0
+anchor_bottom = 2.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode25"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode25"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode26" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 3.96875
+anchor_bottom = 3.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode26"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode26"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode27" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 3.96875
+anchor_right = 1.0
+anchor_bottom = 3.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode27"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode27"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode28" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 3.96875
+anchor_right = 2.0
+anchor_bottom = 3.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode28"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode28"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("7_barnu")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode29" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 3.96875
+anchor_right = 3.0
+anchor_bottom = 3.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode29"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode29"]
+layout_mode = 2
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode30" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 3.96875
+anchor_right = 4.0
+anchor_bottom = 3.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode30"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode30"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode31" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.96875
+anchor_bottom = 4.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode31"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode31"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode32" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 4.96875
+anchor_right = 1.0
+anchor_bottom = 4.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode32"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode32"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode33" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 4.96875
+anchor_right = 2.0
+anchor_bottom = 4.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode33"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode33"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode34" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 4.96875
+anchor_right = 3.0
+anchor_bottom = 4.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode34"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode34"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="GridNode35" type="PanelContainer" parent="Map1Grid"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 4.96875
+anchor_right = 4.0
+anchor_bottom = 4.96875
+offset_top = 132.0
+offset_right = 128.0
+offset_bottom = 260.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyGrid" type="Sprite2D" parent="Map1Grid/GridNode35"]
+position = Vector2(64, 64)
+texture = ExtResource("1_fakr7")
+
+[node name="Content" type="TextureButton" parent="Map1Grid/GridNode35"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("2_ij6q1")
+script = ExtResource("2_q3xh8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(64, 896)
+script = ExtResource("9_n20ai")
