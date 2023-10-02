@@ -3,6 +3,7 @@ extends TextureButton
 @export var enemy_id: String
 
 var HOVERTOOLTIP = preload("res://scene/hover_tooltip.tscn")
+var RANGE = preload("res://scene/attack_range.tscn")
 var data = {}
 
 func _ready():
@@ -19,7 +20,6 @@ func _process(delta):
 func _on_mouse_entered():
 	var hoverTooltip = HOVERTOOLTIP.instantiate()
 	
-	hoverTooltip.set_position(position)
 	hoverTooltip.set_visible(false)
 	
 	add_child(hoverTooltip)
@@ -30,6 +30,15 @@ func _on_mouse_entered():
 		get_node("HoverTooltip/TooltipItems/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
 		get_node("HoverTooltip/TooltipItems/Attack").set_text(str("Attack: ", data["attack"]))
 		get_node("HoverTooltip").set_visible(true)
+		
+		for range in data["range"]:
+			var targetPos = Vector2(range[0], range[1]) * 128
+			var targetGlobalPos = global_position + targetPos
+			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
+				if targetNode.get_global_position() == targetGlobalPos:
+					var attackRange = RANGE.instantiate()
+					attackRange.set_position(targetPos)
+					get_node("HoverTooltip").add_child(attackRange)
 
 func _on_mouse_exited():
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()):

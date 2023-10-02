@@ -278,7 +278,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode12" groups=["Fog1"]]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode12" groups=["Fog1", "TargetableNode"]]
 layout_mode = 2
 disabled = true
 script = ExtResource("2_q3xh8")
@@ -304,7 +304,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode13" groups=["Fog1"]]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode13" groups=["Fog1", "TargetableNode"]]
 layout_mode = 2
 disabled = true
 script = ExtResource("2_q3xh8")
@@ -330,7 +330,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode14" groups=["Fog1"]]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode14" groups=["Fog1", "TargetableNode"]]
 layout_mode = 2
 disabled = true
 script = ExtResource("2_q3xh8")
@@ -400,7 +400,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode17"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode17" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
@@ -421,7 +421,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode18"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode18" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
@@ -442,7 +442,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode19"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode19" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
@@ -507,7 +507,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode22"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode22" groups=["TargetableNode"]]
 layout_mode = 2
 texture_normal = ExtResource("2_ij6q1")
 script = ExtResource("2_q3xh8")
@@ -529,7 +529,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode23"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode23" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
@@ -550,7 +550,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode24"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode24" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
@@ -615,7 +615,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode27"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode27" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
@@ -659,7 +659,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(64, 64)
 texture = ExtResource("1_fakr7")
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode29"]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode29" groups=["TargetableNode"]]
 layout_mode = 2
 script = ExtResource("2_q3xh8")
 
