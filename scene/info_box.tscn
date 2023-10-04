@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://biga1qitatow5"]
+
+[ext_resource type="Texture2D" uid="uid://dppmsw6ltmoyn" path="res://image/info_box.png" id="1_kr1b7"]
+[ext_resource type="Script" path="res://scripts/InfoBox.gd" id="2_tkduc"]
+
+[node name="InfoBox" type="NinePatchRect"]
+z_index = 1
+z_as_relative = false
+offset_right = 512.0
+offset_bottom = 256.0
+size_flags_vertical = 3
+texture = ExtResource("1_kr1b7")
+script = ExtResource("2_tkduc")
+
+[node name="InfoList" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 512.0
+offset_bottom = 256.0
+
+[node name="InfoBanner" type="HBoxContainer" parent="InfoList"]
+layout_mode = 2
+alignment = 1
+
+[node name="InfoTitle" type="VBoxContainer" parent="InfoList/InfoBanner"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="InfoList/InfoBanner/InfoTitle"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+text = "Name"
+
+[node name="Description" type="Label" parent="InfoList/InfoBanner/InfoTitle"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+theme_override_font_sizes/font_size = 12
+text = "Description"
+
+[node name="Image" type="TextureRect" parent="InfoList/InfoBanner"]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="InfoList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+text = "Health: -1/-1"
+
+[node name="Attack" type="Label" parent="InfoList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+text = "Attack: -1"
+
+[node name="DeathEffect" type="Label" parent="InfoList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+text = "Death: N/A"
+
+[node name="VictoryEffect" type="Label" parent="InfoList"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+text = "Victory: N/A"
