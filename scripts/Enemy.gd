@@ -5,6 +5,7 @@ extends TextureButton
 var HOVERTOOLTIP = preload("res://scene/hover_tooltip.tscn")
 var INFOBOX = preload("res://scene/info_box.tscn")
 var RANGE = preload("res://scene/attack_range.tscn")
+var SELECTED = preload("res://scene/selected.tscn")
 var data = {}
 
 func _ready():
@@ -27,6 +28,7 @@ func _process(delta):
 		get_parent().add_child(infoBox)
 		
 		_populate_info_box()
+		_select_node()
 		_range_display()
 
 func _on_mouse_entered():
@@ -75,6 +77,11 @@ func _range_display():
 					var attackRange = RANGE.instantiate()
 					attackRange.set_position(targetPos)
 					get_parent().add_child(attackRange)
+
+func _select_node():
+	if not has_node("../Selected"):
+		var selected = SELECTED.instantiate()
+		get_parent().add_child(selected)
 
 func _populate_hover_tooltip():
 	if has_node("HoverTooltip"):
