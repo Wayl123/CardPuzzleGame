@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://gi0656261e68"]
 
-[ext_resource type="Texture2D" uid="uid://c1reqovwdy04g" path="res://image/tooltip.png" id="1_oycxx"]
+[ext_resource type="Texture2D" uid="uid://c1reqovwdy04g" path="res://image/card_info/tooltip.png" id="1_j2y3j"]
 
 [node name="HoverTooltip" type="NinePatchRect"]
 offset_right = 128.0
 offset_bottom = 128.0
-texture = ExtResource("1_oycxx")
+texture = ExtResource("1_j2y3j")
 
 [node name="TooltipItems" type="VBoxContainer" parent="."]
 layout_mode = 1

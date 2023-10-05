@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhvhn4xbqh8ty"
-path="res://.godot/imported/boulder_wall.png-e7a5b5f716c92a412c006dfaf053537c.ctex"
+uid="uid://copymfiuetuwc"
+path="res://.godot/imported/active_attack_range.png-d905b5eda0deaa4152e8be4608807380.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/boulder_wall.png"
-dest_files=["res://.godot/imported/boulder_wall.png-e7a5b5f716c92a412c006dfaf053537c.ctex"]
+source_file="res://image/card_info/active_attack_range.png"
+dest_files=["res://.godot/imported/active_attack_range.png-d905b5eda0deaa4152e8be4608807380.ctex"]
 
 [params]
 

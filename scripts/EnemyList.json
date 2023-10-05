@@ -1,7 +1,7 @@
 {
 	"1": {
 		"name": "basicenemy1",
-		"image": "res://image/basic_enemy1.png",
+		"image": "res://image/enemies/basic_enemy1.png",
 		"max-health": 10,
 		"health": 10,
 		"attack": 1,
