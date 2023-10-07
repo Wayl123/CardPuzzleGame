@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuy5m1owxb84p"]
+[gd_scene load_steps=5 format=3 uid="uid://cuy5m1owxb84p"]
 
 [ext_resource type="Texture2D" uid="uid://oqangvusf2lc" path="res://image/shop/shop_menu.png" id="1_jc7a3"]
+[ext_resource type="Script" path="res://scripts/ShopMenu.gd" id="2_8wn64"]
 [ext_resource type="Texture2D" uid="uid://b7jee0ml2650e" path="res://image/shop/shop_slot.png" id="2_o6j6l"]
 [ext_resource type="Texture2D" uid="uid://byu7bwy1ihagj" path="res://image/enemies/basic_enemy1.png" id="3_f5mrw"]
 
 [node name="ShopMenu" type="NinePatchRect"]
+z_index = 2
 offset_right = 1024.0
 offset_bottom = 768.0
 texture = ExtResource("1_jc7a3")
+script = ExtResource("2_8wn64")
+
+[node name="ShopTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 88.0
+offset_bottom = 66.0
+text = "Shop"
 
 [node name="ShopItems" type="MarginContainer" parent="."]
 layout_mode = 0

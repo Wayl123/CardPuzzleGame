@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_q3xh8"]
 [ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/exit_portal.png" id="3_a322j"]
 [ext_resource type="Texture2D" uid="uid://ct7xbivkudw5s" path="res://image/fog.png" id="4_wvbj6"]
-[ext_resource type="Texture2D" uid="uid://i7hm1w0kc1ce" path="res://image/base_camp.png" id="7_barnu"]
 [ext_resource type="PackedScene" uid="uid://c3ughviujit4g" path="res://scene/enemy.tscn" id="7_ogepn"]
+[ext_resource type="Script" path="res://scripts/Shop.gd" id="8_fk230"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 
 [node name="TutorialMap" type="Node2D"]
@@ -611,8 +611,14 @@ layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
 disabled = true
-texture_normal = ExtResource("7_barnu")
 script = ExtResource("2_q3xh8")
+
+[node name="BaseCamp" type="TextureButton" parent="MapGrid/GridNode28/Content"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("8_fk230")
+shop_id = "0.1"
 
 [node name="GridNode29" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)

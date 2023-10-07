@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i7hm1w0kc1ce"
-path="res://.godot/imported/base_camp.png-f81948cb2ca3003e74ced5c633caf6c6.ctex"
+path="res://.godot/imported/base_camp.png-21ea40a834217689cf506ca4b9a178fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/base_camp.png"
-dest_files=["res://.godot/imported/base_camp.png-f81948cb2ca3003e74ced5c633caf6c6.ctex"]
+source_file="res://image/shop/base_camp.png"
+dest_files=["res://.godot/imported/base_camp.png-21ea40a834217689cf506ca4b9a178fc.ctex"]
 
 [params]
 

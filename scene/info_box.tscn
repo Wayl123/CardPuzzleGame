@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/InfoBox.gd" id="2_tkduc"]
 
 [node name="InfoBox" type="NinePatchRect"]
-z_index = 1
+z_index = 2
 z_as_relative = false
 offset_right = 512.0
 offset_bottom = 256.0
