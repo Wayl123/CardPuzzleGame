@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1575e603jr43"
-path="res://.godot/imported/empty_grid.png-3bf10e6f39e248b06b715a717b3f7770.ctex"
+uid="uid://c1reqovwdy04g"
+path="res://.godot/imported/tooltip.png-ad476ddb5c04872e2222d2737bd61741.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/empty_grid.png"
-dest_files=["res://.godot/imported/empty_grid.png-3bf10e6f39e248b06b715a717b3f7770.ctex"]
+source_file="res://image/card_info/tooltip.png"
+dest_files=["res://.godot/imported/tooltip.png-ad476ddb5c04872e2222d2737bd61741.ctex"]
 
 [params]
 

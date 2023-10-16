@@ -21,3 +21,12 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseMotion and drag_position != null:
 		set_global_position(get_global_mouse_position() - drag_position)
+
+func init(data):
+	get_node("InfoList/InfoBanner/InfoTitle/Name").set_text(data["name"])
+	get_node("InfoList/InfoBanner/InfoTitle/Description").set_text("Description placeholder")
+	get_node("InfoList/InfoBanner/Image").set_texture(load(data["image"]))
+	get_node("InfoList/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
+	get_node("InfoList/Attack").set_text(str("Attack: ", data["attack"]))
+	get_node("InfoList/DeathEffect").set_text("Death effect placeholder")
+	get_node("InfoList/VictoryEffect").set_text("")

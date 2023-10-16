@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://copymfiuetuwc"
-path="res://.godot/imported/active_attack_range.png-8a2fb585c0f9d9df479fb23e0e638d0d.ctex"
+uid="uid://i7hm1w0kc1ce"
+path="res://.godot/imported/base_camp.png-21ea40a834217689cf506ca4b9a178fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/active_attack_range.png"
-dest_files=["res://.godot/imported/active_attack_range.png-8a2fb585c0f9d9df479fb23e0e638d0d.ctex"]
+source_file="res://image/shop/base_camp.png"
+dest_files=["res://.godot/imported/base_camp.png-21ea40a834217689cf506ca4b9a178fc.ctex"]
 
 [params]
 

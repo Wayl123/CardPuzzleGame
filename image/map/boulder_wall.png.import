@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i7hm1w0kc1ce"
-path="res://.godot/imported/base_camp.png-f81948cb2ca3003e74ced5c633caf6c6.ctex"
+uid="uid://bhvhn4xbqh8ty"
+path="res://.godot/imported/boulder_wall.png-dfb5ab7dc1dd3b56ca441af07468e1ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/base_camp.png"
-dest_files=["res://.godot/imported/base_camp.png-f81948cb2ca3003e74ced5c633caf6c6.ctex"]
+source_file="res://image/map/boulder_wall.png"
+dest_files=["res://.godot/imported/boulder_wall.png-dfb5ab7dc1dd3b56ca441af07468e1ee.ctex"]
 
 [params]
 

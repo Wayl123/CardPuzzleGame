@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://biga1qitatow5"]
 
-[ext_resource type="Texture2D" uid="uid://dppmsw6ltmoyn" path="res://image/info_box.png" id="1_kr1b7"]
+[ext_resource type="Texture2D" uid="uid://dppmsw6ltmoyn" path="res://image/card_info/info_box.png" id="1_37lxe"]
 [ext_resource type="Script" path="res://scripts/InfoBox.gd" id="2_tkduc"]
 
 [node name="InfoBox" type="NinePatchRect"]
-z_index = 1
+z_index = 2
 z_as_relative = false
 offset_right = 512.0
 offset_bottom = 256.0
 size_flags_vertical = 3
-texture = ExtResource("1_kr1b7")
+texture = ExtResource("1_37lxe")
 script = ExtResource("2_tkduc")
 
 [node name="InfoList" type="VBoxContainer" parent="."]

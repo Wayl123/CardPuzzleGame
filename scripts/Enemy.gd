@@ -24,10 +24,9 @@ func _process(delta):
 		var infoBox = INFOBOX.instantiate()
 		
 		infoBox._set_position(Vector2(2, 0) * 128)
+		infoBox.init(data)
 		
 		get_parent().add_child(infoBox)
-		
-		_populate_info_box()
 		_select_node()
 		_range_display()
 
@@ -69,8 +68,8 @@ func _load_json_file(filePath : String):
 		
 func _range_display():
 	if not has_node("../Range"):
-		for range in data["range"]:
-			var targetPos = Vector2(range[0], range[1]) * 128
+		for aRange in data["range"]:
+			var targetPos = Vector2(aRange[0], aRange[1]) * 128
 			var targetGlobalPos = global_position + targetPos
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
@@ -88,15 +87,5 @@ func _populate_hover_tooltip():
 		get_node("HoverTooltip/TooltipItems/Name").set_text(data["name"])
 		get_node("HoverTooltip/TooltipItems/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
 		get_node("HoverTooltip/TooltipItems/Attack").set_text(str("Attack: ", data["attack"]))
-
-func _populate_info_box():
-	if has_node("../InfoBox"):
-		get_node("../InfoBox/InfoList/InfoBanner/InfoTitle/Name").set_text(data["name"])
-		get_node("../InfoBox/InfoList/InfoBanner/InfoTitle/Description").set_text("Description placeholder")
-		get_node("../InfoBox/InfoList/InfoBanner/Image").set_texture(load(data["image"]))
-		get_node("../InfoBox/InfoList/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
-		get_node("../InfoBox/InfoList/Attack").set_text(str("Attack: ", data["attack"]))
-		get_node("../InfoBox/InfoList/DeathEffect").set_text("Death effect placeholder")
-		get_node("../InfoBox/InfoList/VictoryEffect").set_visible(false)
 	
 
