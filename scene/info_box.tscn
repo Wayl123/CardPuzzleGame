@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://biga1qitatow5"]
+[gd_scene load_steps=3 format=3 uid="uid://c3k0i6b0fwpwn"]
 
 [ext_resource type="Texture2D" uid="uid://dppmsw6ltmoyn" path="res://image/card_info/info_box.png" id="1_37lxe"]
 [ext_resource type="Script" path="res://scripts/InfoBox.gd" id="2_tkduc"]
