@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdur6tti1talr"]
+[gd_scene load_steps=4 format=3 uid="uid://bdur6tti1talr"]
 
 [ext_resource type="Texture2D" uid="uid://hir0tiyavl6a" path="res://image/card_info/card_background.png" id="1_viw3p"]
+[ext_resource type="Script" path="res://scripts/PlayerCard.gd" id="2_jt5j5"]
 [ext_resource type="Texture2D" uid="uid://dldspntuv558h" path="res://image/player/tank_player1.png" id="2_whkka"]
 
 [node name="PlayerCard" type="NinePatchRect"]
 offset_right = 192.0
 offset_bottom = 288.0
+mouse_filter = 0
 texture = ExtResource("1_viw3p")
+script = ExtResource("2_jt5j5")
 
 [node name="CardLayout" type="VBoxContainer" parent="."]
 layout_mode = 0

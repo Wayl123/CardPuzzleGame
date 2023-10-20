@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=10 format=3 uid="uid://cr4gf4lvcf13c"]
 
 [ext_resource type="Texture2D" uid="uid://ciqusrw8mh7o7" path="res://image/map/empty_grid.png" id="1_hvck7"]
 [ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/map/boulder_wall.png" id="2_ipvsb"]
@@ -8,9 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://cbvi3vjj0ibjy" path="res://scene/enemy.tscn" id="7_ogepn"]
 [ext_resource type="Script" path="res://scripts/Shop.gd" id="8_fk230"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
+[ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
 
 [node name="TutorialMap" type="Node2D"]
 position = Vector2(256, -320)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("9_yy8cc")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(64, 896)
+script = ExtResource("9_n20ai")
 
 [node name="MapGrid" type="Control" parent="."]
 custom_minimum_size = Vector2(128, 128)
@@ -769,7 +778,3 @@ offset_bottom = 128.0
 disabled = true
 texture_normal = ExtResource("2_ipvsb")
 script = ExtResource("2_q3xh8")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(64, 896)
-script = ExtResource("9_n20ai")

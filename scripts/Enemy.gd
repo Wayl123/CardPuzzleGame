@@ -40,7 +40,7 @@ func _on_mouse_entered():
 	
 	await get_tree().create_timer(0.2).timeout
 	
-	if has_node("HoverTooltip"):
+	if has_node("HoverTooltip") and not get_node("HoverTooltip").is_visible():
 		_populate_hover_tooltip()
 		get_node("HoverTooltip").set_visible(true)
 		
