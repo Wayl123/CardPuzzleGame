@@ -7,8 +7,9 @@ func _ready():
 
 func _process(delta):
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse"):
-		if has_node("../Range"):
-			get_node("../Range").queue_free()
+		if get_tree().has_group("RangeDisplay"):
+			for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
+				rangeNode.queue_free()
 		if has_node("../Selected"):
 			get_node("../Selected").queue_free()
 		queue_free()
