@@ -3,23 +3,27 @@ extends TextureButton
 @export var shop_id: String
 
 var SHOPMENU = preload("res://scene/shop_menu.tscn")
+var SELECTED = preload("res://scene/selected.tscn")
 var data = {}
 
 func _ready():
+	connect("pressed", Callable(self, "_on_button_pressed"))
+	
 	var shop_list_path = ("res://scripts/ShopContentList.json")
 	data = _load_json_file(shop_list_path)[shop_id]
 	texture_normal = load(data["image"])
 
 func _process(delta):
-	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse"):
-		if has_node("../ShopMenu"):
-			await get_node("../ShopMenu").tree_exited
-			
-		var shopMenu = SHOPMENU.instantiate()
+	pass
 		
-		shopMenu._set_position(Vector2(2, 0) * 128)
-		
-		get_parent().add_child(shopMenu)
+func _on_button_pressed():
+	var shopMenu = SHOPMENU.instantiate()
+	
+	shopMenu._set_position(Vector2(2, 0) * 128)
+	shopMenu.add_to_group("ActiveShopMenu")
+	
+	get_parent().add_child(shopMenu)
+	_select_node()
 		
 func _load_json_file(filePath : String):
 	if FileAccess.file_exists(filePath):
@@ -32,3 +36,8 @@ func _load_json_file(filePath : String):
 			print("Error reading file")
 	else:
 		print("File doesn't exist")
+		
+func _select_node():
+	if not has_node("../Selected"):
+		var selected = SELECTED.instantiate()
+		get_parent().add_child(selected)

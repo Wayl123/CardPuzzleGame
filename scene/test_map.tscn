@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=11 format=3 uid="uid://cr4gf4lvcf13c"]
 
 [ext_resource type="Texture2D" uid="uid://ciqusrw8mh7o7" path="res://image/map/empty_grid.png" id="1_hvck7"]
 [ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/map/boulder_wall.png" id="2_ipvsb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ct7xbivkudw5s" path="res://image/fog.png" id="4_wvbj6"]
 [ext_resource type="PackedScene" uid="uid://cbvi3vjj0ibjy" path="res://scene/enemy.tscn" id="7_ogepn"]
 [ext_resource type="Script" path="res://scripts/Shop.gd" id="8_fk230"]
+[ext_resource type="PackedScene" uid="uid://x00s8xtmudyj" path="res://scene/player.tscn" id="9_1e7ji"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 [ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
 
@@ -415,6 +416,10 @@ layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
 script = ExtResource("2_q3xh8")
+
+[node name="Player" parent="MapGrid/GridNode18/Content" instance=ExtResource("9_1e7ji")]
+layout_mode = 0
+player_id = "1-1"
 
 [node name="GridNode19" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
