@@ -8,14 +8,13 @@ var data = {}
 
 func _ready():
 	connect("pressed", Callable(self, "_on_button_pressed"))
+	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
+	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
 func _process(delta):
 	pass
 		
 func _on_button_pressed():
-	if get_tree().has_group("ActiveInfoBox"):
-		await get_tree().get_first_node_in_group("ActiveInfoBox").tree_exited
-		
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox._set_position(Vector2(2, 0) * 128)
@@ -25,6 +24,9 @@ func _on_button_pressed():
 	get_parent().add_child(infoBox)
 	_select_node()
 	_range_display()
+	
+	if has_node("HoverTooltip"):
+		get_node("HoverTooltip").queue_free()
 	
 func _on_mouse_entered():
 	if not get_tree().has_group("ActiveInfoBox") and not has_node("HoverTooltip"):
