@@ -7,22 +7,24 @@ var SELECTED = preload("res://scene/selected.tscn")
 var data = {}
 
 func _ready():
-	pass
+	connect("pressed", Callable(self, "_on_button_pressed"))
 
 func _process(delta):
-	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse"):
-		if get_tree().has_group("ActiveInfoBox"):
-			await get_tree().get_first_node_in_group("ActiveInfoBox").tree_exited
-			
-		var infoBox = INFOBOX.instantiate()
+	pass
 		
-		infoBox._set_position(Vector2(2, 0) * 128)
-		infoBox.init(data)
-		infoBox.add_to_group("ActiveInfoBox")
+func _on_button_pressed():
+	if get_tree().has_group("ActiveInfoBox"):
+		await get_tree().get_first_node_in_group("ActiveInfoBox").tree_exited
 		
-		get_parent().add_child(infoBox)
-		_select_node()
-		_range_display()
+	var infoBox = INFOBOX.instantiate()
+	
+	infoBox._set_position(Vector2(2, 0) * 128)
+	infoBox.init(data)
+	infoBox.add_to_group("ActiveInfoBox")
+	
+	get_parent().add_child(infoBox)
+	_select_node()
+	_range_display()
 	
 func _on_mouse_entered():
 	if not get_tree().has_group("ActiveInfoBox") and not has_node("HoverTooltip"):

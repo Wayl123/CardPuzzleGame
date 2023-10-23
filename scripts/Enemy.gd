@@ -3,6 +3,7 @@ extends "res://scripts/UnitCard.gd"
 @export var enemy_id: String
 
 func _ready():
+	super()
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
