@@ -25,14 +25,16 @@ func _on_button_pressed():
 	_select_node()
 	_range_display()
 	
-	if has_node("HoverTooltip"):
-		get_node("HoverTooltip").queue_free()
+	if get_tree().has_group("ActiveHoverTooltip"):
+		for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
+			tooltip.queue_free()
 	
 func _on_mouse_entered():
 	if not get_tree().has_group("ActiveInfoBox") and not has_node("HoverTooltip"):
 		var hoverTooltip = HOVERTOOLTIP.instantiate()
 		
 		hoverTooltip.set_visible(false)
+		hoverTooltip.add_to_group("ActiveHoverTooltip")
 		
 		add_child(hoverTooltip)
 	
@@ -46,8 +48,9 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()):
-		if has_node("HoverTooltip"):
-			get_node("HoverTooltip").queue_free()
+		if get_tree().has_group("ActiveHoverTooltip"):
+			for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
+				tooltip.queue_free()
 		if not get_tree().has_group("ActiveInfoBox"):
 			if get_tree().has_group("RangeDisplay"):
 				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
