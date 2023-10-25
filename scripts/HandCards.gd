@@ -60,15 +60,11 @@ func _load_json_file(filePath : String):
 	else:
 		print("File doesn't exist")
 		
-func _can_drop_data(_pos, data):
+func _can_drop_data(_pos, dataIn):
 	return true
 	
-func _drop_data(_pos, data):
-	if data:
-		data["origin_node"].remove_unit(data["origin_child"])
-			
-		add_unit(data["origin_data"])
-		
+func _drop_data(_pos, dataIn):
+	if dataIn:
 		if get_tree().has_group("ActiveHoverTooltip"):
 			for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
 				tooltip.queue_free()
@@ -76,6 +72,9 @@ func _drop_data(_pos, data):
 			if get_tree().has_group("RangeDisplay"):
 				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
 					rangeNode.queue_free()
+		
+		add_unit(dataIn["origin_data"])
+		dataIn["origin_node"].remove_unit(dataIn["origin_child"])
 
 func add_unit(pData):
 	var newCard = PLAYERCARD.instantiate()
@@ -85,6 +84,6 @@ func add_unit(pData):
 	_update_hand()
 	
 func remove_unit(pNode):
+	remove_child(pNode)
 	pNode.queue_free()
-	await pNode.tree_exited
 	_update_hand()
