@@ -2,8 +2,13 @@ extends NinePatchRect
 
 var drag_position = null
 
+var data = {}
+
+func init(pData):
+	data = pData
+
 func _ready():
-	pass
+	_populate_data()
 
 func _process(delta):
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse"):
@@ -23,7 +28,7 @@ func _input(event):
 	if event is InputEventMouseMotion and drag_position != null:
 		set_global_position(get_global_mouse_position() - drag_position)
 
-func init(data):
+func _populate_data():
 	get_node("InfoList/InfoBanner/InfoTitle/Name").set_text(data["name"])
 	get_node("InfoList/InfoBanner/InfoTitle/Description").set_text("Description placeholder")
 	get_node("InfoList/InfoBanner/Image").set_texture(load(data["image"]))

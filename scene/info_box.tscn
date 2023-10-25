@@ -9,6 +9,7 @@ z_as_relative = false
 offset_right = 512.0
 offset_bottom = 256.0
 size_flags_vertical = 3
+mouse_filter = 0
 texture = ExtResource("1_37lxe")
 script = ExtResource("2_tkduc")
 
