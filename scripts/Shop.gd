@@ -5,20 +5,28 @@ extends TextureButton
 var SHOPMENU = preload("res://scene/shop_menu.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
 var data = {}
+var playerData = {}
 
 func _ready():
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
 	var shop_list_path = ("res://scripts/ShopContentList.json")
 	data = _load_json_file(shop_list_path)[shop_id]
-	texture_normal = load(data["image"])
-
-func _process(delta):
-	pass
+	set_texture_normal(load(data["image"]))
+	
+	var player_list_path = ("res://scripts/PlayerList.json")
+	var playerData = _load_json_file(player_list_path)
+	
+	var contentData = {}
+	for content in data["content"]:
+		contentData[content] = playerData[content]
+		
+	data["content"] = contentData
 		
 func _on_button_pressed():
 	var shopMenu = SHOPMENU.instantiate()
 	
+	shopMenu.init(data)
 	shopMenu._set_position(Vector2(2, 0) * 128)
 	shopMenu.add_to_group("ActiveShopMenu")
 	

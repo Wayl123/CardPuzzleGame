@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://oqangvusf2lc" path="res://image/shop/shop_menu.png" id="1_jc7a3"]
 [ext_resource type="Script" path="res://scripts/ShopMenu.gd" id="2_8wn64"]
-[ext_resource type="Texture2D" uid="uid://b7jee0ml2650e" path="res://image/shop/shop_slot.png" id="2_o6j6l"]
 [ext_resource type="Texture2D" uid="uid://byu7bwy1ihagj" path="res://image/enemies/basic_enemy1.png" id="3_f5mrw"]
+[ext_resource type="Script" path="res://scripts/ShopItemDetail.gd" id="3_tqqgs"]
 
 [node name="ShopMenu" type="NinePatchRect"]
 z_index = 2
@@ -36,93 +36,6 @@ layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Row1" type="HBoxContainer" parent="ShopItems/RowContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="ItemSlot1" type="TextureRect" parent="ShopItems/RowContainer/Row1"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot2" type="TextureRect" parent="ShopItems/RowContainer/Row1"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot3" type="TextureRect" parent="ShopItems/RowContainer/Row1"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot4" type="TextureRect" parent="ShopItems/RowContainer/Row1"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot5" type="TextureRect" parent="ShopItems/RowContainer/Row1"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot6" type="TextureRect" parent="ShopItems/RowContainer/Row1"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="Row2" type="HBoxContainer" parent="ShopItems/RowContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="ItemSlot1" type="TextureRect" parent="ShopItems/RowContainer/Row2"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot2" type="TextureRect" parent="ShopItems/RowContainer/Row2"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot3" type="TextureRect" parent="ShopItems/RowContainer/Row2"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot4" type="TextureRect" parent="ShopItems/RowContainer/Row2"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot5" type="TextureRect" parent="ShopItems/RowContainer/Row2"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot6" type="TextureRect" parent="ShopItems/RowContainer/Row2"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="Row3" type="HBoxContainer" parent="ShopItems/RowContainer"]
-layout_mode = 2
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="ItemSlot1" type="TextureRect" parent="ShopItems/RowContainer/Row3"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot2" type="TextureRect" parent="ShopItems/RowContainer/Row3"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot3" type="TextureRect" parent="ShopItems/RowContainer/Row3"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot4" type="TextureRect" parent="ShopItems/RowContainer/Row3"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot5" type="TextureRect" parent="ShopItems/RowContainer/Row3"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
-[node name="ItemSlot6" type="TextureRect" parent="ShopItems/RowContainer/Row3"]
-layout_mode = 2
-texture = ExtResource("2_o6j6l")
-
 [node name="SelectedItem" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 24.0
@@ -134,9 +47,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="ItemDetail" type="HBoxContainer" parent="SelectedItem"]
+[node name="ItemDetail" type="HBoxContainer" parent="SelectedItem" groups=["ItemDetail"]]
 layout_mode = 2
 alignment = 1
+script = ExtResource("3_tqqgs")
 
 [node name="ItemTitle" type="VBoxContainer" parent="SelectedItem/ItemDetail"]
 layout_mode = 2
