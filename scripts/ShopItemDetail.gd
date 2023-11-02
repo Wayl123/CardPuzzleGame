@@ -17,4 +17,8 @@ func set_detail(pItemId, pData):
 	get_node("ItemDetails/Range").set_text("Range placeholder (not sure how to do this yet)")
 	get_node("ItemDetails/DeathEffect").set_text("Death effect placeholder (think maybe I need to add descriptor into the json file?)")
 	get_node("ItemDetails/VictoryEffect").set_text("Victory effect placeholder")
+	get_node("BuyItem/Cost").set_text(str("Cost: ", data["cost"]))
 	get_node("ItemImage").set_texture(load(data["image"]))
+	
+func get_data():
+	return data
