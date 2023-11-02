@@ -27,10 +27,12 @@ func _on_button_pressed():
 	var shopMenu = SHOPMENU.instantiate()
 	
 	shopMenu.init(data)
-	shopMenu._set_position(Vector2(2, 0) * 128)
+	shopMenu._set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	shopMenu.add_to_group("ActiveShopMenu")
 	
-	get_parent().add_child(shopMenu)
+	var popup = get_tree().get_first_node_in_group("Popup")
+	
+	popup.add_child(shopMenu)
 	_select_node()
 		
 func _load_json_file(filePath : String):
@@ -48,4 +50,5 @@ func _load_json_file(filePath : String):
 func _select_node():
 	if not has_node("../Selected"):
 		var selected = SELECTED.instantiate()
+		selected.add_to_group("ActiveSelected")
 		get_parent().add_child(selected)

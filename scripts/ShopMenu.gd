@@ -17,8 +17,8 @@ func _ready():
 
 func _process(delta):
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse"):
-		if has_node("../Selected"):
-			get_node("../Selected").queue_free()
+		if get_tree().has_group("ActiveSelected"):
+			get_tree().get_first_node_in_group("ActiveSelected").queue_free()
 		queue_free()
 
 	if Input.is_action_pressed("LeftMouse"):

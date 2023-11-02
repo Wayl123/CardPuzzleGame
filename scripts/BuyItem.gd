@@ -7,10 +7,8 @@ func _ready():
 	
 func _on_button_pressed():
 	var data
-	
-	if get_tree().has_group("ItemDetail"):
-		var itemDetail = get_tree().get_first_node_in_group("ItemDetail")
-		data = itemDetail.get_data()
+	var itemDetail = get_tree().get_first_node_in_group("ItemDetail")
+	data = itemDetail.get_data()
 	
 	if data and get_tree().has_group("PlayerItem") and get_tree().has_group("PlayerCards"):
 		var playerItem = get_tree().get_first_node_in_group("PlayerItem")

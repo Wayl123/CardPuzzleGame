@@ -12,24 +12,21 @@
 [ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
 
 [node name="TutorialMap" type="Node2D"]
-position = Vector2(256, -320)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("9_yy8cc")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(64, 896)
+position = Vector2(320, 576)
 script = ExtResource("9_n20ai")
 
 [node name="MapGrid" type="Control" parent="."]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0
-offset_left = -256.0
-offset_top = 320.0
-offset_right = -128.0
-offset_bottom = 448.0
+offset_right = 128.0
+offset_bottom = 128.0
 
 [node name="GridNode1" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -821,3 +818,5 @@ mouse_filter = 1
 disabled = true
 texture_normal = ExtResource("2_ipvsb")
 script = ExtResource("2_q3xh8")
+
+[node name="Popup" type="Node2D" parent="." groups=["Popup"]]
