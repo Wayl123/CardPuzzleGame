@@ -16,7 +16,7 @@
 	},
 	"2-1": {
 		"name": "range1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/range_player1.png",
 		"max-health": 3,
 		"health": 3,
 		"attack": 2,
