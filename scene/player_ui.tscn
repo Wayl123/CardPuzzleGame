@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba4yefjlvt6nk"]
+[gd_scene load_steps=6 format=3 uid="uid://ba4yefjlvt6nk"]
 
 [ext_resource type="Script" path="res://scripts/GameSetting.gd" id="1_5mpsc"]
 [ext_resource type="Script" path="res://scripts/HandCards.gd" id="1_ctmpx"]
+[ext_resource type="Texture2D" uid="uid://dolaiihbtqlu5" path="res://image/ui/top_bar.png" id="2_5ge6j"]
+[ext_resource type="Script" path="res://scripts/PlayerItem.gd" id="2_p42f2"]
 
 [sub_resource type="Curve" id="Curve_fbn18"]
 min_value = -1.0
@@ -11,7 +13,23 @@ point_count = 2
 [node name="PlayerUI" type="Node2D"]
 script = ExtResource("1_5mpsc")
 
-[node name="Cards" type="Control" parent="."]
+[node name="TopBar" type="TextureRect" parent="." groups=["PlayerItem"]]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5ge6j")
+expand_mode = 1
+script = ExtResource("2_p42f2")
+
+[node name="Display" type="HBoxContainer" parent="TopBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Gold" type="Label" parent="TopBar/Display"]
+layout_mode = 2
+
+[node name="Cards" type="Control" parent="." groups=["PlayerCards"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ctmpx")

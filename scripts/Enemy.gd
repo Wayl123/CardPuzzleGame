@@ -7,4 +7,4 @@ func _ready():
 	
 	var enemy_list_path = ("res://scripts/EnemyList.json")
 	data = _load_json_file(enemy_list_path)[enemy_id]
-	texture_normal = load(data["image"])
+	set_texture_normal(load(data["image"]))

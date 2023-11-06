@@ -15,10 +15,12 @@ func _on_button_pressed():
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.init(data)
-	infoBox._set_position(Vector2(2, 0) * 128)
+	infoBox._set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	infoBox.add_to_group("ActiveInfoBox")
 	
-	get_parent().add_child(infoBox)
+	var popup = get_tree().get_first_node_in_group("Popup")
+	
+	popup.add_child(infoBox)
 	_select_node()
 	_range_display()
 	
@@ -80,4 +82,5 @@ func _range_display():
 func _select_node():
 	if not has_node("../Selected"):
 		var selected = SELECTED.instantiate()
+		selected.add_to_group("ActiveSelected")
 		get_parent().add_child(selected)

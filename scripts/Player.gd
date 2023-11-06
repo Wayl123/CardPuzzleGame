@@ -15,7 +15,7 @@ func _ready():
 	if not data:
 		var player_list_path = ("res://scripts/PlayerList.json")
 		data = _load_json_file(player_list_path)[player_id]
-		texture_normal = load(data["image"])
+		set_texture_normal(load(data["image"]))
 		
 func _get_drag_data(_pos):
 	var dataOut = {}

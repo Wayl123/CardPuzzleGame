@@ -15,8 +15,8 @@ func _process(delta):
 		if get_tree().has_group("RangeDisplay"):
 			for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
 				rangeNode.queue_free()
-		if has_node("../Selected"):
-			get_node("../Selected").queue_free()
+		if get_tree().has_group("ActiveSelected"):
+			get_tree().get_first_node_in_group("ActiveSelected").queue_free()
 		queue_free()
 	
 	if Input.is_action_pressed("LeftMouse"):
