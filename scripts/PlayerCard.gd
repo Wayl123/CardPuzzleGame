@@ -12,7 +12,6 @@ func _ready():
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
-	add_to_group("PlayerUnits")
 	_data_init()
 
 func _on_mouse_entered():

@@ -12,6 +12,7 @@ func _ready():
 	super()
 	
 	add_to_group("PlayerUnits")
+	
 	if not data:
 		var player_list_path = ("res://scripts/PlayerList.json")
 		data = _load_json_file(player_list_path)[player_id]

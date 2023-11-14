@@ -33,7 +33,7 @@ func _update_size():
 
 func _update_hand():
 	var viewportSize = get_viewport().size
-	var sideBorder = viewportSize.x * 0.1
+	var sideBorder = (viewportSize.x * 0.1) + 96
 	var hRange = min(viewportSize.x - (2 * sideBorder) - CARDSIZE.x, ((CARDSIZE.x + DISTBETWEENCARD) * (get_child_count() - 1)))
 	var handWidth = hRange * 0.5
 	

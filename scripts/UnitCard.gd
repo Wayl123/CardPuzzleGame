@@ -84,3 +84,15 @@ func _select_node():
 		var selected = SELECTED.instantiate()
 		selected.add_to_group("ActiveSelected")
 		get_parent().add_child(selected)
+		
+func take_damage(pDmg):
+	data["health"] -= pDmg
+	if data["health"] <= 0:
+		if get_tree().has_group("ActiveMap"):
+			remove_from_group("CurrentEnemy")
+			var map = get_tree().get_first_node_in_group("ActiveMap")
+			map.check_enemy_cleared()
+			get_parent().set_disabled(false)
+			queue_free()
+		else:
+			print("Can't find current map")
