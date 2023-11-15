@@ -11,7 +11,7 @@ func check_enemy_cleared():
 				fog.set_disabled(false)
 			else:
 				for fogCovered in fog.get_children():
-					fogCovered.set_z_index(1)
+					fogCovered.set_z_index(0)
 				
 			if fog.has_node("Enemy"):
 				fog.get_node("Enemy").activate_enemy()

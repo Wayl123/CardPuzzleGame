@@ -20,6 +20,7 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 576)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_n20ai")
 
 [node name="MapGrid" type="Control" parent="." groups=["ActiveMap"]]

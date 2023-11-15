@@ -1,9 +1,12 @@
 extends TextureButton
 
+@onready var popup = get_tree().get_first_node_in_group("Popup")
+
 var HOVERTOOLTIP = preload("res://scene/hover_tooltip.tscn")
 var INFOBOX = preload("res://scene/info_box.tscn")
 var RANGE = preload("res://scene/attack_range.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
+var DAMAGENUMBER = preload("res://scene/damage_number.tscn")
 var data = {}
 
 func _ready():
@@ -17,8 +20,6 @@ func _on_button_pressed():
 	infoBox.init(data)
 	infoBox._set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	infoBox.add_to_group("ActiveInfoBox")
-	
-	var popup = get_tree().get_first_node_in_group("Popup")
 	
 	popup.add_child(infoBox)
 	_select_node()
@@ -86,6 +87,13 @@ func _select_node():
 		get_parent().add_child(selected)
 		
 func take_damage(pDmg):
+	var damageNumber = DAMAGENUMBER.instantiate()
+	var spawnPosition = get_global_position()
+	spawnPosition.x += 64
+	spawnPosition.y += 64
+	popup.add_child(damageNumber)
+	damageNumber.set_values_and_animate(pDmg, spawnPosition)
+	
 	data["health"] -= pDmg
 	if data["health"] <= 0:
 		if get_tree().has_group("ActiveMap"):

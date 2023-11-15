@@ -1,5 +1,17 @@
 extends HBoxContainer
 
+@onready var infoName = %Name
+@onready var infoDescription = %Description
+@onready var infoHealth = %Health
+@onready var infoAttack = %Attack
+@onready var infoRange = %Range
+@onready var infoTurnEffect = %TurnEffect
+@onready var infoDeathEffect = %DeathEffect
+@onready var infoVictoryEffect = %VictoryEffect
+@onready var infoUnusedEffect = %UnusedEffect
+@onready var infoCost = %Cost
+@onready var infoImage = %ItemImage
+
 var itemId = ""
 var data = {}
 
@@ -10,15 +22,15 @@ func set_detail(pItemId, pData):
 	itemId = pItemId
 	data = pData
 	
-	get_node("ItemTitle/Name").set_text(data["name"])
-	get_node("ItemTitle/Description").set_text("Description placeholder")
-	get_node("ItemDetails/Health").set_text(str("Health: ", data["max-health"]))
-	get_node("ItemDetails/Attack").set_text(str("Attack: ", data["attack"]))
-	get_node("ItemDetails/Range").set_text("Range placeholder (not sure how to do this yet)")
-	get_node("ItemDetails/DeathEffect").set_text("Death effect placeholder (think maybe I need to add descriptor into the json file?)")
-	get_node("ItemDetails/VictoryEffect").set_text("Victory effect placeholder")
-	get_node("BuyItem/Cost").set_text(str("Cost: ", data["cost"]))
-	get_node("ItemImage").set_texture(load(data["image"]))
+	infoName.set_text(data["name"])
+	infoDescription.set_text("Description placeholder")
+	infoHealth.set_text(str("Health: ", data["max-health"]))
+	infoAttack.set_text(str("Attack: ", data["attack"]))
+	infoRange.set_text("Range placeholder (not sure how to do this yet)")
+	infoDeathEffect.set_text("Death effect placeholder (think maybe I need to add descriptor into the json file?)")
+	infoVictoryEffect.set_text("Victory effect placeholder")
+	infoCost.set_text(str("Cost: ", data["cost"]))
+	infoImage.set_texture(load(data["image"]))
 	
 func get_data():
 	return data

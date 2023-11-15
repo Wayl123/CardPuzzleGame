@@ -27,35 +27,42 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Name" type="Label" parent="InfoList/InfoBanner/InfoTitle"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
 text = "Name"
 
 [node name="Description" type="Label" parent="InfoList/InfoBanner/InfoTitle"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
 theme_override_font_sizes/font_size = 12
 text = "Description"
 
 [node name="Image" type="TextureRect" parent="InfoList/InfoBanner"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Health" type="Label" parent="InfoList"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
 text = "Health: -1/-1"
 
 [node name="Attack" type="Label" parent="InfoList"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
 text = "Attack: -1"
 
 [node name="DeathEffect" type="Label" parent="InfoList"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
 text = "Death: N/A"
 
 [node name="VictoryEffect" type="Label" parent="InfoList"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
 text = "Victory: N/A"

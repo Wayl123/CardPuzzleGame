@@ -1,5 +1,7 @@
 extends TextureRect
 
+@onready var infoGold = %Gold
+
 var gold = 10
 
 func _ready():
@@ -24,4 +26,4 @@ func change_gold(pChange):
 	_change_display()
 
 func _change_display():
-	get_node("Display/Gold").set_text(str("Gold: ", gold))
+	infoGold.set_text(str("Gold: ", gold))
