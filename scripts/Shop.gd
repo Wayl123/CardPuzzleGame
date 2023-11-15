@@ -4,6 +4,7 @@ extends TextureButton
 
 var SHOPMENU = preload("res://scene/shop_menu.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
+
 var data = {}
 var playerData = {}
 

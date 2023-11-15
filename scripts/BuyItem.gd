@@ -1,7 +1,5 @@
 extends Button
 
-var cost
-
 func _ready():
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	

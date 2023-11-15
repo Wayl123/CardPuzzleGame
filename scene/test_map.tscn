@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=12 format=3 uid="uid://cr4gf4lvcf13c"]
 
 [ext_resource type="Texture2D" uid="uid://ciqusrw8mh7o7" path="res://image/map/empty_grid.png" id="1_hvck7"]
 [ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/map/boulder_wall.png" id="2_ipvsb"]
 [ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_q3xh8"]
 [ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/exit_portal.png" id="3_a322j"]
+[ext_resource type="Script" path="res://scripts/MapEvent.gd" id="3_oli2s"]
 [ext_resource type="Texture2D" uid="uid://ct7xbivkudw5s" path="res://image/fog.png" id="4_wvbj6"]
 [ext_resource type="PackedScene" uid="uid://cbvi3vjj0ibjy" path="res://scene/enemy.tscn" id="7_ogepn"]
-[ext_resource type="Script" path="res://scripts/Shop.gd" id="8_fk230"]
 [ext_resource type="PackedScene" uid="uid://x00s8xtmudyj" path="res://scene/player.tscn" id="9_1e7ji"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 [ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
+[ext_resource type="PackedScene" uid="uid://d1ajlagh1krwh" path="res://scene/shop.tscn" id="10_k428p"]
 
 [node name="TutorialMap" type="Node2D"]
 
@@ -19,14 +20,16 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 576)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("9_n20ai")
 
-[node name="MapGrid" type="Control" parent="."]
+[node name="MapGrid" type="Control" parent="." groups=["ActiveMap"]]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 128.0
+script = ExtResource("3_oli2s")
 
 [node name="GridNode1" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -174,7 +177,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 1
 disabled = true
-texture_disabled = ExtResource("4_wvbj6")
+texture_normal = ExtResource("4_wvbj6")
 script = ExtResource("2_q3xh8")
 
 [node name="GridNode8" type="TextureRect" parent="MapGrid"]
@@ -197,9 +200,15 @@ offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 1
 disabled = true
-texture_normal = ExtResource("3_a322j")
-texture_disabled = ExtResource("4_wvbj6")
+texture_normal = ExtResource("4_wvbj6")
 script = ExtResource("2_q3xh8")
+
+[node name="Portal" type="TextureButton" parent="MapGrid/GridNode8/Content"]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_a322j")
 
 [node name="GridNode9" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -221,7 +230,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 1
 disabled = true
-texture_disabled = ExtResource("4_wvbj6")
+texture_normal = ExtResource("4_wvbj6")
 script = ExtResource("2_q3xh8")
 
 [node name="GridNode10" type="TextureRect" parent="MapGrid"]
@@ -282,7 +291,7 @@ offset_bottom = 260.0
 texture = ExtResource("1_hvck7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode12" groups=["Fog1", "TargetableNode"]]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode12" groups=["TargetableNode"]]
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
@@ -308,7 +317,7 @@ offset_bottom = 260.0
 texture = ExtResource("1_hvck7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode13" groups=["Fog1", "TargetableNode"]]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode13" groups=["TargetableNode"]]
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
@@ -334,7 +343,7 @@ offset_bottom = 260.0
 texture = ExtResource("1_hvck7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode14" groups=["Fog1", "TargetableNode"]]
+[node name="Content" type="TextureButton" parent="MapGrid/GridNode14" groups=["TargetableNode"]]
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
@@ -655,12 +664,9 @@ mouse_filter = 1
 disabled = true
 script = ExtResource("2_q3xh8")
 
-[node name="BaseCamp" type="TextureButton" parent="MapGrid/GridNode28/Content"]
+[node name="Shop" parent="MapGrid/GridNode28/Content" instance=ExtResource("10_k428p")]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 128.0
-script = ExtResource("8_fk230")
-shop_id = "0.1"
+shop_id = "0-1"
 
 [node name="GridNode29" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)

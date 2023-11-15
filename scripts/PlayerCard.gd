@@ -1,5 +1,11 @@
 extends NinePatchRect
 
+@onready var infoName = %Name
+@onready var infoImage = %CardImage
+@onready var infoHealth = %Health
+@onready var infoAttack = %Attack
+@onready var infoEffect = %EffectSimplified
+
 var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var PLAYER = preload("res://scene/player.tscn")
 
@@ -12,7 +18,6 @@ func _ready():
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
-	add_to_group("PlayerUnits")
 	_data_init()
 
 func _on_mouse_entered():
@@ -41,8 +46,8 @@ func _get_drag_data(_pos):
 	return dataOut
 
 func _data_init():
-	get_node("CardLayout/CardTitle/TitleBox/Name").set_text(data["name"])
-	get_node("CardLayout/CardImageMargin/CardImage").set_texture(load(data["image"]))
-	get_node("CardLayout/CardDetail/CardDetails/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	get_node("CardLayout/CardDetail/CardDetails/Attack").set_text(str("Attack: ", data["attack"]))
-	get_node("CardLayout/CardDetail/CardDetails/EffectBox/EffectSimplified").set_text("Effect Placeholder")
+	infoName.set_text(data["name"])
+	infoImage.set_texture(load(data["image"]))
+	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
+	infoAttack.set_text(str("Attack: ", data["attack"]))
+	infoEffect.set_text("Effect Placeholder")

@@ -26,6 +26,7 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 
 [node name="Name" type="Label" parent="CardLayout/CardTitle/TitleBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Name"
@@ -38,6 +39,7 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 4
 
 [node name="CardImage" type="TextureRect" parent="CardLayout/CardImageMargin"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -56,11 +58,13 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 
 [node name="Health" type="Label" parent="CardLayout/CardDetail/CardDetails"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Health"
 
 [node name="Attack" type="Label" parent="CardLayout/CardDetail/CardDetails"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Attack"
@@ -69,6 +73,7 @@ text = "Attack"
 layout_mode = 2
 
 [node name="EffectSimplified" type="Label" parent="CardLayout/CardDetail/CardDetails/EffectBox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 12

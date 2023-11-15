@@ -33,6 +33,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="RowContainer" type="VBoxContainer" parent="ShopItems"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
@@ -58,12 +59,14 @@ script = ExtResource("3_tqqgs")
 layout_mode = 2
 
 [node name="Name" type="Label" parent="SelectedItem/ItemDetail/ItemTitle"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 text = "Name"
 autowrap_mode = 3
 
 [node name="Description" type="Label" parent="SelectedItem/ItemDetail/ItemTitle"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 text = "Description"
@@ -74,42 +77,49 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Health" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Max Health"
 autowrap_mode = 3
 
 [node name="Attack" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Attack"
 autowrap_mode = 3
 
 [node name="Range" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Range"
 autowrap_mode = 3
 
 [node name="TurnEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Turn Effect"
 autowrap_mode = 3
 
 [node name="DeathEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Death Effect"
 autowrap_mode = 3
 
 [node name="VictoryEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Victory Effect"
 autowrap_mode = 3
 
 [node name="UnusedEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Unused Effect"
@@ -121,6 +131,7 @@ layout_mode = 2
 alignment = 2
 
 [node name="Cost" type="Label" parent="SelectedItem/ItemDetail/BuyItem"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Cost"
 
@@ -130,6 +141,7 @@ text = "Buy"
 script = ExtResource("4_ye00d")
 
 [node name="ItemImage" type="TextureRect" parent="SelectedItem/ItemDetail"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 texture = ExtResource("3_f5mrw")

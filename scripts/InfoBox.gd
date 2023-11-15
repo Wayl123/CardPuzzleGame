@@ -1,7 +1,14 @@
 extends NinePatchRect
 
-var drag_position = null
+@onready var infoName = %Name
+@onready var infoDescription = %Description
+@onready var infoImage = %Image
+@onready var infoHealth = %Health
+@onready var infoAttack = %Attack
+@onready var infoDeathEffect = %DeathEffect
+@onready var infoVictoryEffect = %VictoryEffect
 
+var drag_position = null
 var data = {}
 
 func init(pData):
@@ -29,10 +36,10 @@ func _input(event):
 		set_global_position(get_global_mouse_position() - drag_position)
 
 func _populate_data():
-	get_node("InfoList/InfoBanner/InfoTitle/Name").set_text(data["name"])
-	get_node("InfoList/InfoBanner/InfoTitle/Description").set_text("Description placeholder")
-	get_node("InfoList/InfoBanner/Image").set_texture(load(data["image"]))
-	get_node("InfoList/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	get_node("InfoList/Attack").set_text(str("Attack: ", data["attack"]))
-	get_node("InfoList/DeathEffect").set_text("Death effect placeholder")
-	get_node("InfoList/VictoryEffect").set_text("")
+	infoName.set_text(data["name"])
+	infoDescription.set_text("Description placeholder")
+	infoImage.set_texture(load(data["image"]))
+	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
+	infoAttack.set_text(str("Attack: ", data["attack"]))
+	infoDeathEffect.set_text("Death effect placeholder")
+	infoVictoryEffect.set_text("")
