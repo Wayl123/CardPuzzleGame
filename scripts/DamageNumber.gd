@@ -4,8 +4,8 @@ extends Node2D
 @onready var labelContainer = %LabelContainer
 @onready var label = %Label
 
-var HEIGHT = 100
-var SPREAD = 50
+var HEIGHT = 64
+var SPREAD = 64
 
 func _ready():
 	pass

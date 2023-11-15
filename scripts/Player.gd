@@ -30,6 +30,3 @@ func _get_drag_data(_pos):
 	add_child(dragPreview)
 	
 	return dataOut
-
-func get_data():
-	return data
