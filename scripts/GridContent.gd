@@ -1,6 +1,7 @@
 extends TextureButton
 
 var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
+var ENEMY = preload("res://scene/enemy.tscn")
 var PLAYER = preload("res://scene/player.tscn")
 	
 func _can_drop_data(_pos, dataIn):
@@ -25,12 +26,16 @@ func _drop_data(_pos, dataIn):
 				remove_unit(child)
 				dataIn["origin_node"].add_unit(child.get_data())
 				
-		add_unit(dataIn["origin_data"])
+		add_unit(dataIn["origin_data"], "P")
 		
-func add_unit(pData):
-	var player = PLAYER.instantiate()
-	player.init(pData)
-	add_child(player)
+func add_unit(pData, type):
+	var unit
+	if type == "E":
+		unit = ENEMY.instantiate()
+	elif type == "P":
+		unit = PLAYER.instantiate()
+	unit.init(pData)
+	add_child(unit)
 	
 func remove_unit(pNode):
 	remove_child(pNode)

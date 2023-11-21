@@ -2,17 +2,29 @@ extends TextureButton
 
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 
+@export var unit_id: String
+
 var HOVERTOOLTIP = preload("res://scene/hover_tooltip.tscn")
 var INFOBOX = preload("res://scene/info_box.tscn")
 var RANGE = preload("res://scene/attack_range.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
 var DAMAGENUMBER = preload("res://scene/damage_number.tscn")
+
+var unit_list_path = ("res://scripts/UnitList.json")
 var data = {}
+
+func init(pData):
+	data = pData
+	texture_normal = load(data["image"])
 
 func _ready():
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
+	
+	if not data:
+		data = _load_json_file(unit_list_path)[unit_id]
+		set_texture_normal(load(data["image"]))
 		
 func _on_button_pressed():
 	var infoBox = INFOBOX.instantiate()
@@ -90,18 +102,30 @@ func get_data():
 	return data
 		
 func take_damage(pDmg):
-	var damageNumber = DAMAGENUMBER.instantiate()
-	var spawnPosition = get_global_position()
-	spawnPosition.x += 64
-	spawnPosition.y += 64
-	popup.add_child(damageNumber)
-	damageNumber.set_values_and_animate(pDmg, spawnPosition)
+	if data["health"] > 0:
+		var damageNumber = DAMAGENUMBER.instantiate()
+		var spawnPosition = get_global_position()
+		spawnPosition.x += 64
+		spawnPosition.y += 64
+		popup.add_child(damageNumber)
+		damageNumber.set_values_and_animate(pDmg, spawnPosition)
 	
-	data["health"] -= pDmg
-	if data["health"] <= 0:
-		if is_in_group("CurrentEnemy") and get_tree().has_group("ActiveMap"):
-			remove_from_group("CurrentEnemy")
-			var map = get_tree().get_first_node_in_group("ActiveMap")
-			map.check_enemy_cleared()
-			get_parent().set_disabled(false)
-		queue_free()
+		data["health"] -= pDmg
+		if data["health"] <= 0:
+			if is_in_group("CurrentEnemy") and get_tree().has_group("ActiveMap"):
+				remove_from_group("CurrentEnemy")
+				var map = get_tree().get_first_node_in_group("ActiveMap")
+				map.check_enemy_cleared()
+				get_parent().set_disabled(false)
+			_on_death_effect()
+			queue_free()
+		
+func _on_death_effect():
+	var playerItem = get_tree().get_first_node_in_group("PlayerItem")
+	var onDeathEffect = data["on-death"]
+	
+	if onDeathEffect.has("coin"):
+		playerItem.change_gold(onDeathEffect["coin"])
+		
+	if onDeathEffect.has("becomes"):
+		get_parent().add_unit(_load_json_file(unit_list_path)[onDeathEffect["becomes"]], onDeathEffect["becomes"][0])

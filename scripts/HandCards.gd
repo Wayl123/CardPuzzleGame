@@ -15,12 +15,12 @@ func _ready():
 	
 	_update_size()
 	
-	var player_list_path = ("res://scripts/PlayerList.json")
+	var player_list_path = ("res://scripts/UnitList.json")
 	data = _load_json_file(player_list_path)
 	
-	add_unit(data["1-1"])
-	add_unit(data["2-1"])
-	add_unit(data["2-1"])
+	add_unit(data["P1-1"])
+	add_unit(data["P2-1"])
+	add_unit(data["P2-1"])
 	
 func _on_viewport_size_changed():
 	_update_size()
