@@ -17,8 +17,9 @@ func _on_button_pressed():
 			targetGlobalPos = player.get_global_position() + targetPos
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
-					if targetNode.has_node("Enemy"):
-						targetNode.get_node("Enemy").take_damage(data["attack"])
+					for targetChild in targetNode.get_children():
+						if targetChild.is_in_group("CurrentEnemy"):
+							targetChild.take_damage(data["attack"])
 						
 	for enemy in get_tree().get_nodes_in_group("CurrentEnemy"):
 		data = enemy.get_data()
@@ -27,5 +28,6 @@ func _on_button_pressed():
 			targetGlobalPos = enemy.get_global_position() + targetPos
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
-					if targetNode.has_node("Player"):
-						targetNode.get_node("Player").take_damage(data["attack"])
+					for targetChild in targetNode.get_children():
+						if targetChild.is_in_group("PlayerUnits"):
+							targetChild.take_damage(data["attack"])

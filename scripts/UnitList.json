@@ -1,5 +1,16 @@
 {
-	"1-1": {
+	"E1-1": {
+		"name": "basicenemy1",
+		"image": "res://image/enemies/basic_enemy1.png",
+		"max-health": 10,
+		"health": 10,
+		"attack": 1,
+		"range": [[0, 1]],
+		"on-death": {
+			"coin": 3
+		}
+	},
+	"P1-1": {
 		"name": "tank1",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": 10,
@@ -8,13 +19,13 @@
 		"range": [[-1, -1], [0, -1], [1, -1]],
 		"cost": 5,
 		"on-death": {
-			"becomes": "6-1"
+			"becomes": "P6-1"
 		},
 		"on-victory": {
-			"becomes": "5-1"
+			"becomes": "P5-1"
 		}
 	},
-	"2-1": {
+	"P2-1": {
 		"name": "range1",
 		"image": "res://image/player/range_player1.png",
 		"max-health": 3,
@@ -23,13 +34,13 @@
 		"range": [[0, -2]],
 		"cost": 3,
 		"on-death": {
-			"becomes": "6-1"
+			"becomes": "P6-1"
 		},
 		"on-victory": {
-			"becomes": "5-2"
+			"becomes": "P5-2"
 		}
 	},
-	"4-1": {
+	"P4-1": {
 		"name": "building1",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": 5,
@@ -38,7 +49,7 @@
 		"range": [],
 		"cost": 5,
 		"on-death": {
-			"becomes": "6-2"
+			"becomes": "P6-2"
 		},
 		"on-victory": {
 			"coin": 10
@@ -47,43 +58,33 @@
 			"coin": 1
 		}
 	},
-	"5-1": {
+	"P5-1": {
 		"name": "camp1",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
-		"unit": 2,
 		"on-death": {
-			"becomes": "6-2"
+			"becomes": "P6-2"
 		},
-		"on-start": {
-			"have-unit": {
-				"gives": "1-1"
-			},
-			"unit": -1
+		"on-completion": {
 		}
 	},
-	"5-2": {
+	"P5-2": {
 		"name": "camp2",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
-		"unit": 2,
 		"on-death": {
-			"becomes": "6-2"
+			"becomes": "P6-2"
 		},
-		"on-start": {
-			"have-unit": {
-				"gives": "2-1"
-			},
-			"unit": -1
+		"on-completion": {
 		}
 	},
-	"6-1": {
+	"P6-1": {
 		"name": "grave1",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": -1,
@@ -91,7 +92,7 @@
 		"attack": 0,
 		"range": []
 	},
-	"6-2": {
+	"P6-2": {
 		"name": "destroyed1",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": -1,

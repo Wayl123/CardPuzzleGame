@@ -301,7 +301,7 @@ script = ExtResource("2_q3xh8")
 
 [node name="Enemy" parent="MapGrid/GridNode12/Content" instance=ExtResource("7_ogepn")]
 layout_mode = 0
-enemy_id = "1"
+unit_id = "E1-1"
 
 [node name="GridNode13" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -327,7 +327,7 @@ script = ExtResource("2_q3xh8")
 
 [node name="Enemy" parent="MapGrid/GridNode13/Content" instance=ExtResource("7_ogepn")]
 layout_mode = 0
-enemy_id = "1"
+unit_id = "E1-1"
 
 [node name="GridNode14" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -353,7 +353,7 @@ script = ExtResource("2_q3xh8")
 
 [node name="Enemy" parent="MapGrid/GridNode14/Content" instance=ExtResource("7_ogepn")]
 layout_mode = 0
-enemy_id = "1"
+unit_id = "E1-1"
 
 [node name="GridNode15" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -443,7 +443,7 @@ script = ExtResource("2_q3xh8")
 
 [node name="Player" parent="MapGrid/GridNode18/Content" instance=ExtResource("9_1e7ji")]
 layout_mode = 0
-player_id = "1-1"
+unit_id = "P1-1"
 
 [node name="GridNode19" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)
@@ -575,7 +575,7 @@ script = ExtResource("2_q3xh8")
 
 [node name="Player" parent="MapGrid/GridNode24/Content" instance=ExtResource("9_1e7ji")]
 layout_mode = 0
-player_id = "2-1"
+unit_id = "P2-1"
 
 [node name="GridNode25" type="TextureRect" parent="MapGrid"]
 custom_minimum_size = Vector2(128, 128)

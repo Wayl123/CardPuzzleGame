@@ -15,7 +15,7 @@ func _ready():
 	data = _load_json_file(shop_list_path)[shop_id]
 	set_texture_normal(load(data["image"]))
 	
-	var player_list_path = ("res://scripts/PlayerList.json")
+	var player_list_path = ("res://scripts/UnitList.json")
 	var playerData = _load_json_file(player_list_path)
 	
 	var contentData = {}
