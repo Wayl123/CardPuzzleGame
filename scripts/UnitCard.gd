@@ -1,6 +1,8 @@
 extends TextureButton
 
+@onready var map = get_tree().get_first_node_in_group("ActiveMap")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
+@onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
 
 @export var unit_id: String
 
@@ -118,18 +120,17 @@ func take_damage(pDmg):
 			popup.add_child(unitDeath)
 			if is_in_group("CurrentEnemy") and get_tree().has_group("ActiveMap"):
 				remove_from_group("CurrentEnemy")
-				var map = get_tree().get_first_node_in_group("ActiveMap")
 				map.check_enemy_cleared()
 				get_parent().set_disabled(false)
-			_on_death_effect()
+			on_effect("death")
 			queue_free()
 		
-func _on_death_effect():
-	var playerItem = get_tree().get_first_node_in_group("PlayerItem")
-	var onDeathEffect = data["on-death"]
-	
-	if onDeathEffect.has("coin"):
-		playerItem.change_gold(onDeathEffect["coin"])
+func on_effect(pEffect):
+	var onEffect = data[str("on-", pEffect)]
+			
+	if onEffect.has("coin"):
+		playerItem.change_gold(onEffect["coin"])
 		
-	if onDeathEffect.has("becomes"):
-		get_parent().add_unit(_load_json_file(unit_list_path)[onDeathEffect["becomes"]], onDeathEffect["becomes"][0])
+	if onEffect.has("becomes"):
+		get_parent().add_unit(_load_json_file(unit_list_path)[onEffect["becomes"]], onEffect["becomes"][0])
+		queue_free()

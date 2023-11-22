@@ -1,5 +1,7 @@
 extends TextureButton
 
+@onready var popup = get_tree().get_first_node_in_group("Popup")
+
 @export var shop_id: String
 
 var SHOPMENU = preload("res://scene/shop_menu.tscn")
@@ -30,8 +32,6 @@ func _on_button_pressed():
 	shopMenu.init(data)
 	shopMenu._set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	shopMenu.add_to_group("ActiveShopMenu")
-	
-	var popup = get_tree().get_first_node_in_group("Popup")
 	
 	popup.add_child(shopMenu)
 	_select_node()

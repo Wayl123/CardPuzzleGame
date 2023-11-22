@@ -16,4 +16,7 @@ func check_enemy_cleared():
 			if fog.has_node("Enemy"):
 				fog.get_node("Enemy").activate_enemy()
 				
+		for player in get_tree().get_nodes_in_group("PlayerUnits"):
+			player.on_effect("victory")
+			
 		groupNum += 1
