@@ -9,6 +9,7 @@ var INFOBOX = preload("res://scene/info_box.tscn")
 var RANGE = preload("res://scene/attack_range.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
 var DAMAGENUMBER = preload("res://scene/damage_number.tscn")
+var UNITDEATH = preload("res://scene/unit_death.tscn")
 
 var unit_list_path = ("res://scripts/UnitList.json")
 var data = {}
@@ -112,6 +113,9 @@ func take_damage(pDmg):
 	
 		data["health"] -= pDmg
 		if data["health"] <= 0:
+			var unitDeath = UNITDEATH.instantiate()
+			unitDeath.set_global_position(spawnPosition)
+			popup.add_child(unitDeath)
 			if is_in_group("CurrentEnemy") and get_tree().has_group("ActiveMap"):
 				remove_from_group("CurrentEnemy")
 				var map = get_tree().get_first_node_in_group("ActiveMap")
