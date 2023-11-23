@@ -122,15 +122,21 @@ func take_damage(pDmg):
 				remove_from_group("CurrentEnemy")
 				map.check_enemy_cleared()
 				get_parent().set_disabled(false)
+				for player in get_tree().get_nodes_in_group("PlayerUnits"):
+					player.on_effect("all-kill")
+			if is_in_group("PlayerUnits"):
+				for enemy in get_tree().get_nodes_in_group("CurrentEnemy"):
+					enemy.on_effect("all-kill")
 			on_effect("death")
 			queue_free()
 		
 func on_effect(pEffect):
-	var onEffect = data[str("on-", pEffect)]
+	if data.has(str("on-", pEffect)):
+		var onEffect = data[str("on-", pEffect)]
+				
+		if onEffect.has("coin"):
+			playerItem.change_gold(onEffect["coin"])
 			
-	if onEffect.has("coin"):
-		playerItem.change_gold(onEffect["coin"])
-		
-	if onEffect.has("becomes"):
-		get_parent().add_unit(_load_json_file(unit_list_path)[onEffect["becomes"]], onEffect["becomes"][0])
-		queue_free()
+		if onEffect.has("becomes"):
+			get_parent().add_unit(_load_json_file(unit_list_path)[onEffect["becomes"]], onEffect["becomes"][0])
+			queue_free()
