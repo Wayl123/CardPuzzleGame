@@ -20,6 +20,7 @@ func _on_button_pressed():
 					for targetChild in targetNode.get_children():
 						if targetChild.is_in_group("CurrentEnemy"):
 							targetChild.take_damage(data["attack"])
+		player.lock_player()
 						
 	for enemy in get_tree().get_nodes_in_group("CurrentEnemy"):
 		data = enemy.get_data()
