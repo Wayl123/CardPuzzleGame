@@ -3,6 +3,7 @@ extends TextureButton
 var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var ENEMY = preload("res://scene/enemy.tscn")
 var PLAYER = preload("res://scene/player.tscn")
+var SHOP = preload("res://scene/shop.tscn")
 	
 func _can_drop_data(_pos, dataIn):
 	if !disabled:
@@ -24,7 +25,7 @@ func _drop_data(_pos, dataIn):
 		for child in get_children():
 			if child.is_in_group("PlayerUnits"):
 				remove_unit(child)
-				dataIn["origin_node"].add_unit(child.get_data())
+				dataIn["origin_node"].add_unit(child.get_data(), "P")
 				
 		add_unit(dataIn["origin_data"], "P")
 		
@@ -40,3 +41,8 @@ func add_unit(pData, type):
 func remove_unit(pNode):
 	remove_child(pNode)
 	pNode.queue_free()
+	
+func add_shop(pData):
+	var shop = SHOP.instantiate()
+	shop.init(pData)
+	add_child(shop)

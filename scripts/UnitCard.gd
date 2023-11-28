@@ -1,5 +1,6 @@
 extends TextureButton
 
+@onready var preloadedData = get_tree().get_first_node_in_group("PreloadedData")
 @onready var map = get_tree().get_first_node_in_group("ActiveMap")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
@@ -13,7 +14,7 @@ var SELECTED = preload("res://scene/selected.tscn")
 var DAMAGENUMBER = preload("res://scene/damage_number.tscn")
 var UNITDEATH = preload("res://scene/unit_death.tscn")
 
-var unit_list_path = ("res://scripts/UnitList.json")
+var unit_list_path = "res://scripts/UnitList.json"
 var data = {}
 
 func init(pData):
@@ -26,7 +27,7 @@ func _ready():
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
 	if not data:
-		data = _load_json_file(unit_list_path)[unit_id]
+		data = preloadedData.get_unit_data(unit_id)
 		set_texture_normal(load(data["image"]))
 		
 func _on_button_pressed():
@@ -70,18 +71,6 @@ func _on_mouse_exited():
 			if get_tree().has_group("RangeDisplay"):
 				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
 					rangeNode.queue_free()
-
-func _load_json_file(filePath : String):
-	if FileAccess.file_exists(filePath):
-		var dataFile = FileAccess.open(filePath, FileAccess.READ)
-		var parsedResult = JSON.parse_string(dataFile.get_as_text())
-		
-		if parsedResult is Dictionary:
-			return parsedResult
-		else:
-			print("Error reading file")
-	else:
-		print("File doesn't exist")
 		
 func _range_display():
 	if not get_tree().has_group("RangeDisplay"):
@@ -138,5 +127,5 @@ func on_effect(pEffect):
 			playerItem.change_gold(onEffect["coin"])
 			
 		if onEffect.has("becomes"):
-			get_parent().add_unit(_load_json_file(unit_list_path)[onEffect["becomes"]], onEffect["becomes"][0])
+			get_parent().add_unit(preloadedData.get_unit_data(onEffect["becomes"]), onEffect["becomes"][0])
 			queue_free()

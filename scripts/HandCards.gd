@@ -8,19 +8,10 @@ var HANDWIDTH = 2.0
 var CARDSIZE = Vector2(192, 288)
 var DISTBETWEENCARD = 32
 
-var data = {}
-
 func _ready():
 	get_tree().root.connect("size_changed", Callable(self, "_on_viewport_size_changed"))
 	
 	_update_size()
-	
-	var player_list_path = ("res://scripts/UnitList.json")
-	data = _load_json_file(player_list_path)
-	
-	add_unit(data["P1-1"])
-	add_unit(data["P2-1"])
-	add_unit(data["P2-1"])
 	
 func _on_viewport_size_changed():
 	_update_size()
@@ -47,18 +38,6 @@ func _update_hand():
 		centerPosition.x += (spreadCurve.sample(handRatio) * handWidth) - (CARDSIZE.x * 0.5)
 		
 		card.set_global_position(centerPosition)
-		
-func _load_json_file(filePath : String):
-	if FileAccess.file_exists(filePath):
-		var dataFile = FileAccess.open(filePath, FileAccess.READ)
-		var parsedResult = JSON.parse_string(dataFile.get_as_text())
-		
-		if parsedResult is Dictionary:
-			return parsedResult
-		else:
-			print("Error reading file")
-	else:
-		print("File doesn't exist")
 		
 func _can_drop_data(_pos, dataIn):
 	return true
