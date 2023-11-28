@@ -1,16 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=5 format=3 uid="uid://cr4gf4lvcf13c"]
 
-[ext_resource type="Texture2D" uid="uid://ciqusrw8mh7o7" path="res://image/map/empty_grid.png" id="1_hvck7"]
-[ext_resource type="Texture2D" uid="uid://bhvhn4xbqh8ty" path="res://image/map/boulder_wall.png" id="2_ipvsb"]
-[ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_q3xh8"]
-[ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/exit_portal.png" id="3_a322j"]
 [ext_resource type="Script" path="res://scripts/MapEvent.gd" id="3_oli2s"]
-[ext_resource type="Texture2D" uid="uid://ct7xbivkudw5s" path="res://image/fog.png" id="4_wvbj6"]
-[ext_resource type="PackedScene" uid="uid://cbvi3vjj0ibjy" path="res://scene/enemy.tscn" id="7_ogepn"]
-[ext_resource type="PackedScene" uid="uid://x00s8xtmudyj" path="res://scene/player.tscn" id="9_1e7ji"]
+[ext_resource type="PackedScene" uid="uid://dgimllumxqwk" path="res://scene/grid_node.tscn" id="4_amhv0"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 [ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
-[ext_resource type="PackedScene" uid="uid://d1ajlagh1krwh" path="res://scene/shop.tscn" id="10_k428p"]
 
 [node name="TutorialMap" type="Node2D"]
 
@@ -31,798 +24,297 @@ offset_right = 128.0
 offset_bottom = 128.0
 script = ExtResource("3_oli2s")
 
-[node name="GridNode1" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+[node name="GridNode1" parent="MapGrid" instance=ExtResource("4_amhv0")]
+layout_mode = 0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode1"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode2" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-anchor_left = -0.03125
-anchor_right = -0.03125
-offset_left = 132.0
-offset_right = 260.0
-offset_bottom = 128.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode2"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode3" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-anchor_left = 2.0
-anchor_top = -1.03125
-anchor_right = 2.0
-anchor_bottom = -1.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode3"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode4" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.0
-anchor_top = -1.03125
-anchor_right = 3.0
-anchor_bottom = -1.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode4"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode5" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 4.0
-anchor_top = -1.03125
-anchor_right = 4.0
-anchor_bottom = -1.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode5"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode6" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.03125
-anchor_bottom = -0.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode6"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode7" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode2" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = -0.03125
 anchor_right = 1.0
-anchor_bottom = -0.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode7" groups=["Fog1"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("4_wvbj6")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode8" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode3" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0
-anchor_top = -0.03125
 anchor_right = 2.0
-anchor_bottom = -0.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode8" groups=["Fog1"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("4_wvbj6")
-script = ExtResource("2_q3xh8")
-
-[node name="Portal" type="TextureButton" parent="MapGrid/GridNode8/Content"]
-z_index = -1
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("3_a322j")
-
-[node name="GridNode9" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode4" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.0
-anchor_top = -0.03125
 anchor_right = 3.0
-anchor_bottom = -0.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode9" groups=["Fog1"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("4_wvbj6")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode10" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode5" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.0
-anchor_top = -0.03125
 anchor_right = 4.0
-anchor_bottom = -0.03125
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode10"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode11" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode6" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.96875
-anchor_bottom = 0.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_top = 1.0
+anchor_bottom = 1.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode11"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode12" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode7" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 0.96875
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 1.0
+fogGroup = "Fog1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode12" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-script = ExtResource("2_q3xh8")
-
-[node name="Enemy" parent="MapGrid/GridNode12/Content" instance=ExtResource("7_ogepn")]
-layout_mode = 0
-unit_id = "E1-1"
-
-[node name="GridNode13" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode8" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0
-anchor_top = 0.96875
+anchor_top = 1.0
 anchor_right = 2.0
-anchor_bottom = 0.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 1.0
+nodeType = "portal"
+fogGroup = "Fog1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode13" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-script = ExtResource("2_q3xh8")
-
-[node name="Enemy" parent="MapGrid/GridNode13/Content" instance=ExtResource("7_ogepn")]
-layout_mode = 0
-unit_id = "E1-1"
-
-[node name="GridNode14" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode9" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.0
-anchor_top = 0.96875
+anchor_top = 1.0
 anchor_right = 3.0
-anchor_bottom = 0.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 1.0
+fogGroup = "Fog1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode14" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-script = ExtResource("2_q3xh8")
-
-[node name="Enemy" parent="MapGrid/GridNode14/Content" instance=ExtResource("7_ogepn")]
-layout_mode = 0
-unit_id = "E1-1"
-
-[node name="GridNode15" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode10" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.0
-anchor_top = 0.96875
+anchor_top = 1.0
 anchor_right = 4.0
-anchor_bottom = 0.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 1.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode15"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode16" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode11" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 1.96875
-anchor_bottom = 1.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_top = 2.0
+anchor_bottom = 2.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode16"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode17" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode12" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 1.96875
+anchor_top = 2.0
 anchor_right = 1.0
-anchor_bottom = 1.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 2.0
+nodeType = "enemy"
+unitId = "E1-1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode17" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode18" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode13" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0
-anchor_top = 1.96875
+anchor_top = 2.0
 anchor_right = 2.0
-anchor_bottom = 1.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 2.0
+nodeType = "enemy"
+unitId = "E1-1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode18" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="Player" parent="MapGrid/GridNode18/Content" instance=ExtResource("9_1e7ji")]
-layout_mode = 0
-unit_id = "P1-1"
-
-[node name="GridNode19" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode14" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.0
-anchor_top = 1.96875
+anchor_top = 2.0
 anchor_right = 3.0
-anchor_bottom = 1.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 2.0
+nodeType = "enemy"
+unitId = "E1-1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode19" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode20" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode15" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.0
-anchor_top = 1.96875
+anchor_top = 2.0
 anchor_right = 4.0
-anchor_bottom = 1.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 2.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode20"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode21" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode16" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 2.96875
-anchor_bottom = 2.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.0078125
+anchor_top = 3.0
+anchor_right = 0.0078125
+anchor_bottom = 3.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode21"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode22" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode17" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 2.96875
+anchor_top = 3.0
 anchor_right = 1.0
-anchor_bottom = 2.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 3.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode22" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode23" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode18" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0
-anchor_top = 2.96875
+anchor_top = 3.0
 anchor_right = 2.0
-anchor_bottom = 2.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 3.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode23" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode24" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode19" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.0
-anchor_top = 2.96875
+anchor_top = 3.0
 anchor_right = 3.0
-anchor_bottom = 2.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 3.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode24" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="Player" parent="MapGrid/GridNode24/Content" instance=ExtResource("9_1e7ji")]
-layout_mode = 0
-unit_id = "P2-1"
-
-[node name="GridNode25" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode20" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.0
-anchor_top = 2.96875
+anchor_top = 3.0
 anchor_right = 4.0
-anchor_bottom = 2.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 3.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode25"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode26" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode21" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 3.96875
-anchor_bottom = 3.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_top = 4.0
+anchor_bottom = 4.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode26"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode27" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode22" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 3.96875
+anchor_top = 4.0
 anchor_right = 1.0
-anchor_bottom = 3.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 4.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode27" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode28" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode23" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0
-anchor_top = 3.96875
+anchor_top = 4.0
 anchor_right = 2.0
-anchor_bottom = 3.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 4.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode28"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-script = ExtResource("2_q3xh8")
-
-[node name="Shop" parent="MapGrid/GridNode28/Content" instance=ExtResource("10_k428p")]
-layout_mode = 0
-shop_id = "0-1"
-
-[node name="GridNode29" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode24" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.0
-anchor_top = 3.96875
+anchor_top = 4.0
 anchor_right = 3.0
-anchor_bottom = 3.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 4.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode29" groups=["TargetableNode"]]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode30" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode25" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.0
-anchor_top = 3.96875
+anchor_top = 4.0
 anchor_right = 4.0
-anchor_bottom = 3.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 4.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode30"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode31" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode26" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 4.96875
-anchor_bottom = 4.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.0078125
+anchor_top = 5.0
+anchor_right = 0.0078125
+anchor_bottom = 5.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode31"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode32" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode27" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
-anchor_top = 4.96875
+anchor_top = 5.0
 anchor_right = 1.0
-anchor_bottom = 4.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 5.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode32"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode33" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode28" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 2.0
-anchor_top = 4.96875
+anchor_top = 5.0
 anchor_right = 2.0
-anchor_bottom = 4.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 5.0
+nodeType = "shop"
+unitId = "0-1"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode33"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode34" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode29" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.0
-anchor_top = 4.96875
+anchor_top = 5.0
 anchor_right = 3.0
-anchor_bottom = 4.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 5.0
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode34"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
-
-[node name="GridNode35" type="TextureRect" parent="MapGrid"]
-custom_minimum_size = Vector2(128, 128)
+[node name="GridNode30" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.0
-anchor_top = 4.96875
+anchor_top = 5.0
 anchor_right = 4.0
-anchor_bottom = 4.96875
-offset_top = 132.0
-offset_right = 128.0
-offset_bottom = 260.0
-texture = ExtResource("1_hvck7")
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 5.0
+nodeType = "boulder"
 
-[node name="Content" type="TextureButton" parent="MapGrid/GridNode35"]
-layout_mode = 2
-offset_right = 128.0
-offset_bottom = 128.0
-mouse_filter = 1
-disabled = true
-texture_normal = ExtResource("2_ipvsb")
-script = ExtResource("2_q3xh8")
+[node name="GridNode31" parent="MapGrid" instance=ExtResource("4_amhv0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = 6.0
+anchor_right = 0.0078125
+anchor_bottom = 6.0
+nodeType = "boulder"
+
+[node name="GridNode32" parent="MapGrid" instance=ExtResource("4_amhv0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.00781
+anchor_top = 6.0
+anchor_right = 1.00781
+anchor_bottom = 6.0
+nodeType = "boulder"
+
+[node name="GridNode33" parent="MapGrid" instance=ExtResource("4_amhv0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 6.0
+anchor_right = 2.0
+anchor_bottom = 6.0
+nodeType = "boulder"
+
+[node name="GridNode34" parent="MapGrid" instance=ExtResource("4_amhv0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 6.0
+anchor_right = 3.0
+anchor_bottom = 6.0
+nodeType = "boulder"
+
+[node name="GridNode35" parent="MapGrid" instance=ExtResource("4_amhv0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 6.0
+anchor_right = 4.0
+anchor_bottom = 6.0
+nodeType = "boulder"
 
 [node name="Popup" type="Node2D" parent="." groups=["Popup"]]
