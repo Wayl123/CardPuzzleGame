@@ -2,10 +2,10 @@ extends Button
 
 var groupNum = 1
 
-func _ready():
+func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	var data
 	var targetPos
 	var targetGlobalPos

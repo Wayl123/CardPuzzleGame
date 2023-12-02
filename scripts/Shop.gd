@@ -10,11 +10,11 @@ var SELECTED = preload("res://scene/selected.tscn")
 
 var data = {}
 
-func init(pData):
+func init(pData : Dictionary) -> void:
 	data = pData
 	set_texture_normal(load(data["image"]))
 
-func _ready():
+func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
 	if not data:
@@ -27,7 +27,7 @@ func _ready():
 		
 	data["content"] = contentData
 		
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	var shopMenu = SHOPMENU.instantiate()
 	
 	shopMenu.init(data)
@@ -37,7 +37,7 @@ func _on_button_pressed():
 	popup.add_child(shopMenu)
 	_select_node()
 		
-func _select_node():
+func _select_node() -> void:
 	if not has_node("../Selected"):
 		var selected = SELECTED.instantiate()
 		selected.add_to_group("ActiveSelected")

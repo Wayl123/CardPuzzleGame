@@ -11,28 +11,28 @@ var PLAYER = preload("res://scene/player.tscn")
 
 var data = {}
 
-func init(pData):
+func init(pData : Dictionary) -> void:
 	data = pData
 
-func _ready():
+func _ready() -> void:
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
 	_data_init()
 
-func _on_mouse_entered():
+func _on_mouse_entered() -> void:
 	var cardPosition = get_global_position()
 	if cardPosition.y >= get_viewport().size.y - get_size().y + 128:
 		cardPosition.y -= 128
 	set_global_position(cardPosition)
 	
-func _on_mouse_exited():
+func _on_mouse_exited() -> void:
 	var cardPosition = get_global_position()
 	if cardPosition.y < get_viewport().size.y - get_size().y + 128:
 		cardPosition.y += 128
 	set_global_position(cardPosition)
 
-func _get_drag_data(_pos):
+func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}
 	
 	dataOut["origin_node"] = get_parent()
@@ -45,7 +45,7 @@ func _get_drag_data(_pos):
 	
 	return dataOut
 
-func _data_init():
+func _data_init() -> void:
 	infoName.set_text(data["name"])
 	infoImage.set_texture(load(data["image"]))
 	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))

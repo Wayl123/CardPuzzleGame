@@ -8,21 +8,21 @@ var HANDWIDTH = 2.0
 var CARDSIZE = Vector2(192, 288)
 var DISTBETWEENCARD = 32
 
-func _ready():
+func _ready() -> void:
 	get_tree().root.connect("size_changed", Callable(self, "_on_viewport_size_changed"))
 	
 	_update_size()
 	
-func _on_viewport_size_changed():
+func _on_viewport_size_changed() -> void:
 	_update_size()
 	_update_hand()
 
-func _update_size():
+func _update_size() -> void:
 	var viewportSize = get_viewport().size
 	set_size(Vector2(viewportSize.x, CARDSIZE.y - 128))
 	set_position(Vector2(0, viewportSize.y - CARDSIZE.y + 128))
 
-func _update_hand():
+func _update_hand() -> void:
 	var viewportSize = get_viewport().size
 	var sideBorder = (viewportSize.x * 0.1) + 96
 	var hRange = min(viewportSize.x - (2 * sideBorder) - CARDSIZE.x, ((CARDSIZE.x + DISTBETWEENCARD) * (get_child_count() - 1)))
@@ -39,10 +39,10 @@ func _update_hand():
 		
 		card.set_global_position(centerPosition)
 		
-func _can_drop_data(_pos, dataIn):
+func _can_drop_data(_pos : Vector2, dataIn : Variant) -> bool:
 	return true
 	
-func _drop_data(_pos, dataIn):
+func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 	if dataIn:
 		if get_tree().has_group("ActiveHoverTooltip"):
 			for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
@@ -55,14 +55,14 @@ func _drop_data(_pos, dataIn):
 		add_unit(dataIn["origin_data"])
 		dataIn["origin_node"].remove_unit(dataIn["origin_child"])
 
-func add_unit(pData):
+func add_unit(pData : Dictionary) -> void:
 	var newCard = PLAYERCARD.instantiate()
 	newCard.init(pData)
 	newCard.set_size(CARDSIZE)
 	add_child(newCard)
 	_update_hand()
 	
-func remove_unit(pNode):
+func remove_unit(pNode : Node) -> void:
 	remove_child(pNode)
 	pNode.queue_free()
 	_update_hand()

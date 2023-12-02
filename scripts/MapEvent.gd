@@ -2,7 +2,7 @@ extends Control
 
 var groupNum = 1
 
-func check_enemy_cleared():
+func check_enemy_cleared() -> void:
 	var enemies = get_tree().get_nodes_in_group("CurrentEnemy")
 	if not enemies:
 		for fog in get_tree().get_nodes_in_group(str("Fog", groupNum)):

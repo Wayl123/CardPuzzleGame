@@ -3,12 +3,12 @@ extends "res://scripts/UnitCard.gd"
 var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var LOCKED = preload("res://scene/locked.tscn")
 
-func _ready():
+func _ready() -> void:
 	super()
 	
 	add_to_group("PlayerUnits")
 		
-func _get_drag_data(_pos):
+func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}
 	
 	if not get_parent().is_disabled():
@@ -22,7 +22,7 @@ func _get_drag_data(_pos):
 	
 	return dataOut
 
-func lock_player():
+func lock_player() -> void:
 	if not has_node("../Locked"):
 		get_parent().set_disabled(true)
 		var locked = LOCKED.instantiate()

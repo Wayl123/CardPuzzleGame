@@ -11,13 +11,13 @@ extends NinePatchRect
 var drag_position = null
 var data = {}
 
-func init(pData):
+func init(pData : Dictionary) -> void:
 	data = pData
 
-func _ready():
+func _ready() -> void:
 	_populate_data()
 
-func _process(delta):
+func _process(delta : float) -> void:
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse"):
 		if get_tree().has_group("RangeDisplay"):
 			for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
@@ -31,11 +31,11 @@ func _process(delta):
 	else:
 		drag_position = null
 
-func _input(event):
+func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion and drag_position != null:
 		set_global_position(get_global_mouse_position() - drag_position)
 
-func _populate_data():
+func _populate_data() -> void:
 	infoName.set_text(data["name"])
 	infoDescription.set_text("Description placeholder")
 	infoImage.set_texture(load(data["image"]))

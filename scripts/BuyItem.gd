@@ -4,10 +4,10 @@ extends Button
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
 @onready var playerCards = get_tree().get_first_node_in_group("PlayerCards")
 
-func _ready():
+func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	var data
 	data = itemDetail.get_data()
 	

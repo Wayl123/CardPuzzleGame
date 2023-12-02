@@ -2,18 +2,16 @@ extends TextureButton
 
 @onready var itemDetail = get_tree().get_first_node_in_group("ItemDetail")
 
-var itemId = ""
 var data = {}
 
-func set_item(pItemId, pData):
-	itemId = pItemId
+func set_item(pData : Dictionary) -> void:
 	data = pData
 	
 	set_texture_normal(load(data["image"]))
 
-func _ready():
+func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	if data and get_tree().has_group("ItemDetail"):
-		itemDetail.set_detail(itemId, data)
+		itemDetail.set_detail(data)

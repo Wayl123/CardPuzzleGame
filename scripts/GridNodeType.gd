@@ -7,10 +7,10 @@ extends TextureRect
 @export var unitId: String
 @export var fogGroup: String
 
-func _ready():
+func _ready() -> void:
 	_set_node()
 
-func _set_node():
+func _set_node() -> void:
 	if fogGroup:
 		content.add_to_group("Fog")
 	

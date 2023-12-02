@@ -5,4 +5,3 @@
 [node name="Enemy" type="TextureButton"]
 mouse_filter = 1
 script = ExtResource("1_8g0kx")
-unit_id = null

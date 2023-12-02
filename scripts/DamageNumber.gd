@@ -7,10 +7,7 @@ extends Node2D
 var HEIGHT = 64
 var SPREAD = 64
 
-func _ready():
-	pass
-
-func set_values_and_animate(value, startPos):
+func set_values_and_animate(value : float, startPos : Vector2) -> void:
 	label.text = str(value)
 	ap.play("RiseAndFade")
 	
@@ -20,5 +17,5 @@ func set_values_and_animate(value, startPos):
 	
 	tween.tween_property(labelContainer, "position", endPos, tweenLength).from(startPos)
 
-func remove():
+func remove() -> void:
 	queue_free()
