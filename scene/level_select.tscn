@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpey6a6d2k237"]
+
+[ext_resource type="Script" path="res://scripts/Levels.gd" id="1_77a0h"]
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelContainer" type="HFlowContainer" parent="Levels"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+alignment = 1
+script = ExtResource("1_77a0h")

@@ -1,6 +1,6 @@
 extends TextureRect
 
-@onready var preloadedData = get_tree().get_first_node_in_group("PreloadedData")
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var content = %Content
 
 @export var nodeType: String
@@ -20,14 +20,14 @@ func _set_node():
 			content.set_texture_normal(load("res://image/map/boulder_wall.png"))
 		"enemy":
 			content.set_disabled(true)
-			content.add_unit(preloadedData.get_unit_data(unitId), "E")
+			content.add_unit(globalData.get_unit_data_copy(unitId), "E")
 			content.add_to_group("TargetableNode")
 		"player":
-			content.add_unit(preloadedData.get_unit_data(unitId), "P")
+			content.add_unit(globalData.get_unit_data_copy(unitId), "P")
 			content.add_to_group("TargetableNode")
 		"shop":
 			content.set_disabled(true)
-			content.add_shop(preloadedData.get_shop_data(unitId))
+			content.add_shop(globalData.get_shop_data_copy(unitId))
 		"portal":
 			content.set_disabled(true)
 			var portal = TextureButton.new()

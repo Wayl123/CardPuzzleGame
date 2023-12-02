@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var preloadedData = get_tree().get_first_node_in_group("PreloadedData")
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var map = get_tree().get_first_node_in_group("ActiveMap")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
@@ -27,7 +27,7 @@ func _ready():
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
 	if not data:
-		data = preloadedData.get_unit_data(unit_id)
+		data = globalData.get_unit_data_copy(unit_id)
 		set_texture_normal(load(data["image"]))
 		
 func _on_button_pressed():
@@ -127,5 +127,5 @@ func on_effect(pEffect):
 			playerItem.change_gold(onEffect["coin"])
 			
 		if onEffect.has("becomes"):
-			get_parent().add_unit(preloadedData.get_unit_data(onEffect["becomes"]), onEffect["becomes"][0])
+			get_parent().add_unit(globalData.get_unit_data_copy(onEffect["becomes"]), onEffect["becomes"][0])
 			queue_free()

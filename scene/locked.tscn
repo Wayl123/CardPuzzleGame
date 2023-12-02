@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqgm4dseu6w0e"]
+[gd_scene load_steps=2 format=3 uid="uid://cj1n677bhiy0x"]
 
-[ext_resource type="Texture2D" uid="uid://os54e7f5nd3v" path="res://image/locked.png" id="1_84byb"]
+[ext_resource type="Texture2D" path="res://image/locked.png" id="1_84byb"]
 
 [node name="Locked" type="Sprite2D"]
 position = Vector2(64, 64)

@@ -7,3 +7,4 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 1
 script = ExtResource("1_vaq0c")
+unit_id = null
