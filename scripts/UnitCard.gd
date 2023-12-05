@@ -4,6 +4,7 @@ extends TextureButton
 @onready var map = get_tree().get_first_node_in_group("ActiveMap")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
+@onready var playerHand = get_tree().get_first_node_in_group("PlayerHand")
 
 @export var unit_id: String
 
@@ -129,3 +130,7 @@ func on_effect(pEffect : String) -> void:
 		if onEffect.has("becomes"):
 			get_parent().add_unit(globalData.get_unit_data_copy(onEffect["becomes"]), onEffect["becomes"][0])
 			queue_free()
+			
+		if onEffect.has("gives"):
+			for give in onEffect["gives"]:
+				playerHand.add_unit(globalData.get_unit_data_copy(give))

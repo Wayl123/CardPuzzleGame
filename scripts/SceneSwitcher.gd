@@ -51,8 +51,9 @@ func _set_current_scene(pNode : Node2D) -> void:
 	currentScene = pNode
 	add_child(pNode)
 	
-func select_level(scene : String) -> void:
-	var level = load(scene).instantiate()
+func select_level(pData : Dictionary) -> void:
+	currentLevel = pData
+	var level = load(pData["scene"]).instantiate()
 	_set_current_scene(level)
 		
 func complete_level(pData : Dictionary, success : bool) -> void:
@@ -60,7 +61,7 @@ func complete_level(pData : Dictionary, success : bool) -> void:
 	
 	if success:
 		for unlock in currentLevel["completion-unlock"]:
-			levelData[unlock] = true
+			levelData[unlock]["lcoked"] = false
 	
 	var levelSelect = LEVELSELECT.instantiate()
 	_set_current_scene(levelSelect)

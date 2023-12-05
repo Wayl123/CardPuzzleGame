@@ -27,12 +27,10 @@ func _set_node() -> void:
 			content.add_to_group("TargetableNode")
 		"shop":
 			content.set_disabled(true)
-			content.add_shop(globalData.get_shop_data_copy(unitId))
+			content.add_unit(globalData.get_shop_data_copy(unitId), "S")
 		"portal":
 			content.set_disabled(true)
-			var portal = TextureButton.new()
-			portal.set_texture_normal(load("res://image/exit_portal.png"))
-			content.add_child(portal)
+			content.add_unit({}, "End")
 		_:
 			content.add_to_group("TargetableNode")
 			

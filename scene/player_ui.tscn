@@ -32,7 +32,7 @@ offset_bottom = 40.0
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Cards" type="Control" parent="." groups=["PlayerCards"]]
+[node name="Cards" type="Control" parent="." groups=["PlayerHand"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ctmpx")

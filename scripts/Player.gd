@@ -27,3 +27,15 @@ func lock_player() -> void:
 		get_parent().set_disabled(true)
 		var locked = LOCKED.instantiate()
 		get_parent().add_child(locked)
+		
+func get_deck(success: bool) -> Array:
+	var deckCards = []
+	
+	if success:
+		if data.has("on-hand-completion"):
+			var onCompletion = data["on-completion"]
+			
+			if onCompletion.has("deck"):
+				deckCards += onCompletion["deck"]
+
+	return deckCards

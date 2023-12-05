@@ -1,5 +1,8 @@
 extends Control
 
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
+@onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
+
 var groupNum = 1
 
 func check_enemy_cleared() -> void:
@@ -25,3 +28,14 @@ func check_enemy_cleared() -> void:
 			player.on_effect("victory")
 			
 		groupNum += 1
+		
+func map_complete(success: bool) -> void:
+	var data = {"cards": []}
+	
+	for playerUnit in get_tree().get_nodes_in_group("PlayerUnits"):
+		data["cards"] += playerUnit.get_deck(success)
+		
+	for playerCard in get_tree().get_nodes_in_group("PlayerCards"):
+		data["cards"] += playerCard.get_deck(success)
+	
+	globalData.complete_level(data, success)

@@ -1,7 +1,5 @@
 extends Button
 
-var groupNum = 1
-
 func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 

@@ -4,6 +4,7 @@ var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var ENEMY = preload("res://scene/enemy.tscn")
 var PLAYER = preload("res://scene/player.tscn")
 var SHOP = preload("res://scene/shop.tscn")
+var PORTAL = preload("res://scene/portal.tscn")
 	
 func _can_drop_data(_pos : Vector2, dataIn : Variant) -> bool:
 	if !disabled:
@@ -35,14 +36,15 @@ func add_unit(pData : Dictionary, type : String) -> void:
 		unit = ENEMY.instantiate()
 	elif type == "P":
 		unit = PLAYER.instantiate()
-	unit.init(pData)
+	elif type == "S":
+		unit = SHOP.instantiate()
+	elif type == "End":
+		unit = PORTAL.instantiate()
+		
+	if pData:
+		unit.init(pData)
 	add_child(unit)
 	
 func remove_unit(pNode : Node) -> void:
 	remove_child(pNode)
 	pNode.queue_free()
-	
-func add_shop(pData : Dictionary) -> void:
-	var shop = SHOP.instantiate()
-	shop.init(pData)
-	add_child(shop)
