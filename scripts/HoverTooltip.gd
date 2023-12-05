@@ -1,6 +1,6 @@
 extends NinePatchRect
 
-func init(data):
-	get_node("TooltipItems/Name").set_text(data["name"])
-	get_node("TooltipItems/Health").set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	get_node("TooltipItems/Attack").set_text(str("Attack: ", data["attack"]))
+func init(pData : Dictionary) -> void:
+	get_node("TooltipItems/Name").set_text(pData["name"])
+	get_node("TooltipItems/Health").set_text(str("Health: ", pData["health"], "/", pData["max-health"]))
+	get_node("TooltipItems/Attack").set_text(str("Attack: ", pData["attack"]))

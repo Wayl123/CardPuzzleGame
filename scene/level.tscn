@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c831108q2ciir"]
+
+[ext_resource type="Texture2D" uid="uid://djwlllvuuujp2" path="res://image/level_select/level_slot.png" id="1_thyne"]
+[ext_resource type="Texture2D" uid="uid://c27aer0us0akq" path="res://image/level_select/locked.png" id="2_ama1g"]
+[ext_resource type="Script" path="res://scripts/Level.gd" id="3_ktgjm"]
+
+[node name="LevelSlot" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_thyne")
+
+[node name="Level" type="TextureButton" parent="."]
+modulate = Color(1, 1, 1, 0.74902)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+disabled = true
+texture_disabled = ExtResource("2_ama1g")
+script = ExtResource("3_ktgjm")

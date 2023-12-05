@@ -23,6 +23,12 @@
 		},
 		"on-victory": {
 			"becomes": "P5-1"
+		},
+		"on-completion": {
+			"deck": ["P7-1"]
+		},
+		"on-hand-completion": {
+			"deck": ["P1-2"]
 		}
 	},
 	"P2-1": {
@@ -38,6 +44,12 @@
 		},
 		"on-victory": {
 			"becomes": "P5-2"
+		},
+		"on-completion": {
+			"deck": ["P7-2"]
+		},
+		"on-hand-completion": {
+			"deck": ["P2-2"]
 		}
 	},
 	"P4-1": {
@@ -56,6 +68,10 @@
 		},
 		"on-all-kill": {
 			"coin": 1
+		},
+		"on-completion": {
+			"victory": 5,
+			"gives": ["P7-3"]
 		}
 	},
 	"P5-1": {
@@ -69,6 +85,7 @@
 			"becomes": "P6-2"
 		},
 		"on-completion": {
+			"deck": ["P7-1"]
 		}
 	},
 	"P5-2": {
@@ -82,6 +99,7 @@
 			"becomes": "P6-2"
 		},
 		"on-completion": {
+			"deck": ["P7-2"]
 		}
 	},
 	"P6-1": {
@@ -90,7 +108,10 @@
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
-		"range": []
+		"range": [],
+		"on-completion": {
+			"deck": ["P8-1"]
+		}
 	},
 	"P6-2": {
 		"name": "destroyed1",
@@ -98,6 +119,142 @@
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
-		"range": []
+		"range": [],
+		"on-completion": {
+			"deck": ["P8-2"]
+		}
+	},
+	"P6-3": {
+		"name": "grave2",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-completion": {
+			"deck": ["P8-3"]
+		}
+	},
+	"P6-4": {
+		"name": "destroyed2",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-completion": {
+			"deck": ["P8-4"]
+		}
+	},
+	"P7-1": {
+		"name": "tankVet1",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": 15,
+		"health": 15,
+		"attack": 1,
+		"range": [[-1, -1], [0, -1], [1, -1]],
+		"upgrades": 0,
+		"on-death": {
+			"becomes": "P6-3"
+		},
+		"on-victory": {
+			"honour": 5
+		},
+		"on-all-kill": {
+			"honour": 1
+		}
+	},
+	"P7-2": {
+		"name": "rangeVet1",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": 5,
+		"health": 5,
+		"attack": 2,
+		"range": [[0, -2]],
+		"upgrades": 0,
+		"on-death": {
+			"becomes": "P6-3"
+		},
+		"on-victory": {
+			"honour": 5
+		},
+		"on-all-kill": {
+			"honour": 1
+		}
+	},
+	"P7-3": {
+		"name": "structure1",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": 5,
+		"health": 5,
+		"attack": 0,
+		"range": [],
+		"on-death": {
+			"becomes": "P6-4"
+		},
+		"on-victory": {
+			"research": 5,
+			"supply": 5
+		}
+	},
+	"P8-1": {
+		"name": "ghost1",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-all-kill": {
+			"soul": 1
+		},
+		"on-completion": {
+			"deck": ["P8-1"]
+		}
+	},
+	"P8-2": {
+		"name": "wreckage1",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-victory": {
+			"scrap": 1
+		},
+		"on-completion": {
+			"deck": ["P8-2"]
+		}
+	},
+	"P8-3": {
+		"name": "ghost2",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-victory": {
+			"honour": 1
+		},
+		"on-all-kill": {
+			"soul": 1
+		},
+		"on-completion": {
+			"deck": ["P8-3"]
+		}
+	},
+	"P8-4": {
+		"name": "wreckage2",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-victory": {
+			"supply": 2,
+			"scrap": 1
+		},
+		"on-completion": {
+			"deck": ["P8-4"]
+		}
 	}
 }

@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var preloadedData = get_tree().get_first_node_in_group("PreloadedData")
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 
 @export var shop_id: String
@@ -10,24 +10,24 @@ var SELECTED = preload("res://scene/selected.tscn")
 
 var data = {}
 
-func init(pData):
+func init(pData : Dictionary) -> void:
 	data = pData
 	set_texture_normal(load(data["image"]))
 
-func _ready():
+func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
 	if not data:
-		data = preloadedData.get_shop_data(shop_id)
+		data = globalData.get_shop_data_copy(shop_id)
 		set_texture_normal(load(data["image"]))
 	
 	var contentData = {}
 	for content in data["content"]:
-		contentData[content] = preloadedData.get_unit_data(content)
+		contentData[content] = globalData.get_unit_data_copy(content)
 		
 	data["content"] = contentData
 		
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	var shopMenu = SHOPMENU.instantiate()
 	
 	shopMenu.init(data)
@@ -37,7 +37,7 @@ func _on_button_pressed():
 	popup.add_child(shopMenu)
 	_select_node()
 		
-func _select_node():
+func _select_node() -> void:
 	if not has_node("../Selected"):
 		var selected = SELECTED.instantiate()
 		selected.add_to_group("ActiveSelected")

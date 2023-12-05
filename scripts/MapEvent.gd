@@ -1,8 +1,11 @@
 extends Control
 
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
+@onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
+
 var groupNum = 1
 
-func check_enemy_cleared():
+func check_enemy_cleared() -> void:
 	var enemies = get_tree().get_nodes_in_group("CurrentEnemy")
 	if not enemies:
 		for fog in get_tree().get_nodes_in_group(str("Fog", groupNum)):
@@ -25,3 +28,16 @@ func check_enemy_cleared():
 			player.on_effect("victory")
 			
 		groupNum += 1
+		
+func map_complete(success: bool) -> void:
+	var data = {"items": {}, "cards": []}
+	
+	for playerUnit in get_tree().get_nodes_in_group("PlayerUnits"):
+		data["cards"] += playerUnit.get_deck(success)
+		
+	for playerCard in get_tree().get_nodes_in_group("PlayerCards"):
+		data["cards"] += playerCard.get_deck(success)
+		
+	data["items"] = playerItem.get_data()
+	
+	globalData.complete_level(data, success)

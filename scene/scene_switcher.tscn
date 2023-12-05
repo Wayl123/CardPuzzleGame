@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcbny1vrdque5"]
+
+[ext_resource type="Script" path="res://scripts/SceneSwitcher.gd" id="1_jgvvp"]
+
+[node name="SceneSwitcher" type="Node" groups=["GlobalData"]]
+script = ExtResource("1_jgvvp")

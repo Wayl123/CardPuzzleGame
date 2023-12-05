@@ -1,9 +1,10 @@
 extends TextureButton
 
-@onready var preloadedData = get_tree().get_first_node_in_group("PreloadedData")
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var map = get_tree().get_first_node_in_group("ActiveMap")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
+@onready var playerHand = get_tree().get_first_node_in_group("PlayerHand")
 
 @export var unit_id: String
 
@@ -17,20 +18,20 @@ var UNITDEATH = preload("res://scene/unit_death.tscn")
 var unit_list_path = "res://scripts/UnitList.json"
 var data = {}
 
-func init(pData):
+func init(pData : Dictionary) -> void:
 	data = pData
 	texture_normal = load(data["image"])
 
-func _ready():
+func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
 	if not data:
-		data = preloadedData.get_unit_data(unit_id)
+		data = globalData.get_unit_data_copy(unit_id)
 		set_texture_normal(load(data["image"]))
 		
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.init(data)
@@ -45,7 +46,7 @@ func _on_button_pressed():
 		for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
 			tooltip.queue_free()
 	
-func _on_mouse_entered():
+func _on_mouse_entered() -> void:
 	if not get_tree().has_group("ActiveInfoBox") and not has_node("HoverTooltip"):
 		var hoverTooltip = HOVERTOOLTIP.instantiate()
 		
@@ -62,7 +63,7 @@ func _on_mouse_entered():
 		
 		_range_display()
 
-func _on_mouse_exited():
+func _on_mouse_exited() -> void:
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()):
 		if get_tree().has_group("ActiveHoverTooltip"):
 			for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
@@ -72,7 +73,7 @@ func _on_mouse_exited():
 				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
 					rangeNode.queue_free()
 		
-func _range_display():
+func _range_display() -> void:
 	if not get_tree().has_group("RangeDisplay"):
 		for aRange in data["range"]:
 			var targetPos = Vector2(aRange[0], aRange[1]) * 128
@@ -84,16 +85,16 @@ func _range_display():
 					attackRange.add_to_group("RangeDisplay")
 					get_parent().add_child(attackRange)
 
-func _select_node():
+func _select_node() -> void:
 	if not has_node("../Selected"):
 		var selected = SELECTED.instantiate()
 		selected.add_to_group("ActiveSelected")
 		get_parent().add_child(selected)
 		
-func get_data():
+func get_data() -> Dictionary:
 	return data
 		
-func take_damage(pDmg):
+func take_damage(pDmg : float) -> void:
 	if data["health"] > 0:
 		var damageNumber = DAMAGENUMBER.instantiate()
 		var spawnPosition = get_global_position()
@@ -119,7 +120,7 @@ func take_damage(pDmg):
 			on_effect("death")
 			queue_free()
 		
-func on_effect(pEffect):
+func on_effect(pEffect : String) -> void:
 	if data.has(str("on-", pEffect)):
 		var onEffect = data[str("on-", pEffect)]
 				
@@ -127,5 +128,9 @@ func on_effect(pEffect):
 			playerItem.change_gold(onEffect["coin"])
 			
 		if onEffect.has("becomes"):
-			get_parent().add_unit(preloadedData.get_unit_data(onEffect["becomes"]), onEffect["becomes"][0])
+			get_parent().add_unit(globalData.get_unit_data_copy(onEffect["becomes"]), onEffect["becomes"][0])
 			queue_free()
+			
+		if onEffect.has("gives"):
+			for give in onEffect["gives"]:
+				playerHand.add_unit(globalData.get_unit_data_copy(give))

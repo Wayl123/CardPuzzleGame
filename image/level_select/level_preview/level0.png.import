@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uk7ojh0qo1o5"
-path="res://.godot/imported/exit_portal.png-d6074a9c386f0d4563fe4b56586fb9a6.ctex"
+uid="uid://c325t6cba280n"
+path="res://.godot/imported/level0.png-710324877c9513a5338e6f85d90672c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/exit_portal.png"
-dest_files=["res://.godot/imported/exit_portal.png-d6074a9c386f0d4563fe4b56586fb9a6.ctex"]
+source_file="res://image/level_select/level_preview/level0.png"
+dest_files=["res://.godot/imported/level0.png-710324877c9513a5338e6f85d90672c3.ctex"]
 
 [params]
 

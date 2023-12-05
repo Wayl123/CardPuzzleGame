@@ -4,13 +4,14 @@ var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var ENEMY = preload("res://scene/enemy.tscn")
 var PLAYER = preload("res://scene/player.tscn")
 var SHOP = preload("res://scene/shop.tscn")
+var PORTAL = preload("res://scene/portal.tscn")
 	
-func _can_drop_data(_pos, dataIn):
+func _can_drop_data(_pos : Vector2, dataIn : Variant) -> bool:
 	if !disabled:
 		return true
 	return false
 	
-func _drop_data(_pos, dataIn):
+func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 	if dataIn:
 		if get_tree().has_group("ActiveHoverTooltip"):
 			for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
@@ -29,20 +30,21 @@ func _drop_data(_pos, dataIn):
 				
 		add_unit(dataIn["origin_data"], "P")
 		
-func add_unit(pData, type):
+func add_unit(pData : Dictionary, type : String) -> void:
 	var unit
 	if type == "E":
 		unit = ENEMY.instantiate()
 	elif type == "P":
 		unit = PLAYER.instantiate()
-	unit.init(pData)
+	elif type == "S":
+		unit = SHOP.instantiate()
+	elif type == "End":
+		unit = PORTAL.instantiate()
+		
+	if pData:
+		unit.init(pData)
 	add_child(unit)
 	
-func remove_unit(pNode):
+func remove_unit(pNode : Node) -> void:
 	remove_child(pNode)
 	pNode.queue_free()
-	
-func add_shop(pData):
-	var shop = SHOP.instantiate()
-	shop.init(pData)
-	add_child(shop)

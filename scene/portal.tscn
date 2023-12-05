@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b32x2qhe05pup"]
+
+[ext_resource type="Script" path="res://scripts/Portal.gd" id="1_tgkxf"]
+[ext_resource type="Texture2D" uid="uid://uk7ojh0qo1o5" path="res://image/map/exit_portal.png" id="1_u58gu"]
+
+[node name="Portal" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_u58gu")
+script = ExtResource("1_tgkxf")

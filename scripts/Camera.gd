@@ -5,10 +5,7 @@ var zoom_max = Vector2(2, 2)
 var zoom_speed = Vector2(5, 5)
 var move_speed = 500
 
-func _ready():
-	pass
-
-func _process(delta):
+func _process(delta : float) -> void:
 	if Input.is_action_just_pressed("MouseScrollUp"):
 		if zoom > zoom_min:
 			zoom -= zoom_speed * delta

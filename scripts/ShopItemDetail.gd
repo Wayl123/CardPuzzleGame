@@ -12,14 +12,9 @@ extends HBoxContainer
 @onready var infoCost = %Cost
 @onready var infoImage = %ItemImage
 
-var itemId = ""
 var data = {}
 
-func _ready():
-	pass
-
-func set_detail(pItemId, pData):
-	itemId = pItemId
+func set_detail(pData : Dictionary) -> void:
 	data = pData
 	
 	infoName.set_text(data["name"])
@@ -32,5 +27,5 @@ func set_detail(pItemId, pData):
 	infoCost.set_text(str("Cost: ", data["cost"]))
 	infoImage.set_texture(load(data["image"]))
 	
-func get_data():
+func get_data() -> Dictionary:
 	return data
