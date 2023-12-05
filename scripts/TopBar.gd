@@ -2,7 +2,13 @@ extends TextureRect
 
 @onready var infoGold = %Gold
 
-var gold = 10
+var data = {
+	"gold": 10,
+	"honour": 0,
+	"research": 0,
+	"soul": 0,
+	"scrap": 0
+}
 
 func _ready() -> void:
 	get_tree().root.connect("size_changed", Callable(self, "_on_viewport_size_changed"))
@@ -18,12 +24,15 @@ func _update_size() -> void:
 	set_size(Vector2(viewportSize.x, 32))
 	
 func get_gold() -> float:
-	return gold
+	return data["gold"]
 
 func change_gold(pChange : float) -> void:
-	gold += pChange
+	data["gold"] += pChange
 	
 	_change_display()
 
 func _change_display() -> void:
-	infoGold.set_text(str("Gold: ", gold))
+	infoGold.set_text(str("Gold: ", data["gold"]))
+	
+func get_data() -> Dictionary:
+	return data

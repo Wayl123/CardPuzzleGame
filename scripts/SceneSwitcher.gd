@@ -61,7 +61,7 @@ func complete_level(pData : Dictionary, success : bool) -> void:
 	
 	if success:
 		for unlock in currentLevel["completion-unlock"]:
-			levelData[unlock]["lcoked"] = false
+			levelData[unlock]["locked"] = false
 	
 	var levelSelect = LEVELSELECT.instantiate()
 	_set_current_scene(levelSelect)
