@@ -19,7 +19,8 @@ func _on_viewport_size_changed() -> void:
 
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	set_position(Vector2(0, viewportSize.y - CARDSIZE.y + 128))
+	set_size(Vector2(viewportSize.x, 64))
+	set_position(Vector2(0, viewportSize.y - 64))
 
 func _update_hand() -> void:
 	var viewportSize = get_viewport().size

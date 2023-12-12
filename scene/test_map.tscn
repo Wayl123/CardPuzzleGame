@@ -318,3 +318,4 @@ anchor_bottom = 6.0
 nodeType = "boulder"
 
 [node name="Popup" type="Node2D" parent="." groups=["Popup"]]
+z_index = 2
