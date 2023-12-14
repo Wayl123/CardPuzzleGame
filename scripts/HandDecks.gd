@@ -8,7 +8,7 @@ var PLAYERDECK = preload("res://scene/player_deck.tscn")
 
 var HANDWIDTH = 2.0
 var DECKSIZE = Vector2(192, 192)
-var DISTBETWEENCARD = 32
+var DISTBETWEENDECK = 32
 
 func _ready() -> void:
 	get_tree().root.connect("size_changed", Callable(self, "_on_viewport_size_changed"))
@@ -27,7 +27,7 @@ func _update_size() -> void:
 func _update_hand() -> void:
 	var viewportSize = get_viewport().size
 	var sideBorder = (viewportSize.x * 0.1) + 96
-	var hRange = min(viewportSize.x - (2 * sideBorder) - DECKSIZE.x, ((DECKSIZE.x + DISTBETWEENCARD) * (get_child_count() - 1)))
+	var hRange = min(viewportSize.x - (2 * sideBorder) - DECKSIZE.x, ((DECKSIZE.x + DISTBETWEENDECK) * (get_child_count() - 1)))
 	var handWidth = hRange * 0.5
 	
 	for deck in get_children():
@@ -50,4 +50,9 @@ func add_deck(pData : Dictionary) -> void:
 	newDeck.init(pData)
 	newDeck.set_size(DECKSIZE)
 	add_child(newDeck)
+	_update_hand()
+	
+func remove_deck(pNode : Node) -> void:
+	remove_child(pNode)
+	pNode.queue_free()
 	_update_hand()

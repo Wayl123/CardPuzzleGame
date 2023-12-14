@@ -7,7 +7,7 @@ var SHOP = preload("res://scene/shop.tscn")
 var PORTAL = preload("res://scene/portal.tscn")
 	
 func _can_drop_data(_pos : Vector2, dataIn : Variant) -> bool:
-	if !disabled:
+	if not is_disabled():
 		return true
 	return false
 	

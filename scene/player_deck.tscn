@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cggg4prevs7g0"]
+[gd_scene load_steps=4 format=3 uid="uid://cggg4prevs7g0"]
 
-[ext_resource type="Texture2D" uid="uid://c325t6cba280n" path="res://image/level_select/level_preview/level0.png" id="1_bl4bn"]
 [ext_resource type="Texture2D" uid="uid://ckrao152ysegf" path="res://image/deck/deck_base.png" id="1_e4qxu"]
 [ext_resource type="Script" path="res://scripts/PlayerDeck.gd" id="2_13veo"]
 [ext_resource type="Script" path="res://scripts/DeckCover.gd" id="3_u1ksy"]
 
 [node name="PlayerDeck" type="NinePatchRect"]
-offset_right = 192.0
-offset_bottom = 192.0
-mouse_filter = 1
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 0
 texture = ExtResource("1_e4qxu")
 script = ExtResource("2_13veo")
 
@@ -18,4 +17,3 @@ script = ExtResource("3_u1ksy")
 
 [node name="DeckLevel" type="Sprite2D" parent="DeckCover"]
 unique_name_in_owner = true
-texture = ExtResource("1_bl4bn")
