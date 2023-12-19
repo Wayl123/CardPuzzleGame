@@ -4,6 +4,7 @@ extends TextureButton
 @onready var playerHandDeck = get_tree().get_first_node_in_group("PlayerHandDeck")
 
 var LEVELDECK = preload("res://scene/level_deck.tscn")
+var CONFIRMLEVELSELECT = preload("res://scene/confirm_level_select.tscn")
 
 var DECKSIZE = Vector2(16, 16)
 
@@ -23,6 +24,18 @@ func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
 func _on_button_pressed() -> void:
+	var confirmLevelSelect = CONFIRMLEVELSELECT.instantiate()
+	var dialogText = str("Confirm entering level ", data["name"])
+	if deckSlot.size() > 0:
+		dialogText += str(" with ", deckSlot.size())
+		dialogText += " deck" if deckSlot.size() == 1 else " decks"
+	dialogText += "?"
+	confirmLevelSelect.set_text(dialogText)
+	add_child(confirmLevelSelect)
+	confirmLevelSelect.set_visible(true)
+	confirmLevelSelect.connect("confirmed", Callable(self, "_on_confirm"))
+	
+func _on_confirm() -> void:
 	globalData.select_level(data)
 	
 func _init_deck_slots() -> void:
