@@ -29,8 +29,8 @@ func check_enemy_cleared() -> void:
 			
 		groupNum += 1
 		
-func map_complete(success: bool) -> void:
-	var data = {"items": {}, "cards": []}
+func map_complete(success : bool) -> void:
+	var data = {"items": {}, "cards": [], "clear": false}
 	
 	for playerUnit in get_tree().get_nodes_in_group("PlayerUnits"):
 		data["cards"] += playerUnit.get_deck(success)
@@ -39,5 +39,6 @@ func map_complete(success: bool) -> void:
 		data["cards"] += playerCard.get_deck(success)
 		
 	data["items"] = playerItem.get_data()
+	data["clear"] = true
 	
 	globalData.complete_level(data, success)

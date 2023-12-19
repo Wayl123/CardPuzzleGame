@@ -19,8 +19,8 @@ func _on_viewport_size_changed() -> void:
 
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	set_size(Vector2(viewportSize.x, CARDSIZE.y - 128))
-	set_position(Vector2(0, viewportSize.y - CARDSIZE.y + 128))
+	set_size(Vector2(viewportSize.x, 64))
+	set_position(Vector2(0, viewportSize.y - 64))
 
 func _update_hand() -> void:
 	var viewportSize = get_viewport().size
@@ -57,7 +57,7 @@ func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 
 func add_unit(pData : Dictionary) -> void:
 	var newCard = PLAYERCARD.instantiate()
-	newCard.init(pData)
+	newCard.set_data(pData)
 	newCard.set_size(CARDSIZE)
 	add_child(newCard)
 	_update_hand()

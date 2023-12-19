@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scripts/BuyItem.gd" id="4_ye00d"]
 
 [node name="ShopMenu" type="NinePatchRect"]
-z_index = 2
 offset_right = 1024.0
 offset_bottom = 768.0
 texture = ExtResource("1_jc7a3")

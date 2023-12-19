@@ -18,7 +18,7 @@ var UNITDEATH = preload("res://scene/unit_death.tscn")
 var unit_list_path = "res://scripts/UnitList.json"
 var data = {}
 
-func init(pData : Dictionary) -> void:
+func set_data(pData : Dictionary) -> void:
 	data = pData
 	texture_normal = load(data["image"])
 
@@ -34,7 +34,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	var infoBox = INFOBOX.instantiate()
 	
-	infoBox.init(data)
+	infoBox.set_data(data)
 	infoBox._set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	infoBox.add_to_group("ActiveInfoBox")
 	
@@ -51,7 +51,7 @@ func _on_mouse_entered() -> void:
 		var hoverTooltip = HOVERTOOLTIP.instantiate()
 		
 		hoverTooltip.set_visible(false)
-		hoverTooltip.init(data)
+		hoverTooltip.set_data(data)
 		hoverTooltip.add_to_group("ActiveHoverTooltip")
 		
 		add_child(hoverTooltip)
@@ -77,11 +77,11 @@ func _range_display() -> void:
 	if not get_tree().has_group("RangeDisplay"):
 		for aRange in data["range"]:
 			var targetPos = Vector2(aRange[0], aRange[1]) * 128
-			var targetGlobalPos = global_position + targetPos
+			var targetGlobalPos = get_global_position() + targetPos
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
 					var attackRange = RANGE.instantiate()
-					attackRange.set_position(targetPos)
+					attackRange.set_position(targetPos + Vector2(64, 64))
 					attackRange.add_to_group("RangeDisplay")
 					get_parent().add_child(attackRange)
 

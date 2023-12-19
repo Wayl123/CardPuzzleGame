@@ -12,8 +12,8 @@ texture = ExtResource("1_thyne")
 [node name="Level" type="TextureButton" parent="."]
 modulate = Color(1, 1, 1, 0.74902)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 128.0
+offset_bottom = 128.0
 disabled = true
 texture_disabled = ExtResource("2_ama1g")
 script = ExtResource("3_ktgjm")

@@ -11,7 +11,7 @@ var PLAYER = preload("res://scene/player.tscn")
 
 var data = {}
 
-func init(pData : Dictionary) -> void:
+func set_data(pData : Dictionary) -> void:
 	data = pData
 
 func _ready() -> void:
@@ -53,7 +53,7 @@ func _data_init() -> void:
 	infoAttack.set_text(str("Attack: ", data["attack"]))
 	infoEffect.set_text("Effect Placeholder")
 	
-func get_deck(success: bool) -> Array:
+func get_deck(success : bool) -> Array:
 	var deckCards = []
 	
 	if success:

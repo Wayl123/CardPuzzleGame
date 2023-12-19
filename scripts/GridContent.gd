@@ -7,7 +7,7 @@ var SHOP = preload("res://scene/shop.tscn")
 var PORTAL = preload("res://scene/portal.tscn")
 	
 func _can_drop_data(_pos : Vector2, dataIn : Variant) -> bool:
-	if !disabled:
+	if not is_disabled():
 		return true
 	return false
 	
@@ -42,7 +42,7 @@ func add_unit(pData : Dictionary, type : String) -> void:
 		unit = PORTAL.instantiate()
 		
 	if pData:
-		unit.init(pData)
+		unit.set_data(pData)
 	add_child(unit)
 	
 func remove_unit(pNode : Node) -> void:

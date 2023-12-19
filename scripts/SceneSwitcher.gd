@@ -6,7 +6,7 @@ var levelListPath = "res://scripts/LevelList.json"
 var unitListPath = "res://scripts/UnitList.json"
 var shopListPath = "res://scripts/ShopContentList.json"
 var levelData = {}
-var deckData = {}
+var deckData = []
 var unitDataTemplate = {}
 var shopDataTemplate = {}
 
@@ -45,6 +45,9 @@ func get_unit_data_copy(pId : String) -> Dictionary:
 func get_shop_data_copy(pId : String) -> Dictionary:
 	return shopDataTemplate[pId].duplicate(true)
 	
+func get_deck_data() -> Array:
+	return deckData
+	
 func _set_current_scene(pNode : Node2D) -> void:
 	if currentScene:
 		currentScene.queue_free()
@@ -58,6 +61,11 @@ func select_level(pData : Dictionary) -> void:
 		
 func complete_level(pData : Dictionary, success : bool) -> void:
 	var newDeck = {}
+	
+	newDeck = pData
+	newDeck["level-image"] = currentLevel["image"]
+	
+	deckData.append(newDeck)
 	
 	if success:
 		for unlock in currentLevel["completion-unlock"]:

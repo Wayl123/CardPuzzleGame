@@ -2,12 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://copymfiuetuwc" path="res://image/card_info/active_attack_range.png" id="1_k1ajd"]
 
-[node name="Range" type="Node2D"]
+[node name="Range" type="Sprite2D"]
 z_index = 1
-
-[node name="ActiveRange" type="Sprite2D" parent="."]
 position = Vector2(64, 64)
 texture = ExtResource("1_k1ajd")
-
-[node name="InactiveRange" type="Sprite2D" parent="."]
-visible = false

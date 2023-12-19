@@ -28,7 +28,7 @@ func lock_player() -> void:
 		var locked = LOCKED.instantiate()
 		get_parent().add_child(locked)
 		
-func get_deck(success: bool) -> Array:
+func get_deck(success : bool) -> Array:
 	var deckCards = []
 	
 	if success:
