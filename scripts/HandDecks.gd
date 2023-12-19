@@ -47,7 +47,7 @@ func _init_decks() -> void:
 		
 func add_deck(pData : Dictionary) -> void:
 	var newDeck = PLAYERDECK.instantiate()
-	newDeck.init(pData)
+	newDeck.set_data(pData)
 	newDeck.set_size(DECKSIZE)
 	add_child(newDeck)
 	_update_hand()

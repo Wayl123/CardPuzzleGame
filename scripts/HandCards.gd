@@ -57,7 +57,7 @@ func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 
 func add_unit(pData : Dictionary) -> void:
 	var newCard = PLAYERCARD.instantiate()
-	newCard.init(pData)
+	newCard.set_data(pData)
 	newCard.set_size(CARDSIZE)
 	add_child(newCard)
 	_update_hand()

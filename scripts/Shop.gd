@@ -10,7 +10,7 @@ var SELECTED = preload("res://scene/selected.tscn")
 
 var data = {}
 
-func init(pData : Dictionary) -> void:
+func set_data(pData : Dictionary) -> void:
 	data = pData
 	set_texture_normal(load(data["image"]))
 
@@ -30,7 +30,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	var shopMenu = SHOPMENU.instantiate()
 	
-	shopMenu.init(data)
+	shopMenu.set_data(data)
 	shopMenu._set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	shopMenu.add_to_group("ActiveShopMenu")
 	

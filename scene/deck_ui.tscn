@@ -9,7 +9,7 @@ point_count = 2
 
 [node name="DeckUI" type="Node2D"]
 
-[node name="Decks" type="Control" parent="."]
+[node name="Decks" type="Control" parent="." groups=["PlayerHandDeck"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

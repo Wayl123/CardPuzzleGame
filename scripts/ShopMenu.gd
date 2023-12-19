@@ -7,7 +7,7 @@ var SHOPITEM = preload("res://scene/shop_item.tscn")
 var drag_position = null
 var data = {}
 
-func init(pData : Dictionary) -> void:
+func set_data(pData : Dictionary) -> void:
 	data = pData
 
 func _ready() -> void:

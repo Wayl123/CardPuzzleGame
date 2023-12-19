@@ -4,11 +4,12 @@
 [ext_resource type="Script" path="res://scripts/PlayerDeck.gd" id="2_13veo"]
 [ext_resource type="Script" path="res://scripts/DeckCover.gd" id="3_u1ksy"]
 
-[node name="PlayerDeck" type="NinePatchRect"]
+[node name="PlayerDeck" type="TextureButton"]
 offset_right = 128.0
 offset_bottom = 128.0
-mouse_filter = 0
-texture = ExtResource("1_e4qxu")
+texture_normal = ExtResource("1_e4qxu")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("2_13veo")
 
 [node name="DeckCover" type="Node2D" parent="."]

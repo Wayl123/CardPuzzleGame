@@ -42,7 +42,7 @@ func add_unit(pData : Dictionary, type : String) -> void:
 		unit = PORTAL.instantiate()
 		
 	if pData:
-		unit.init(pData)
+		unit.set_data(pData)
 	add_child(unit)
 	
 func remove_unit(pNode : Node) -> void:
