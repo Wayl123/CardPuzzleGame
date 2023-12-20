@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkwdfno5pyy7j"]
+
+[ext_resource type="Script" path="res://scripts/ConfirmLevelSelect.gd" id="1_tgkju"]
+
+[node name="ConfirmLevelSelect" type="ConfirmationDialog"]
+title = "Confirm Level Select"
+initial_position = 2
+ok_button_text = "Yes"
+cancel_button_text = "No"
+script = ExtResource("1_tgkju")
