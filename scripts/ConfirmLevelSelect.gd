@@ -5,5 +5,4 @@ func _ready():
 	connect("canceled", Callable(self, "_on_close"))
 	
 func _on_close():
-	print("close")
 	queue_free()

@@ -1,5 +1,7 @@
 extends Node
 
+@onready var ap = %AnimationPlayer
+
 var LEVELSELECT = preload("res://scene/level_select.tscn")
 
 var levelListPath = "res://scripts/LevelList.json"
@@ -11,11 +13,13 @@ var unitDataTemplate = {}
 var shopDataTemplate = {}
 
 var currentLevel = {}
-var currentScene
+var currentScene : Node2D
+var newScene : Node2D
 
 func _ready() -> void:
 	_load_all_data()
-	_set_current_scene(LEVELSELECT.instantiate())
+	newScene = LEVELSELECT.instantiate()
+	_set_current_scene()
 
 func _load_json_file(filePath : String) -> Dictionary:
 	if FileAccess.file_exists(filePath):
@@ -48,16 +52,17 @@ func get_shop_data_copy(pId : String) -> Dictionary:
 func get_deck_data() -> Array:
 	return deckData
 	
-func _set_current_scene(pNode : Node2D) -> void:
+func _set_current_scene() -> void:
 	if currentScene:
 		currentScene.queue_free()
-	currentScene = pNode
-	add_child(pNode)
+	currentScene = newScene
+	add_child(newScene)
 	
 func select_level(pData : Dictionary) -> void:
 	currentLevel = pData
 	var level = load(pData["scene"]).instantiate()
-	_set_current_scene(level)
+	newScene = level
+	ap.play("transition_fade")
 		
 func complete_level(pData : Dictionary, success : bool) -> void:
 	var newDeck = {}
@@ -72,4 +77,5 @@ func complete_level(pData : Dictionary, success : bool) -> void:
 			levelData[unlock]["locked"] = false
 	
 	var levelSelect = LEVELSELECT.instantiate()
-	_set_current_scene(levelSelect)
+	newScene = levelSelect
+	ap.play("transition_fade")
