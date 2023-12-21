@@ -36,6 +36,7 @@ func _on_button_pressed() -> void:
 	confirmLevelSelect.connect("confirmed", Callable(self, "_on_confirm"))
 	
 func _on_confirm() -> void:
+	globalData.filter_deck(deckSlot)
 	globalData.select_level(data)
 	
 func _init_deck_slots() -> void:

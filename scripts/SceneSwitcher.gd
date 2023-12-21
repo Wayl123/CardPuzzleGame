@@ -63,6 +63,14 @@ func select_level(pData : Dictionary) -> void:
 	var level = load(pData["scene"]).instantiate()
 	newScene = level
 	ap.play("transition_fade")
+	
+func filter_deck(deckSlot : Array) -> void:
+	deckData = deckData.filter(func(deck : Dictionary) -> bool: 
+		for deckUsed in deckSlot: 
+			if is_same(deck, deckUsed):
+				return false
+		return true
+	)
 		
 func complete_level(pData : Dictionary, success : bool) -> void:
 	var newDeck = {}
