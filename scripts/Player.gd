@@ -32,7 +32,7 @@ func get_deck(success : bool) -> Array:
 	var deckCards = []
 	
 	if success:
-		if data.has("on-hand-completion"):
+		if data.has("on-completion"):
 			var onCompletion = data["on-completion"]
 			
 			if onCompletion.has("deck"):

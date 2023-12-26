@@ -253,7 +253,7 @@ anchor_top = 5.0
 anchor_right = 2.0
 anchor_bottom = 5.0
 nodeType = "shop"
-unitId = "0-1"
+unitId = "S0-1"
 
 [node name="GridNode29" parent="MapGrid" instance=ExtResource("4_amhv0")]
 layout_mode = 1

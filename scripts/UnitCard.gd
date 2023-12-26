@@ -6,7 +6,9 @@ extends TextureButton
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
 @onready var playerHand = get_tree().get_first_node_in_group("PlayerHand")
 
-@export var unit_id: String
+@export var unit_id: String:
+	set (value):
+		unit_id = value
 
 var HOVERTOOLTIP = preload("res://scene/hover_tooltip.tscn")
 var INFOBOX = preload("res://scene/info_box.tscn")
@@ -128,9 +130,9 @@ func on_effect(pEffect : String) -> void:
 			playerItem.change_gold(onEffect["coin"])
 			
 		if onEffect.has("becomes"):
-			get_parent().add_unit(globalData.get_unit_data_copy(onEffect["becomes"]), onEffect["becomes"][0])
+			get_parent().add_unit_by_id(onEffect["becomes"])
 			queue_free()
 			
 		if onEffect.has("gives"):
 			for give in onEffect["gives"]:
-				playerHand.add_unit(globalData.get_unit_data_copy(give))
+				playerHand.add_unit_by_id(give)
