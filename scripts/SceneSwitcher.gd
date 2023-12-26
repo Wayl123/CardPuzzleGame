@@ -53,6 +53,9 @@ func get_shop_data_copy(pId : String) -> Dictionary:
 func get_deck_data() -> Array:
 	return deckData
 	
+func get_current_level_starting_items() -> Dictionary:
+	return currentLevel["starting-items"]
+	
 func get_used_deck_data() -> Array:
 	return usedDeckData
 	

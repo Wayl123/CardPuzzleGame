@@ -26,8 +26,9 @@ func _update_size() -> void:
 	set_size(Vector2(viewportSize.x, 32))
 	
 func _init_data() -> void:
-	var startingItems = {"gold": 10}
+	var startingItems = globalData.get_current_level_starting_items()
 	change_gold(startingItems["gold"])
+	
 	for deck in globalData.get_used_deck_data():
 		var items = deck["items"]
 		change_gold(items["gold"])

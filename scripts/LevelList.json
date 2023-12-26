@@ -5,7 +5,10 @@
 		"image": "res://image/level_select/level_preview/level0.png",
 		"locked": false,
 		"completion-unlock": ["1"],
-		"deck-slot": 0
+		"deck-slot": 0,
+		"starting-items": {
+			"gold": 10
+		}
 	},
 	"1": {
 		"name": "Level1",
@@ -13,6 +16,9 @@
 		"image": "res://image/level_select/level_preview/level0.png",
 		"locked": true,
 		"completion-unlock": [],
-		"deck-slot": 2
+		"deck-slot": 2,
+		"starting-items": {
+			"gold": 10
+		}
 	}
 }

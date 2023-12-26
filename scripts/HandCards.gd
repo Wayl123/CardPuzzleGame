@@ -59,7 +59,6 @@ func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 		dataIn["origin_node"].remove_unit(dataIn["origin_child"])
 		
 func _init_hand() -> void:
-	print(globalData.get_used_deck_data())
 	for deck in globalData.get_used_deck_data():
 		for card in deck["cards"]:
 			add_unit_by_id(card)
