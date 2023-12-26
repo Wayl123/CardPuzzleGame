@@ -57,8 +57,8 @@ func get_deck(success : bool) -> Array:
 	var deckCards = []
 	
 	if success:
-		if data.has("on-completion"):
-			var onCompletion = data["on-completion"]
+		if data.has("on-hand-completion"):
+			var onCompletion = data["on-hand-completion"]
 			
 			if onCompletion.has("deck"):
 				deckCards += onCompletion["deck"]

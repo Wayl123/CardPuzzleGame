@@ -1,6 +1,5 @@
 extends TextureRect
 
-@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var content = %Content
 
 @export var nodeType: String
@@ -20,17 +19,17 @@ func _set_node() -> void:
 			content.set_texture_normal(load("res://image/map/boulder_wall.png"))
 		"enemy":
 			content.set_disabled(true)
-			content.add_unit(globalData.get_unit_data_copy(unitId), "E")
+			content.add_unit_by_id(unitId)
 			content.add_to_group("TargetableNode")
 		"player":
-			content.add_unit(globalData.get_unit_data_copy(unitId), "P")
+			content.add_unit_by_id(unitId)
 			content.add_to_group("TargetableNode")
 		"shop":
 			content.set_disabled(true)
-			content.add_unit(globalData.get_shop_data_copy(unitId), "S")
+			content.add_unit_by_id(unitId)
 		"portal":
 			content.set_disabled(true)
-			content.add_unit({}, "End")
+			content.add_unit_by_id("X")
 		_:
 			content.add_to_group("TargetableNode")
 			

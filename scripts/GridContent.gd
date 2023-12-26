@@ -32,17 +32,27 @@ func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 		
 func add_unit(pData : Dictionary, type : String) -> void:
 	var unit
-	if type == "E":
-		unit = ENEMY.instantiate()
-	elif type == "P":
-		unit = PLAYER.instantiate()
-	elif type == "S":
-		unit = SHOP.instantiate()
-	elif type == "End":
-		unit = PORTAL.instantiate()
+	match type:
+		"E": unit = ENEMY.instantiate()
+		"P": unit = PLAYER.instantiate()
+		"S": unit = SHOP.instantiate()
+		"X": unit = PORTAL.instantiate()
 		
 	if pData:
 		unit.set_data(pData)
+	add_child(unit)
+	
+func add_unit_by_id(pId : String) -> void:
+	var unit
+	var type = pId[0]
+	match type:
+		"E": unit = ENEMY.instantiate()
+		"P": unit = PLAYER.instantiate()
+		"S": unit = SHOP.instantiate()
+		"X": unit = PORTAL.instantiate()
+			
+	if type != "X":
+		unit.set("unit_id", pId)
 	add_child(unit)
 	
 func remove_unit(pNode : Node) -> void:

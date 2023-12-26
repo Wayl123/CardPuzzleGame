@@ -3,7 +3,9 @@ extends TextureButton
 @onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 
-@export var shop_id: String
+@export var unit_id: String:
+	set(value):
+		unit_id = value
 
 var SHOPMENU = preload("res://scene/shop_menu.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
@@ -18,7 +20,7 @@ func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
 	if not data:
-		data = globalData.get_shop_data_copy(shop_id)
+		data = globalData.get_shop_data_copy(unit_id)
 		set_texture_normal(load(data["image"]))
 	
 	var contentData = {}

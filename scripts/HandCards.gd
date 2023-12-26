@@ -1,5 +1,7 @@
 extends Control
 
+@onready var globalData = get_tree().get_first_node_in_group("GlobalData")
+
 @export var spreadCurve: Curve
 
 var PLAYERCARD = preload("res://scene/player_card.tscn")
@@ -12,6 +14,7 @@ func _ready() -> void:
 	get_tree().root.connect("size_changed", Callable(self, "_on_viewport_size_changed"))
 	
 	_update_size()
+	_init_hand()
 	
 func _on_viewport_size_changed() -> void:
 	_update_size()
@@ -54,6 +57,11 @@ func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 		
 		add_unit(dataIn["origin_data"])
 		dataIn["origin_node"].remove_unit(dataIn["origin_child"])
+		
+func _init_hand() -> void:
+	for deck in globalData.get_used_deck_data():
+		for card in deck["cards"]:
+			add_unit_by_id(card)
 
 func add_unit(pData : Dictionary) -> void:
 	var newCard = PLAYERCARD.instantiate()
@@ -61,6 +69,9 @@ func add_unit(pData : Dictionary) -> void:
 	newCard.set_size(CARDSIZE)
 	add_child(newCard)
 	_update_hand()
+	
+func add_unit_by_id(pId : String) -> void:
+	add_unit(globalData.get_unit_data_copy(pId))
 	
 func remove_unit(pNode : Node) -> void:
 	remove_child(pNode)
