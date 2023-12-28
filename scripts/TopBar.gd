@@ -2,6 +2,7 @@ extends TextureRect
 
 @onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var infoGold = %Gold
+@onready var menu = %Menu
 
 var data = {
 	"gold": 0,
@@ -24,6 +25,8 @@ func _on_viewport_size_changed() -> void:
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
 	set_size(Vector2(viewportSize.x, 32))
+	
+	menu.set_position(Vector2(viewportSize.x - 32, 0))
 	
 func _init_data() -> void:
 	var startingItems = globalData.get_current_level_starting_items()
