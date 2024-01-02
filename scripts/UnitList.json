@@ -29,6 +29,9 @@
 		},
 		"on-hand-completion": {
 			"deck": ["P1-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-1"]
 		}
 	},
 	"P2-1": {
@@ -50,6 +53,9 @@
 		},
 		"on-hand-completion": {
 			"deck": ["P2-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-1"]
 		}
 	},
 	"P4-1": {
@@ -255,6 +261,28 @@
 		},
 		"on-completion": {
 			"deck": ["P8-4"]
+		}
+	},
+	"P9-1": {
+		"name": "conscript",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 1,
+		"range": [0, -1],
+		"on-completion": {
+			"deck": ["P9-1"]
+		}
+	},
+	"P9-2": {
+		"name": "housing",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": -1,
+		"health": -1,
+		"attack": 0,
+		"range": [],
+		"on-completion": {
+			"deck": ["P9-1"]
 		}
 	}
 }
