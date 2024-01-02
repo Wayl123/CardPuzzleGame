@@ -62,5 +62,11 @@ func get_deck(success : bool) -> Array:
 			
 			if onCompletion.has("deck"):
 				deckCards += onCompletion["deck"]
+	else:
+		if data.has("on-fail"):
+			var onFail = data["on-fail"]
+			
+			if onFail.has("deck"):
+				deckCards += onFail["deck"]
 				
 	return deckCards

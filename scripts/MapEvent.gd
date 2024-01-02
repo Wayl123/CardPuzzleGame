@@ -39,6 +39,6 @@ func map_complete(success : bool) -> void:
 		data["cards"] += playerCard.get_deck(success)
 		
 	data["items"] = playerItem.get_data()
-	data["clear"] = true
+	data["clear"] = success
 	
 	globalData.complete_level(data, success)
