@@ -28,6 +28,11 @@ func _get_drag_data(_pos : Vector2) -> Variant:
 	
 	return dataOut
 	
+func update_data(pData : Dictionary) -> void:
+	data = pData
+	
+	_set_deck_cover()
+	
 func _data_init() -> void:
 	deckCover.set_transform_scale(get_size().x / 128)
 	deckCover.set_position(deckCover.get_position() + (get_size() * 0.5))

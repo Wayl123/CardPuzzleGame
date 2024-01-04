@@ -37,7 +37,7 @@ func _on_button_pressed() -> void:
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.set_data(data)
-	infoBox._set_global_position(get_global_position() + Vector2(2, 0) * 128)
+	infoBox.set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	infoBox.add_to_group("ActiveInfoBox")
 	
 	popup.add_child(infoBox)
@@ -45,11 +45,13 @@ func _on_button_pressed() -> void:
 	_range_display()
 	
 	if get_tree().has_group("ActiveHoverTooltip"):
-		for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
-			tooltip.queue_free()
+		get_tree().get_first_node_in_group("ActiveHoverTooltip").queue_free()
 	
 func _on_mouse_entered() -> void:
 	if not get_tree().has_group("ActiveInfoBox") and not has_node("HoverTooltip"):
+		if get_tree().has_group("ActiveHoverTooltip"):
+			await get_tree().get_first_node_in_group("ActiveHoverTooltip").tree_exited
+			
 		var hoverTooltip = HOVERTOOLTIP.instantiate()
 		
 		hoverTooltip.set_visible(false)
@@ -58,18 +60,17 @@ func _on_mouse_entered() -> void:
 		
 		add_child(hoverTooltip)
 	
-	await get_tree().create_timer(0.2).timeout
-	
-	if has_node("HoverTooltip") and not get_node("HoverTooltip").is_visible():
-		get_node("HoverTooltip").set_visible(true)
+		await get_tree().create_timer(0.2).timeout
 		
-		_range_display()
+		if has_node("HoverTooltip") and not get_node("HoverTooltip").is_visible():
+			get_node("HoverTooltip").set_visible(true)
+			
+			_range_display()
 
 func _on_mouse_exited() -> void:
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()):
 		if get_tree().has_group("ActiveHoverTooltip"):
-			for tooltip in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
-				tooltip.queue_free()
+			get_tree().get_first_node_in_group("ActiveHoverTooltip").queue_free()
 		if not get_tree().has_group("ActiveInfoBox"):
 			if get_tree().has_group("RangeDisplay"):
 				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):

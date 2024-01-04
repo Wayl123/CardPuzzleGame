@@ -1,6 +1,18 @@
 extends NinePatchRect
 
+@onready var infoName = %Name
+@onready var infoHealth = %Health
+@onready var infoAttack = %Attack
+
+var data = {}
+
 func set_data(pData : Dictionary) -> void:
-	get_node("TooltipItems/Name").set_text(pData["name"])
-	get_node("TooltipItems/Health").set_text(str("Health: ", pData["health"], "/", pData["max-health"]))
-	get_node("TooltipItems/Attack").set_text(str("Attack: ", pData["attack"]))
+	data = pData
+
+func _ready() -> void:
+	_populate_data()
+	
+func _populate_data() -> void:
+	infoName.set_text(data["name"])
+	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
+	infoAttack.set_text(str("Attack: ", data["attack"]))
