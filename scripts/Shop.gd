@@ -33,7 +33,7 @@ func _on_button_pressed() -> void:
 	var shopMenu = SHOPMENU.instantiate()
 	
 	shopMenu.set_data(data)
-	shopMenu._set_global_position(get_global_position() + Vector2(2, 0) * 128)
+	shopMenu.set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	shopMenu.add_to_group("ActiveShopMenu")
 	
 	popup.add_child(shopMenu)

@@ -5,6 +5,8 @@
 
 [node name="HoverDeckInfo" type="MarginContainer"]
 modulate = Color(1, 1, 1, 0.74902)
+z_index = 1
+z_as_relative = false
 script = ExtResource("1_231un")
 
 [node name="InfoImage" type="TextureRect" parent="."]

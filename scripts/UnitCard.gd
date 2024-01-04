@@ -37,7 +37,7 @@ func _on_button_pressed() -> void:
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.set_data(data)
-	infoBox._set_global_position(get_global_position() + Vector2(2, 0) * 128)
+	infoBox.set_global_position(get_global_position() + Vector2(2, 0) * 128)
 	infoBox.add_to_group("ActiveInfoBox")
 	
 	popup.add_child(infoBox)

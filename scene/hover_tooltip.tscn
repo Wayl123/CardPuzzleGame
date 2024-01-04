@@ -5,6 +5,8 @@
 
 [node name="HoverTooltip" type="NinePatchRect"]
 modulate = Color(1, 1, 1, 0.74902)
+z_index = 1
+z_as_relative = false
 offset_right = 128.0
 offset_bottom = 128.0
 texture = ExtResource("1_j2y3j")

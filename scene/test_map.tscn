@@ -319,3 +319,4 @@ nodeType = "boulder"
 
 [node name="Popup" type="Node2D" parent="." groups=["Popup"]]
 z_index = 2
+z_as_relative = false
