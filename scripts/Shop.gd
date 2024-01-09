@@ -3,7 +3,7 @@ extends TextureButton
 @onready var globalData = get_tree().get_first_node_in_group("GlobalData")
 @onready var popup = get_tree().get_first_node_in_group("Popup")
 
-@export var unit_id: String:
+@export var unit_id : String:
 	set(value):
 		unit_id = value
 
@@ -11,10 +11,6 @@ var SHOPMENU = preload("res://scene/shop_menu.tscn")
 var SELECTED = preload("res://scene/selected.tscn")
 
 var data = {}
-
-func set_data(pData : Dictionary) -> void:
-	data = pData
-	set_texture_normal(load(data["image"]))
 
 func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
@@ -44,3 +40,7 @@ func _select_node() -> void:
 		var selected = SELECTED.instantiate()
 		selected.add_to_group("ActiveSelected")
 		get_parent().add_child(selected)
+		
+func set_data(pData : Dictionary) -> void:
+	data = pData
+	set_texture_normal(load(data["image"]))

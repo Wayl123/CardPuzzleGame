@@ -7,9 +7,6 @@ var SHOPITEM = preload("res://scene/shop_item.tscn")
 var drag_position = null
 var data = {}
 
-func set_data(pData : Dictionary) -> void:
-	data = pData
-
 func _ready() -> void:
 	_init_item_slots()
 	_add_shop_item()
@@ -42,3 +39,6 @@ func _add_shop_item() -> void:
 	for key in data["content"].keys():
 		itemSlots[itemPointer].get_node("Item").set_item(data["content"][key])
 		itemPointer += 1
+
+func set_data(pData : Dictionary) -> void:
+	data = pData

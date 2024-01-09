@@ -41,6 +41,12 @@ func _load_all_data() -> void:
 	unitDataTemplate = _load_json_file(unitListPath)
 	shopDataTemplate = _load_json_file(shopListPath)
 	
+func _set_current_scene() -> void:
+	if currentScene:
+		currentScene.queue_free()
+	currentScene = newScene
+	add_child(newScene)
+	
 func get_level_data() -> Dictionary:
 	return levelData
 		
@@ -58,12 +64,6 @@ func get_current_level_starting_items() -> Dictionary:
 	
 func get_used_deck_data() -> Array:
 	return usedDeckData
-	
-func _set_current_scene() -> void:
-	if currentScene:
-		currentScene.queue_free()
-	currentScene = newScene
-	add_child(newScene)
 	
 func select_level(pData : Dictionary) -> void:
 	currentLevel = pData
