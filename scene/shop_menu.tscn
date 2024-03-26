@@ -72,57 +72,49 @@ layout_mode = 2
 text = "Description"
 autowrap_mode = 3
 
-[node name="ItemDetails" type="VFlowContainer" parent="SelectedItem/ItemDetail"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SelectedItem/ItemDetail"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 0
+vertical_scroll_mode = 0
 
-[node name="Health" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+[node name="ItemDetails" type="VFlowContainer" parent="SelectedItem/ItemDetail/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Health" type="Label" parent="SelectedItem/ItemDetail/ScrollContainer/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Max Health"
 autowrap_mode = 3
 
-[node name="Attack" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+[node name="Attack" type="Label" parent="SelectedItem/ItemDetail/ScrollContainer/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Attack"
 autowrap_mode = 3
 
-[node name="Range" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+[node name="Range" type="Label" parent="SelectedItem/ItemDetail/ScrollContainer/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Range"
 autowrap_mode = 3
 
-[node name="TurnEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "Turn Effect"
-autowrap_mode = 3
-
-[node name="DeathEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+[node name="DeathEffect" type="Label" parent="SelectedItem/ItemDetail/ScrollContainer/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Death Effect"
 autowrap_mode = 3
 
-[node name="VictoryEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
+[node name="VictoryEffect" type="Label" parent="SelectedItem/ItemDetail/ScrollContainer/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Victory Effect"
-autowrap_mode = 3
-
-[node name="UnusedEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetails"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "Unused Effect"
 autowrap_mode = 3
 
 [node name="BuyItem" type="VBoxContainer" parent="SelectedItem/ItemDetail"]

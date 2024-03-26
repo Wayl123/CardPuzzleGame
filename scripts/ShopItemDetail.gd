@@ -21,7 +21,7 @@ func set_detail(pData : Dictionary) -> void:
 	infoDescription.set_text("Description placeholder")
 	infoHealth.set_text(str("Health: ", data["max-health"]))
 	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoRange.set_text("Range placeholder (not sure how to do this yet)")
+	infoRange.set_text(str("Range: ", data["range-desc"]))
 	infoDeathEffect.set_text("Death effect placeholder (think maybe I need to add descriptor into the json file?)")
 	infoVictoryEffect.set_text("Victory effect placeholder")
 	infoCost.set_text(str("Cost: ", data["cost"]))

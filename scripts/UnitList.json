@@ -6,6 +6,7 @@
 		"health": 10,
 		"attack": 1,
 		"range": [[0, 1]],
+		"range-desc": "Punch one space, one space in front",
 		"on-death": {
 			"coin": 3
 		}
@@ -17,6 +18,7 @@
 		"health": 10,
 		"attack": 1,
 		"range": [[-1, -1], [0, -1], [1, -1]],
+		"range-desc": "Slash three space, one space in front and both front diagonal",
 		"cost": 5,
 		"on-death": {
 			"becomes": "P6-1"
@@ -41,6 +43,7 @@
 		"health": 3,
 		"attack": 2,
 		"range": [[0, -2]],
+		"range-desc": "Shoot one space, two spaces in front",
 		"cost": 3,
 		"on-death": {
 			"becomes": "P6-1"
@@ -65,6 +68,7 @@
 		"health": 5,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"cost": 5,
 		"on-death": {
 			"becomes": "P6-2"
@@ -87,6 +91,7 @@
 		"health": 5,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-death": {
 			"becomes": "P6-2"
 		},
@@ -101,6 +106,7 @@
 		"health": 5,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-death": {
 			"becomes": "P6-2"
 		},
@@ -115,6 +121,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-completion": {
 			"deck": ["P8-1"]
 		}
@@ -126,6 +133,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-completion": {
 			"deck": ["P8-2"]
 		}
@@ -137,6 +145,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-completion": {
 			"deck": ["P8-3"]
 		}
@@ -148,6 +157,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-completion": {
 			"deck": ["P8-4"]
 		}
@@ -159,6 +169,7 @@
 		"health": 15,
 		"attack": 1,
 		"range": [[-1, -1], [0, -1], [1, -1]],
+		"range-desc": "Slash three space, one space in front and both front diagonal",
 		"upgrades": 0,
 		"on-death": {
 			"becomes": "P6-3"
@@ -177,6 +188,7 @@
 		"health": 5,
 		"attack": 2,
 		"range": [[0, -2]],
+		"range-desc": "Shoot one space, two spaces in front",
 		"upgrades": 0,
 		"on-death": {
 			"becomes": "P6-3"
@@ -195,6 +207,7 @@
 		"health": 5,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-death": {
 			"becomes": "P6-4"
 		},
@@ -210,6 +223,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-all-kill": {
 			"soul": 1
 		},
@@ -224,6 +238,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-victory": {
 			"scrap": 1
 		},
@@ -238,6 +253,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-victory": {
 			"honour": 1
 		},
@@ -255,6 +271,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-victory": {
 			"supply": 2,
 			"scrap": 1
@@ -270,6 +287,7 @@
 		"health": -1,
 		"attack": 1,
 		"range": [0, -1],
+		"range-desc": "Slash one space, one space in front",
 		"on-completion": {
 			"deck": ["P9-1"]
 		}
@@ -281,6 +299,7 @@
 		"health": -1,
 		"attack": 0,
 		"range": [],
+		"range-desc": "None",
 		"on-completion": {
 			"deck": ["P9-1"]
 		}

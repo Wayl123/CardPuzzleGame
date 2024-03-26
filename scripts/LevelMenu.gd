@@ -1,14 +1,13 @@
-extends MenuButton
+extends "res://scripts/Menu.gd"
 
-var CONFIRMATIONBOX = preload("res://scene/confirmation_box.tscn")
-
-func _ready() -> void:
-	get_popup().connect("index_pressed", Callable(self, "_on_menu_select"))
+@onready var map = get_tree().get_first_node_in_group("ActiveMap")
 
 func _on_menu_select(index : int):
+	super(index)
+	
 	var itemName = get_popup().get_item_text(index)
 	match itemName:
-		"Info":
+		"Forfeit":
 			var confirmationBox = CONFIRMATIONBOX.instantiate()
 			confirmationBox.set_title("Confirm Forfeit Level")
 			confirmationBox.set_text("Are you sure you want to forfeit this level?")
@@ -16,3 +15,6 @@ func _on_menu_select(index : int):
 			confirmationBox.popup_centered()
 			confirmationBox.set_visible(true)
 			confirmationBox.connect("confirmed", Callable(self, "_on_confirm"))
+			
+func _on_confirm() -> void:
+	map.map_complete(false)
