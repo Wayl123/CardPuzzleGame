@@ -60,10 +60,13 @@ func get_deck_data() -> Array:
 	return deckData
 	
 func get_current_level_starting_items() -> Dictionary:
-	return currentLevel["starting-items"]
+	return currentLevel["starting-items"].duplicate(true)
 	
 func get_used_deck_data() -> Array:
 	return usedDeckData
+	
+func get_played() -> bool:
+	return currentLevel["played"]
 	
 func select_level(pData : Dictionary) -> void:
 	currentLevel = pData
@@ -88,6 +91,7 @@ func complete_level(pData : Dictionary, success : bool) -> void:
 	
 	deckData.append(newDeck)
 	
+	currentLevel["played"] = true
 	if success:
 		for unlock in currentLevel["completion-unlock"]:
 			levelData[unlock]["locked"] = false

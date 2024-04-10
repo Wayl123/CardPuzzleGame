@@ -8,7 +8,8 @@
 		"deck-slot": 0,
 		"starting-items": {
 			"gold": 10
-		}
+		},
+		"played": false
 	},
 	"1": {
 		"name": "Level1",
@@ -19,6 +20,7 @@
 		"deck-slot": 2,
 		"starting-items": {
 			"gold": 10
-		}
+		},
+		"played": false
 	}
 }

@@ -5,10 +5,8 @@ extends HBoxContainer
 @onready var infoHealth = %Health
 @onready var infoAttack = %Attack
 @onready var infoRange = %Range
-@onready var infoTurnEffect = %TurnEffect
 @onready var infoDeathEffect = %DeathEffect
 @onready var infoVictoryEffect = %VictoryEffect
-@onready var infoUnusedEffect = %UnusedEffect
 @onready var infoCost = %Cost
 @onready var infoImage = %ItemImage
 
