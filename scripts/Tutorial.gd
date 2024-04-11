@@ -1,8 +1,11 @@
 extends Node2D
 
+@onready var tutorialMap = get_tree().get_first_node_in_group("TutorialMap")
 @onready var dialog = %Dialog
 
 var CONFIRMATIONBOX = preload("res://scene/confirmation_box.tscn")
+var TUTORIALPOINTER = preload("res://scene/tutorial_pointer.tscn")
+var TUTORIALBLOCKER = preload("res://scene/tutorial_blocker.tscn")
 
 var progress = 0
 var tutorialListPath = "res://scripts/TutorialDialog.json"
@@ -34,13 +37,19 @@ func _load_json_file(filePath : String) -> Dictionary:
 func _set_current_dialog():
 	progress += 1
 	currentDialog = tutorialData[str(progress)]
+	_remove_blocker()
+	_remove_pointers()
+	dialog.get_ok_button().set_visible(true)
 	match currentDialog["type"]:
 		"normal":
-			_show_dialog()
+			_place_blocker()
 		"pointer":
-			pass
+			_place_blocker()
+			_place_pointer(false)
 		"action":
-			pass
+			dialog.get_ok_button().set_visible(false)
+			_place_pointer(true)
+	_show_dialog()
 			
 func _show_dialog():
 	for child in dialog.get_children():
@@ -50,6 +59,17 @@ func _show_dialog():
 	dialog.set_title(str("Tutorial: ", progress, "/", tutorialData.size()))
 	dialog.popup_centered()
 	dialog.set_visible(true)
+	
+func _place_blocker():
+	var blocker = TUTORIALBLOCKER.instantiate()
+	tutorialMap.get_node("CanvasLayer").add_child(blocker)
+	
+func _place_pointer(pAction : bool):
+	for pointer in currentDialog["pointers"]:
+		var pointerBox = TUTORIALPOINTER.instantiate()
+		tutorialMap.get_node(pointer).add_child(pointerBox)
+		if pAction:
+			pointerBox.connect("pressed", Callable(self, "_set_current_dialog"))
 	
 func _show_close_dialog():
 	var confirmationBox = CONFIRMATIONBOX.instantiate()
@@ -61,5 +81,15 @@ func _show_close_dialog():
 	confirmationBox.connect("confirmed", Callable(self, "_end_tutorial"))
 	confirmationBox.connect("canceled", Callable(self, "_show_dialog"))
 	
+func _remove_blocker():
+	for blocker in get_tree().get_nodes_in_group("TutorialBlocker"):
+		blocker.queue_free()
+	
+func _remove_pointers():
+	for pointer in get_tree().get_nodes_in_group("TutorialPointer"):
+		pointer.queue_free()
+	
 func _end_tutorial():
+	_remove_blocker()
+	_remove_pointers()
 	queue_free()

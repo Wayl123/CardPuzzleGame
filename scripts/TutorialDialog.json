@@ -5,11 +5,13 @@
 	},
 	"2": {
 		"type": "pointer",
-		"text": "In order to do that, you must defeat enemies on the map in order to uncover more of the fog."
+		"text": "In order to do that, you must defeat enemies on the map in order to uncover more of the fog.",
+		"pointers": ["MapGrid/GridNode12", "MapGrid/GridNode13", "MapGrid/GridNode14"]
 	},
 	"3": {
 		"type": "action",
-		"text": "Click on the camp to buy units."
+		"text": "Click on the camp to buy units.",
+		"pointers": ["MapGrid/GridNode28"]
 	},
 	"4": {
 		"type": "normal",
@@ -17,7 +19,8 @@
 	},
 	"5": {
 		"type": "action",
-		"text": "Let's click on the first unit displayed."
+		"text": "Let's click on the first unit displayed.",
+		"pointers": ["Popup/ShopMenu/ShopItems/RowContainer"]
 	},
 	"6": {
 		"type": "pointer",

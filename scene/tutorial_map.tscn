@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 [ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
 
-[node name="TutorialMap" type="Node2D"]
+[node name="TutorialMap" type="Node2D" groups=["TutorialMap"]]
 script = ExtResource("1_rkxuw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

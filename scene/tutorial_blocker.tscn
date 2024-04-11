@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1pxx2f47u54m"]
+
+[ext_resource type="Script" path="res://scripts/TutorialBlocker.gd" id="1_ge2ey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ib2de"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="TutorialBlocker" type="Panel" groups=["TutorialBlocker"]]
+z_index = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ib2de")
+script = ExtResource("1_ge2ey")
