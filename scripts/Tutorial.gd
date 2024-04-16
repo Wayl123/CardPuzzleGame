@@ -36,7 +36,10 @@ func _load_json_file(filePath : String) -> Dictionary:
 	
 func _set_current_dialog():
 	progress += 1
-	currentDialog = tutorialData[str(progress)]
+	if progress > tutorialData.size():
+		_end_tutorial()
+	else:
+		currentDialog = tutorialData[str(progress)]
 	
 	_remove_blocker()
 	_remove_pointers()
@@ -54,9 +57,6 @@ func _set_current_dialog():
 			dialog.get_ok_button().set_visible(false)
 			_place_pointer(true)
 	_show_dialog()
-	if currentDialog.has("wait-for-exit"):
-		await tutorialMap.get_node(currentDialog["wait-for-exit"]).tree_exited
-		_set_current_dialog()
 			
 func _show_dialog():
 	for child in dialog.get_children():
@@ -76,7 +76,15 @@ func _place_pointer(pAction : bool):
 		var pointerBox = TUTORIALPOINTER.instantiate()
 		tutorialMap.get_node(pointer).add_child(pointerBox)
 		if pAction:
-			pointerBox.connect("pressed", Callable(self, "_set_current_dialog"))
+			if currentDialog.has("wait-for-exit"):
+				pointerBox.connect("tree_exited", Callable(self, "_count_close_dialog"))
+			else:
+				pointerBox.connect("pressed", Callable(self, "_set_current_dialog"))
+
+func _count_close_dialog():
+	currentDialog["wait-for-exit"] += 1
+	if currentDialog["wait-for-exit"] >= currentDialog["pointers"].size():
+		_set_current_dialog()
 	
 func _show_close_dialog():
 	var confirmationBox = CONFIRMATIONBOX.instantiate()
@@ -103,3 +111,6 @@ func _end_tutorial():
 	
 func get_progress() -> int:
 	return progress
+	
+func get_dialog_type() -> String:
+	return currentDialog["type"]

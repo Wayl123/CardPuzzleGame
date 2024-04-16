@@ -44,67 +44,74 @@
 	"10": {
 		"type": "action",
 		"text": "Exit out of the shop by clicking outside the shop menu.",
-		"pointers": [],
-		"wait-for-exit": "Popup/ShopMenu"
+		"pointers": ["Popup/ShopMenu"],
+		"wait-for-exit": 0
 	},
 	"11": {
 		"type": "normal",
-		"text": "The unit have been added to our hand as a card now. Hovering over the card will raise the card up allowing you to review the detail of the unit.",
+		"text": "The unit have been added to our hand as a card now.\nHovering over the card will raise the card up allowing you to review the detail of the unit.",
 	},
 	"12": {
-		"type": "action",
-		"text": "Drag the unit onto the designated space on the board."
+		"type": "normal",
+		"text": "You move unit by clicking and dragging the unit unto the board."
 	},
 	"13": {
 		"type": "normal",
-		"text": "Hovering over a unit will display its range as red border as well as brief detail on its health and attack. Clicking on them will bring out an info box on more detail of the selected unit."
+		"text": "Hovering over a unit will display its range as red border as well as brief detail on its health and attack.\nClicking on them will bring out an info box on more detail of the selected unit."
 	},
 	"14": {
 		"type": "normal",
-		"text": "Unit on the board can be dragged unto any valid square. If dragged unto another unit that can be moved they will switch place. They can also be rotated with q and e key to face different location. Dragging the unit to the bottom of the screen will return them to your hand."
+		"text": "Unit on the board can be dragged unto any valid square.\nIf dragged unto another unit that can be moved they will switch place.\nThey can also be rotated with q and e key to face different location.\nDragging the unit to the bottom of the screen will return them to your hand."
 	},
 	"15": {
 		"type": "action",
-		"text": "Let's go to the next turn."
+		"text": "Place the unit in a square and click next turn.",
+		"pointers": ["CanvasLayer/PlayerUI/NextTurn"]
 	},
 	"16": {
 		"type": "normal",
-		"text": "In between each turn the unit will deal damage to all enemy within their range. With your unit attacking before the enemy unit unless specified otherwise."
+		"text": "In between each turn the unit will deal damage to all enemy within their range.\nWith your unit attacking before the enemy unit unless specified otherwise."
 	},
 	"17": {
-		"type": "pointer",
-		"text": "Also note that all unit played are locked in place upon clicking next turn as indicated by the grey border. The unit won't be able to be moved again unless some kind of effect removes it effectively locking out this space. So be resourceful with the space given."
+		"type": "normal",
+		"text": "Also note that all unit played are locked in place upon clicking next turn as indicated by the grey border.\nThe unit won't be able to be moved again unless some kind of effect removes it effectively locking out this space.\nSo be resourceful with the space given."
 	},
 	"18": {
 		"type": "action",
-		"text": "Continue clicking next turn till all enemies are dead."
+		"text": "Continue until all unit is dead.",
+		"pointers": ["MapGrid/GridNode12/Content/Enemy", "MapGrid/GridNode13/Content/Enemy", "MapGrid/GridNode14/Content/Enemy"],
+		"wait-for-exit": 0
 	},
 	"19": {
 		"type": "pointer",
-		"text": "Upon defeating the enemy wave, some of the fog clear up. Revealing what is under it."
+		"text": "Upon defeating the enemy wave, some of the fog clears up revealing what is under it.",
+		"pointers": ["MapGrid/GridNode7", "MapGrid/GridNode8", "MapGrid/GridNode9"]
 	},
 	"20": {
 		"type": "normal",
-		"text": "Note that if there are enemies under the fog they are inactive until revealed so you don't have to worry about attack coming from no where."
+		"text": "Note that if there are enemies under the fog they are inactive until revealed,\nso you don't have to worry about attack coming from no where."
 	},
 	"21": {
 		"type": "pointer",
-		"text": "This is an end portal. Which indicate an end of the level."
+		"text": "This is an end portal. Which indicate an end of the level.",
+		"pointers": ["MapGrid/GridNode8"]
 	},
 	"22": {
 		"type": "normal",
-		"text": "Upon completing the level your hand, board, and resource count will be made into a deck that can be used on other levels, but only on levels with deck slots."
+		"text": "Upon completing the level your hand, board, and resource count will be made into a deck\nthat can be used on other levels, but only on levels with deck slots."
 	},
 	"23": {
 		"type": "normal",
-		"text": "Failing a level will also create a deck base on your board state, but in general a successful run will produce better decks."
+		"text": "Failing a level will also create a deck base on your board state,\nbut in general a successful run will produce better decks."
 	},
 	"24": {
 		"type": "pointer",
-		"text": "For more detail explaination of the deck mechanic refer to the info section in the menu."
+		"text": "For more detail explaination of the deck mechanic refer to the info section in the menu.",
+		"pointers": ["CanvasLayer/PlayerUI/TopBar/Menu"]
 	},
 	"25": {
 		"type": "action",
-		"text": "Now click on the portal to complete the tutorial."
+		"text": "Now click on the portal to complete the tutorial.",
+		"pointers": ["MapGrid/GridNode8"]
 	}
 }
