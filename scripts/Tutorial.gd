@@ -37,9 +37,13 @@ func _load_json_file(filePath : String) -> Dictionary:
 func _set_current_dialog():
 	progress += 1
 	currentDialog = tutorialData[str(progress)]
+	
 	_remove_blocker()
 	_remove_pointers()
 	dialog.get_ok_button().set_visible(true)
+	dialog.set_text("")
+	dialog.reset_size()
+	
 	match currentDialog["type"]:
 		"normal":
 			_place_blocker()
@@ -50,6 +54,9 @@ func _set_current_dialog():
 			dialog.get_ok_button().set_visible(false)
 			_place_pointer(true)
 	_show_dialog()
+	if currentDialog.has("wait-for-exit"):
+		await tutorialMap.get_node(currentDialog["wait-for-exit"]).tree_exited
+		_set_current_dialog()
 			
 func _show_dialog():
 	for child in dialog.get_children():
@@ -93,3 +100,6 @@ func _end_tutorial():
 	_remove_blocker()
 	_remove_pointers()
 	queue_free()
+	
+func get_progress() -> int:
+	return progress
