@@ -72,7 +72,7 @@ func _range_display() -> void:
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
 					var attackRange = RANGE.instantiate()
-					attackRange.set_position(targetPos + Vector2(64, 64))
+					attackRange.set_position(targetPos)
 					attackRange.add_to_group("RangeDisplay")
 					get_parent().add_child(attackRange)
 

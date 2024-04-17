@@ -1,15 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://dicedcr6j5ttq"]
 
-[ext_resource type="Texture2D" uid="uid://b7jee0ml2650e" path="res://image/shop/shop_slot.png" id="1_spsj5"]
 [ext_resource type="Script" path="res://scripts/ShopItem.gd" id="2_4rfff"]
 
-[node name="ItemSlot" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_spsj5")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a76q"]
+bg_color = Color(1, 0.623529, 0.247059, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.74902, 0.372549, 0, 1)
+
+[node name="ItemSlot" type="Panel"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0a76q")
 
 [node name="Item" type="TextureButton" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 124.0
 script = ExtResource("2_4rfff")

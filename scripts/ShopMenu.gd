@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Panel
 
 @onready var rowContainer = %RowContainer
 

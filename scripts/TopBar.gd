@@ -1,4 +1,4 @@
-extends TextureRect
+extends Panel
 
 @onready var menu = %Menu
 

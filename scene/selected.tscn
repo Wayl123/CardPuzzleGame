@@ -1,8 +1,19 @@
 [gd_scene load_steps=2 format=3 uid="uid://kb0n7xcvrt8o"]
 
-[ext_resource type="Texture2D" uid="uid://dsj7122volnxr" path="res://image/selected.png" id="1_a2djh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af83u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.74902, 0, 1)
 
-[node name="Selected" type="Sprite2D"]
+[node name="Selected" type="Panel"]
 z_index = 1
-position = Vector2(64, 64)
-texture = ExtResource("1_a2djh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_af83u")

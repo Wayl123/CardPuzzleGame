@@ -4,10 +4,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo4lu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 
 [node name="TutorialPointer" type="Panel" groups=["TutorialPointer"]]
 z_index = 1

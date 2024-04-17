@@ -1,18 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi8fqlmaln1vj"]
 
-[ext_resource type="Texture2D" uid="uid://bjwkc0achd7cv" path="res://image/deck/deck_info.png" id="1_3xx1b"]
 [ext_resource type="Script" path="res://scripts/HoverDeckInfo.gd" id="1_231un"]
 
-[node name="HoverDeckInfo" type="MarginContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kughf"]
+bg_color = Color(0.74902, 0.74902, 0.74902, 1)
+
+[node name="HoverDeckInfo" type="PanelContainer"]
 modulate = Color(1, 1, 1, 0.74902)
 z_index = 1
 z_as_relative = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_kughf")
 script = ExtResource("1_231un")
-
-[node name="InfoImage" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_3xx1b")
-expand_mode = 1
 
 [node name="InfoText" type="MarginContainer" parent="."]
 layout_mode = 2
