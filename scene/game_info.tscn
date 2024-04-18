@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://le8emsi8dmfb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omqk3"]
+bg_color = Color(1, 0.623529, 0.247059, 1)
+border_width_left = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.74902, 0.372549, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2wy8"]
+bg_color = Color(0.74902, 0.498039, 0.372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le8kr"]
+bg_color = Color(0.498039, 0.247059, 0.12549, 1)
+
+[node name="GameInfo" type="Panel"]
+offset_right = 1024.0
+offset_bottom = 1024.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_omqk3")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(280, 32)
+points = PackedVector2Array(0, -32, 0, 992)
+width = 16.0
+default_color = Color(0.74902, 0.372549, 0, 1)
+
+[node name="InfoTopBar" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w2wy8")
+
+[node name="Title" type="Label" parent="InfoTopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Game Info"
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="InfoTopBar"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_le8kr")
+text = "X"
+
+[node name="InfoMenu" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 272.0
+offset_bottom = 1008.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InfoMenu"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MenuList" type="VBoxContainer" parent="InfoMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Unit" type="Button" parent="InfoMenu/ScrollContainer/MenuList"]
+layout_mode = 2
+text = "Unit"
+
+[node name="Deck" type="Button" parent="InfoMenu/ScrollContainer/MenuList"]
+layout_mode = 2
+text = "Deck"
+
+[node name="InfoContent" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 32.0
+offset_right = 1008.0
+offset_bottom = 1008.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ContentScroll" type="ScrollContainer" parent="InfoContent"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Content" type="RichTextLabel" parent="InfoContent/ContentScroll"]
+layout_mode = 2
