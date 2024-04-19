@@ -38,8 +38,6 @@ func _populate_data() -> void:
 	infoImage.set_texture(load(data["image"]))
 	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
 	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoDeathEffect.set_text("Death effect placeholder")
-	infoVictoryEffect.set_text("")
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData

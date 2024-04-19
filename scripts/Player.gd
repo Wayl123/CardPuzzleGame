@@ -14,9 +14,6 @@ func _process(delta : float) -> void:
 			set_rotation_degrees(fmod(get_rotation_degrees() + 90, 360))
 		if Input.is_action_just_pressed("RotateLeft"):
 			set_rotation_degrees(fmod(get_rotation_degrees() - 90, 360))
-			
-func _input(event : InputEvent) -> void:
-	pass
 		
 func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}

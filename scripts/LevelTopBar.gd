@@ -11,7 +11,7 @@ var data = {
 	"scrap": 0
 }
 
-func _ready():
+func _ready() -> void:
 	super()
 	
 	_change_display()

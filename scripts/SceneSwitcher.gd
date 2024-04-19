@@ -4,9 +4,11 @@ extends Node
 
 var LEVELSELECT = preload("res://scene/level_select.tscn")
 
+var infoContentPath = "res://scripts/GameInfoContent.json"
 var levelListPath = "res://scripts/LevelList.json"
 var unitListPath = "res://scripts/UnitList.json"
 var shopListPath = "res://scripts/ShopContentList.json"
+var gameInfoData = {}
 var levelData = {}
 var deckData = []
 var usedDeckData = []
@@ -37,6 +39,7 @@ func _load_json_file(filePath : String) -> Dictionary:
 	return {}
 		
 func _load_all_data() -> void:
+	gameInfoData = _load_json_file(infoContentPath)
 	levelData = _load_json_file(levelListPath)
 	unitDataTemplate = _load_json_file(unitListPath)
 	shopDataTemplate = _load_json_file(shopListPath)
@@ -46,6 +49,9 @@ func _set_current_scene() -> void:
 		currentScene.queue_free()
 	currentScene = newScene
 	add_child(newScene)
+	
+func get_game_info() -> Dictionary:
+	return gameInfoData
 	
 func get_level_data() -> Dictionary:
 	return levelData

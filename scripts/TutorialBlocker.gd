@@ -1,6 +1,6 @@
 extends Panel
 
-func _ready():
+func _ready() -> void:
 	get_tree().root.connect("size_changed", Callable(self, "_on_viewport_size_changed"))
 	
 	_update_size()
@@ -8,5 +8,5 @@ func _ready():
 func _on_viewport_size_changed() -> void:
 	_update_size()
 	
-func _update_size():
+func _update_size() -> void:
 	set_size(get_viewport().size)

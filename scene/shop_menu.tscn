@@ -35,15 +35,15 @@ text = "Shop"
 
 [node name="ShopItems" type="MarginContainer" parent="."]
 layout_mode = 2
-offset_left = 24.0
-offset_top = 80.0
-offset_right = 1000.0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 1008.0
 offset_bottom = 568.0
 mouse_filter = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
 [node name="RowContainer" type="HFlowContainer" parent="ShopItems"]
 unique_name_in_owner = true
@@ -55,15 +55,15 @@ alignment = 1
 
 [node name="SelectedItem" type="MarginContainer" parent="."]
 layout_mode = 2
-offset_left = 24.0
-offset_top = 600.0
-offset_right = 1000.0
-offset_bottom = 744.0
+offset_left = 16.0
+offset_top = 592.0
+offset_right = 1008.0
+offset_bottom = 752.0
 mouse_filter = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
 
 [node name="ItemDetail" type="HBoxContainer" parent="SelectedItem" groups=["ItemDetail"]]
 layout_mode = 2
@@ -126,14 +126,12 @@ autowrap_mode = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-text = "Death Effect"
 autowrap_mode = 3
 
 [node name="VictoryEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-text = "Victory Effect"
 autowrap_mode = 3
 
 [node name="BuyItem" type="VBoxContainer" parent="SelectedItem/ItemDetail"]

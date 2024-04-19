@@ -5,9 +5,9 @@ extends Node2D
 
 var TUTORIAL = preload("res://scene/tutorial.tscn")
 
-func _ready():
+func _ready() -> void:
 	_play_tutorial()
 
-func _play_tutorial():
+func _play_tutorial() -> void:
 	if not globalData.get_played():
 		canvasLayer.add_child(TUTORIAL.instantiate())

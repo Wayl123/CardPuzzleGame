@@ -27,7 +27,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dv2ci")
 script = ExtResource("3_uvcji")
-theme_override_styles/panel = SubResource("StyleBoxFlat_dv2ci")
 
 [node name="Display" type="HBoxContainer" parent="TopBar"]
 layout_mode = 2

@@ -12,7 +12,7 @@ var tutorialListPath = "res://scripts/TutorialDialog.json"
 var tutorialData = {}
 var currentDialog = {}
 
-func _ready():
+func _ready() -> void:
 	dialog.connect("confirmed", Callable(self, "_set_current_dialog"))
 	dialog.connect("canceled", Callable(self, "_show_close_dialog"))
 	
@@ -34,7 +34,7 @@ func _load_json_file(filePath : String) -> Dictionary:
 		
 	return {}
 	
-func _set_current_dialog():
+func _set_current_dialog() -> void:
 	progress += 1
 	if progress > tutorialData.size():
 		_end_tutorial()
@@ -58,7 +58,7 @@ func _set_current_dialog():
 			_place_pointer(true)
 	_show_dialog()
 			
-func _show_dialog():
+func _show_dialog() -> void:
 	for child in dialog.get_children():
 		dialog.remove_child(child)
 		child.queue_free()
@@ -67,11 +67,11 @@ func _show_dialog():
 	dialog.popup_centered()
 	dialog.set_visible(true)
 	
-func _place_blocker():
+func _place_blocker() -> void:
 	var blocker = TUTORIALBLOCKER.instantiate()
 	tutorialMap.get_node("CanvasLayer").add_child(blocker)
 	
-func _place_pointer(pAction : bool):
+func _place_pointer(pAction : bool) -> void:
 	for pointer in currentDialog["pointers"]:
 		var pointerBox = TUTORIALPOINTER.instantiate()
 		tutorialMap.get_node(pointer).add_child(pointerBox)
@@ -81,12 +81,12 @@ func _place_pointer(pAction : bool):
 			else:
 				pointerBox.connect("pressed", Callable(self, "_set_current_dialog"))
 
-func _count_close_dialog():
+func _count_close_dialog() -> void:
 	currentDialog["wait-for-exit"] += 1
 	if currentDialog["wait-for-exit"] >= currentDialog["pointers"].size():
 		_set_current_dialog()
 	
-func _show_close_dialog():
+func _show_close_dialog() -> void:
 	var confirmationBox = CONFIRMATIONBOX.instantiate()
 	confirmationBox.set_title("Close Tutorial?")
 	confirmationBox.set_text("Do you want to skip the tutorial?")
@@ -96,15 +96,15 @@ func _show_close_dialog():
 	confirmationBox.connect("confirmed", Callable(self, "_end_tutorial"))
 	confirmationBox.connect("canceled", Callable(self, "_show_dialog"))
 	
-func _remove_blocker():
+func _remove_blocker() -> void:
 	for blocker in get_tree().get_nodes_in_group("TutorialBlocker"):
 		blocker.queue_free()
 	
-func _remove_pointers():
+func _remove_pointers() -> void:
 	for pointer in get_tree().get_nodes_in_group("TutorialPointer"):
 		pointer.queue_free()
 	
-func _end_tutorial():
+func _end_tutorial() -> void:
 	_remove_blocker()
 	_remove_pointers()
 	queue_free()

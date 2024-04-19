@@ -2,7 +2,7 @@ extends "res://scripts/Menu.gd"
 
 @onready var map = get_tree().get_first_node_in_group("ActiveMap")
 
-func _on_menu_select(index : int):
+func _on_menu_select(index : int) -> void:
 	super(index)
 	
 	var itemName = get_popup().get_item_text(index)

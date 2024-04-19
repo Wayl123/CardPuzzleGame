@@ -21,7 +21,7 @@ func _process(delta : float) -> void:
 			get_tree().get_first_node_in_group("ActiveSelected").queue_free()
 		queue_free()
 
-	if Input.is_action_pressed("LeftMouse"):
+	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_pressed("LeftMouse"):
 		drag_position = get_global_mouse_position() - global_position
 	else:
 		drag_position = null
