@@ -5,6 +5,7 @@ extends "res://scripts/TopBar.gd"
 
 var data = {
 	"gold": 0,
+	"supply": 0,
 	"honour": 0,
 	"research": 0,
 	"soul": 0,

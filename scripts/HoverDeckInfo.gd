@@ -17,6 +17,7 @@ func _populate_data() -> void:
 func set_text_content(pData : Dictionary) -> void:
 	textContent = str(
 		"Gold: ", pData["items"]["gold"], "\n",
+		"Supply: ", pData["items"]["supply"], "\n",
 		"Honour: ", pData["items"]["honour"], "\n",
 		"Research: ", pData["items"]["research"], "\n",
 		"Soul: ", pData["items"]["soul"], "\n",

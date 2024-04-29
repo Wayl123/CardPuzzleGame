@@ -11,7 +11,9 @@ var gameInfoData = {}
 func _ready() -> void:
 	close.connect("pressed", Callable(self, "_on_close"))
 	
+	gameInfoData = globalData.get_game_info()
 	_create_menu()
+	_update_content(gameInfoData[gameInfoData.keys()[0]])
 
 func _process(delta : float) -> void:
 	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_pressed("LeftMouse"):
@@ -24,8 +26,6 @@ func _input(event : InputEvent) -> void:
 		set_global_position(get_global_mouse_position() - drag_position)
 	
 func _create_menu() -> void:
-	gameInfoData = globalData.get_game_info()
-	
 	for infoSection in gameInfoData:
 		var sectionButton = Button.new()
 		sectionButton.set_text(infoSection)
