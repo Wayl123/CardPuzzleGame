@@ -9,7 +9,6 @@ func _ready() -> void:
 	
 	_update_size()
 	_init_level_slot()
-	_add_level_data()
 	
 func _on_viewport_size_changed() -> void:
 	_update_size()
@@ -20,15 +19,10 @@ func _update_size() -> void:
 	set_position(Vector2(viewportSize.x * 0.1, viewportSize.y * 0.1))
 	
 func _init_level_slot() -> void:
-	for n in 10:
-		var level = LEVEL.instantiate()
-		level.add_to_group("LevelSlots")
-		add_child(level)
-		
-func _add_level_data() -> void:
-	var levelSlots = get_tree().get_nodes_in_group("LevelSlots")
-	var levelPointer = 0
+	var levelData = globalData.get_level_data().values()
 	
-	for level in globalData.get_level_data().values():
-		levelSlots[levelPointer].get_node("Level").set_level(level)
-		levelPointer += 1
+	for i in 10:
+		var level = LEVEL.instantiate()
+		if i < levelData.size():
+			level.get_node("Level").set_level(levelData[i])
+		add_child(level)

@@ -9,7 +9,6 @@ var data = {}
 
 func _ready() -> void:
 	_init_item_slots()
-	_add_shop_item()
 
 func _process(delta : float) -> void:
 	if (not Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_just_pressed("LeftMouse") 
@@ -31,18 +30,11 @@ func _input(event : InputEvent) -> void:
 		set_global_position(get_global_mouse_position() - drag_position)
 		
 func _init_item_slots() -> void:
-	for m in 18:
+	for i in 18:
 		var shopItem = SHOPITEM.instantiate()
-		shopItem.add_to_group("ItemSlots")
+		if i < data["content"].size():
+			shopItem.get_node("Item").set_item(data["content"][data["content"].keys()[i]])
 		rowContainer.add_child(shopItem)
-		
-func _add_shop_item() -> void:
-	var itemSlots = get_tree().get_nodes_in_group("ItemSlots")
-	var itemPointer = 0
-	
-	for key in data["content"].keys():
-		itemSlots[itemPointer].get_node("Item").set_item(data["content"][key])
-		itemPointer += 1
 
 func set_data(pData : Dictionary) -> void:
 	data = pData
