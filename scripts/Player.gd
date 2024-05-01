@@ -7,6 +7,13 @@ func _ready() -> void:
 	super()
 	
 	add_to_group("PlayerUnits")
+	
+func _process(delta : float) -> void:
+	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and not get_parent().is_disabled():
+		if Input.is_action_just_pressed("RotateRight"):
+			set_rotation_degrees(fmod(get_rotation_degrees() + 90, 360))
+		if Input.is_action_just_pressed("RotateLeft"):
+			set_rotation_degrees(fmod(get_rotation_degrees() - 90, 360))
 		
 func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}

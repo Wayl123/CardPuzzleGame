@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Panel
 
 @onready var infoName = %Name
 @onready var infoDescription = %Description
@@ -10,9 +10,6 @@ extends NinePatchRect
 
 var drag_position = null
 var data = {}
-
-func set_data(pData : Dictionary) -> void:
-	data = pData
 
 func _ready() -> void:
 	_populate_data()
@@ -26,7 +23,7 @@ func _process(delta : float) -> void:
 			get_tree().get_first_node_in_group("ActiveSelected").queue_free()
 		queue_free()
 	
-	if Input.is_action_pressed("LeftMouse"):
+	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and Input.is_action_pressed("LeftMouse"):
 		drag_position = get_global_mouse_position() - global_position
 	else:
 		drag_position = null
@@ -41,5 +38,6 @@ func _populate_data() -> void:
 	infoImage.set_texture(load(data["image"]))
 	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
 	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoDeathEffect.set_text("Death effect placeholder")
-	infoVictoryEffect.set_text("")
+	
+func set_data(pData : Dictionary) -> void:
+	data = pData

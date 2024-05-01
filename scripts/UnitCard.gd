@@ -6,7 +6,7 @@ extends TextureButton
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
 @onready var playerHand = get_tree().get_first_node_in_group("PlayerHand")
 
-@export var unit_id: String:
+@export var unit_id : String:
 	set (value):
 		unit_id = value
 
@@ -20,20 +20,18 @@ var UNITDEATH = preload("res://scene/unit_death.tscn")
 var unit_list_path = "res://scripts/UnitList.json"
 var data = {}
 
-func set_data(pData : Dictionary) -> void:
-	data = pData
-	texture_normal = load(data["image"])
-
 func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
-	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
+	
+	set_pivot_offset(get_size() / 2)
 	
 	if not data:
 		data = globalData.get_unit_data_copy(unit_id)
 		set_texture_normal(load(data["image"]))
 		
 func _on_button_pressed() -> void:
+	await get_tree().create_timer(0.1).timeout
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.set_data(data)
@@ -41,41 +39,31 @@ func _on_button_pressed() -> void:
 	infoBox.add_to_group("ActiveInfoBox")
 	
 	popup.add_child(infoBox)
+	
 	_select_node()
 	_range_display()
 	
 	if get_tree().has_group("ActiveHoverTooltip"):
-		get_tree().get_first_node_in_group("ActiveHoverTooltip").queue_free()
+		for node in get_tree().get_nodes_in_group("ActiveHoverTooltip"):
+			node.queue_free()
 	
 func _on_mouse_entered() -> void:
-	if not get_tree().has_group("ActiveInfoBox") and not has_node("HoverTooltip"):
-		if get_tree().has_group("ActiveHoverTooltip"):
-			await get_tree().get_first_node_in_group("ActiveHoverTooltip").tree_exited
-			
+	if not get_tree().has_group("ActiveInfoBox"):
 		var hoverTooltip = HOVERTOOLTIP.instantiate()
 		
 		hoverTooltip.set_visible(false)
 		hoverTooltip.set_data(data)
 		hoverTooltip.add_to_group("ActiveHoverTooltip")
 		
-		add_child(hoverTooltip)
-	
+		get_parent().add_child(hoverTooltip)
+		
 		await get_tree().create_timer(0.2).timeout
 		
-		if has_node("HoverTooltip") and not get_node("HoverTooltip").is_visible():
-			get_node("HoverTooltip").set_visible(true)
+		if is_instance_valid(hoverTooltip):
+			hoverTooltip.set_visible(true)
 			
 			_range_display()
-
-func _on_mouse_exited() -> void:
-	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()):
-		if get_tree().has_group("ActiveHoverTooltip"):
-			get_tree().get_first_node_in_group("ActiveHoverTooltip").queue_free()
-		if not get_tree().has_group("ActiveInfoBox"):
-			if get_tree().has_group("RangeDisplay"):
-				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
-					rangeNode.queue_free()
-		
+					
 func _range_display() -> void:
 	if not get_tree().has_group("RangeDisplay"):
 		for aRange in data["range"]:
@@ -84,16 +72,20 @@ func _range_display() -> void:
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
 					var attackRange = RANGE.instantiate()
-					attackRange.set_position(targetPos + Vector2(64, 64))
+					attackRange.set_position(targetPos)
 					attackRange.add_to_group("RangeDisplay")
 					get_parent().add_child(attackRange)
 
 func _select_node() -> void:
-	if not has_node("../Selected"):
+	if not get_tree().has_group("ActiveSelected"):
 		var selected = SELECTED.instantiate()
 		selected.add_to_group("ActiveSelected")
 		get_parent().add_child(selected)
-		
+					
+func set_data(pData : Dictionary) -> void:
+	data = pData
+	texture_normal = load(data["image"])
+	
 func get_data() -> Dictionary:
 	return data
 		

@@ -4,9 +4,11 @@ extends Node
 
 var LEVELSELECT = preload("res://scene/level_select.tscn")
 
+var infoContentPath = "res://scripts/GameInfoContent.json"
 var levelListPath = "res://scripts/LevelList.json"
 var unitListPath = "res://scripts/UnitList.json"
 var shopListPath = "res://scripts/ShopContentList.json"
+var gameInfoData = {}
 var levelData = {}
 var deckData = []
 var usedDeckData = []
@@ -37,9 +39,19 @@ func _load_json_file(filePath : String) -> Dictionary:
 	return {}
 		
 func _load_all_data() -> void:
+	gameInfoData = _load_json_file(infoContentPath)
 	levelData = _load_json_file(levelListPath)
 	unitDataTemplate = _load_json_file(unitListPath)
 	shopDataTemplate = _load_json_file(shopListPath)
+	
+func _set_current_scene() -> void:
+	if currentScene:
+		currentScene.queue_free()
+	currentScene = newScene
+	add_child(newScene)
+	
+func get_game_info() -> Dictionary:
+	return gameInfoData
 	
 func get_level_data() -> Dictionary:
 	return levelData
@@ -54,16 +66,13 @@ func get_deck_data() -> Array:
 	return deckData
 	
 func get_current_level_starting_items() -> Dictionary:
-	return currentLevel["starting-items"]
+	return currentLevel["starting-items"].duplicate(true)
 	
 func get_used_deck_data() -> Array:
 	return usedDeckData
 	
-func _set_current_scene() -> void:
-	if currentScene:
-		currentScene.queue_free()
-	currentScene = newScene
-	add_child(newScene)
+func get_played() -> bool:
+	return currentLevel["played"]
 	
 func select_level(pData : Dictionary) -> void:
 	currentLevel = pData
@@ -88,6 +97,7 @@ func complete_level(pData : Dictionary, success : bool) -> void:
 	
 	deckData.append(newDeck)
 	
+	currentLevel["played"] = true
 	if success:
 		for unlock in currentLevel["completion-unlock"]:
 			levelData[unlock]["locked"] = false

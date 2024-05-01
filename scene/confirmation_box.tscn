@@ -4,7 +4,7 @@
 
 [node name="ConfirmationBox" type="ConfirmationDialog"]
 title = ""
-initial_position = 2
+exclusive = false
 ok_button_text = "Yes"
 cancel_button_text = "No"
 script = ExtResource("1_trg1h")

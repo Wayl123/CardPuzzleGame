@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr4gf4lvcf13c"]
+[gd_scene load_steps=6 format=3 uid="uid://dpkr0j1wvxolb"]
 
+[ext_resource type="Script" path="res://scripts/LevelTutorial.gd" id="1_rkxuw"]
 [ext_resource type="Script" path="res://scripts/MapEvent.gd" id="3_oli2s"]
 [ext_resource type="PackedScene" uid="uid://xn2pp04vux2u" path="res://scene/grid_node.tscn" id="4_amhv0"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_n20ai"]
 [ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="9_yy8cc"]
 
-[node name="TutorialMap" type="Node2D"]
+[node name="TutorialMap" type="Node2D" groups=["TutorialMap"]]
+script = ExtResource("1_rkxuw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("9_yy8cc")]
 

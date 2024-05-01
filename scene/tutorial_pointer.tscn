@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbxqvhymsi5lj"]
+
+[ext_resource type="Script" path="res://scripts/TutorialPointer.gd" id="1_73u7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo4lu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="TutorialPointer" type="Panel" groups=["TutorialPointer"]]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lo4lu")
+script = ExtResource("1_73u7j")

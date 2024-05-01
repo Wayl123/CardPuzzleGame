@@ -11,15 +11,6 @@ var DECKSIZE = Vector2(16, 16)
 var data = {}
 var deckSlot = []
 
-func set_level(pData : Dictionary) -> void:
-	data = pData
-	
-	set_texture_normal(load(data["image"]))
-	set_disabled(data["locked"])
-	
-	if not is_disabled():
-		_init_deck_slots()
-
 func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	
@@ -72,6 +63,15 @@ func _drop_data(_pos : Vector2, dataIn : Variant) -> void:
 func _update_deck_data() -> void:
 	for deckIndex in deckSlot.size():
 		get_child(deckIndex).update_data(deckSlot[deckIndex])
+		
+func set_level(pData : Dictionary) -> void:
+	data = pData
+	
+	set_texture_normal(load(data["image"]))
+	set_disabled(data["locked"])
+	
+	if not is_disabled():
+		_init_deck_slots()
 		
 func remove_deck(pNode : Node) -> void:
 	if pNode.get_index() + 1 <= deckSlot.size():

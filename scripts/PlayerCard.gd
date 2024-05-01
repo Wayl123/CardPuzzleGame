@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Panel
 
 @onready var infoName = %Name
 @onready var infoImage = %CardImage
@@ -10,9 +10,6 @@ var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var PLAYER = preload("res://scene/player.tscn")
 
 var data = {}
-
-func set_data(pData : Dictionary) -> void:
-	data = pData
 
 func _ready() -> void:
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
@@ -52,6 +49,9 @@ func _data_init() -> void:
 	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
 	infoAttack.set_text(str("Attack: ", data["attack"]))
 	infoEffect.set_text("Effect Placeholder")
+	
+func set_data(pData : Dictionary) -> void:
+	data = pData
 	
 func get_deck(success : bool) -> Array:
 	var deckCards = []

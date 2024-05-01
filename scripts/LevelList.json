@@ -1,24 +1,26 @@
 {
 	"0": {
 		"name": "Tutorial",
-		"scene": "res://scene/test_map.tscn",
+		"scene": "res://scene/tutorial_map.tscn",
 		"image": "res://image/level_select/level_preview/level0.png",
 		"locked": false,
 		"completion-unlock": ["1"],
 		"deck-slot": 0,
 		"starting-items": {
 			"gold": 10
-		}
+		},
+		"played": false
 	},
 	"1": {
 		"name": "Level1",
-		"scene": "res://scene/test_map.tscn",
+		"scene": "res://scene/tutorial_map.tscn",
 		"image": "res://image/level_select/level_preview/level0.png",
 		"locked": true,
 		"completion-unlock": [],
 		"deck-slot": 2,
 		"starting-items": {
 			"gold": 10
-		}
+		},
+		"played": false
 	}
 }

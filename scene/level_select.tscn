@@ -7,7 +7,7 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DeckHand" parent="CanvasLayer" instance=ExtResource("1_iuxns")]
+[node name="DeckUI" parent="CanvasLayer" instance=ExtResource("1_iuxns")]
 
 [node name="Levels" type="Control" parent="."]
 layout_mode = 3
@@ -23,5 +23,3 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 alignment = 1
 script = ExtResource("1_77a0h")
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]

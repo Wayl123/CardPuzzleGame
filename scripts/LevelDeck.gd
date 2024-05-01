@@ -1,6 +1,6 @@
 extends "res://scripts/Deck.gd"
 
-func _ready():
+func _ready() -> void:
 	super()
 	
 	connect("pressed", Callable(self, "_on_button_pressed"))

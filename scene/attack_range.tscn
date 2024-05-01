@@ -1,8 +1,19 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnqg3rb41f1q"]
 
-[ext_resource type="Texture2D" uid="uid://copymfiuetuwc" path="res://image/card_info/active_attack_range.png" id="1_k1ajd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d7tf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0, 0, 1)
 
-[node name="Range" type="Sprite2D"]
+[node name="Range" type="Panel"]
 z_index = 1
-position = Vector2(64, 64)
-texture = ExtResource("1_k1ajd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7d7tf")

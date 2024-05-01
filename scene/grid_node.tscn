@@ -1,14 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://xn2pp04vux2u"]
 
-[ext_resource type="Texture2D" uid="uid://ciqusrw8mh7o7" path="res://image/map/empty_grid.png" id="1_5fba0"]
 [ext_resource type="Script" path="res://scripts/GridNodeType.gd" id="2_u4ncj"]
 [ext_resource type="Script" path="res://scripts/GridContent.gd" id="2_wdfxh"]
 
-[node name="GridNode" type="TextureRect"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qou8n"]
+bg_color = Color(0.247059, 0.247059, 0.247059, 0.498039)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.247059)
+
+[node name="GridNode" type="Panel"]
 custom_minimum_size = Vector2(128, 128)
 offset_right = 128.0
 offset_bottom = 128.0
-texture = ExtResource("1_5fba0")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qou8n")
 script = ExtResource("2_u4ncj")
 metadata/_edit_use_anchors_ = true
 

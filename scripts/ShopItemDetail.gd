@@ -5,10 +5,8 @@ extends HBoxContainer
 @onready var infoHealth = %Health
 @onready var infoAttack = %Attack
 @onready var infoRange = %Range
-@onready var infoTurnEffect = %TurnEffect
 @onready var infoDeathEffect = %DeathEffect
 @onready var infoVictoryEffect = %VictoryEffect
-@onready var infoUnusedEffect = %UnusedEffect
 @onready var infoCost = %Cost
 @onready var infoImage = %ItemImage
 
@@ -21,9 +19,7 @@ func set_detail(pData : Dictionary) -> void:
 	infoDescription.set_text("Description placeholder")
 	infoHealth.set_text(str("Health: ", data["max-health"]))
 	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoRange.set_text("Range placeholder (not sure how to do this yet)")
-	infoDeathEffect.set_text("Death effect placeholder (think maybe I need to add descriptor into the json file?)")
-	infoVictoryEffect.set_text("Victory effect placeholder")
+	infoRange.set_text(str("Range: ", data["range-desc"]))
 	infoCost.set_text(str("Cost: ", data["cost"]))
 	infoImage.set_texture(load(data["image"]))
 	

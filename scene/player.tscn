@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vaq0c"]
 
 [node name="Player" type="TextureButton"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 128.0
+offset_bottom = 128.0
 mouse_filter = 1
 script = ExtResource("1_vaq0c")
