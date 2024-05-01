@@ -19,8 +19,8 @@
 	},
 	"5": {
 		"type": "action",
-		"text": "Click on a unit on the shop.",
-		"pointers": ["Popup/ShopMenu/ShopItems"]
+		"text": "Click on the first unit unit on the shop.",
+		"pointers": ["Popup/ShopMenu/ShopItems/RowContainer/ItemSlot"]
 	},
 	"6": {
 		"type": "pointer",
