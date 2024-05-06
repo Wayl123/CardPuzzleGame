@@ -28,6 +28,7 @@ func _ready() -> void:
 	
 	if not data:
 		data = globalData.get_unit_data_copy(unit_id)
+		data["rotation"] = 0
 		set_texture_normal(load(data["image"]))
 		
 func _on_button_pressed() -> void:
@@ -35,7 +36,7 @@ func _on_button_pressed() -> void:
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.set_data(data)
-	infoBox.set_global_position(get_global_position() + Vector2(2, 0) * 128)
+	infoBox.set_global_position(get_parent().get_global_position() + Vector2(2, 0) * 128)
 	infoBox.add_to_group("ActiveInfoBox")
 	
 	popup.add_child(infoBox)
@@ -68,7 +69,7 @@ func _range_display() -> void:
 	if not get_tree().has_group("RangeDisplay"):
 		for aRange in data["range"]:
 			var targetPos = Vector2(aRange[0], aRange[1]) * 128
-			var targetGlobalPos = get_global_position() + targetPos
+			var targetGlobalPos = get_parent().get_global_position() + targetPos
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
 				if targetNode.get_global_position() == targetGlobalPos:
 					var attackRange = RANGE.instantiate()
@@ -84,6 +85,7 @@ func _select_node() -> void:
 					
 func set_data(pData : Dictionary) -> void:
 	data = pData
+	rotation_degrees = data["rotation"]
 	texture_normal = load(data["image"])
 	
 func get_data() -> Dictionary:
@@ -92,7 +94,7 @@ func get_data() -> Dictionary:
 func take_damage(pDmg : float) -> void:
 	if data["health"] > 0:
 		var damageNumber = DAMAGENUMBER.instantiate()
-		var spawnPosition = get_global_position()
+		var spawnPosition = get_parent().get_global_position()
 		spawnPosition.x += 64
 		spawnPosition.y += 64
 		popup.add_child(damageNumber)

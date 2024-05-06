@@ -10,10 +10,24 @@ func _ready() -> void:
 	
 func _process(delta : float) -> void:
 	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and not get_parent().is_disabled():
-		if Input.is_action_just_pressed("RotateRight"):
-			set_rotation_degrees(fmod(get_rotation_degrees() + 90, 360))
-		if Input.is_action_just_pressed("RotateLeft"):
-			set_rotation_degrees(fmod(get_rotation_degrees() - 90, 360))
+		if Input.is_action_just_pressed("RotateRight") or Input.is_action_just_pressed("RotateLeft"):
+			if Input.is_action_just_pressed("RotateRight"):
+				data["rotation"] = fmod(get_rotation_degrees() + 90, 360)
+				set_rotation_degrees(data["rotation"])
+				for rangeIndex in data["range"].size():
+					var aRange = data["range"][rangeIndex]
+					data["range"][rangeIndex] = [-aRange[1], aRange[0]]
+			else:
+				data["rotation"] = fmod(get_rotation_degrees() - 90, 360)
+				set_rotation_degrees(data["rotation"])
+				for rangeIndex in data["range"].size():
+					var aRange = data["range"][rangeIndex]
+					data["range"][rangeIndex] = [aRange[1], -aRange[0]]
+			if get_tree().has_group("RangeDisplay"):
+				for rangeNode in get_tree().get_nodes_in_group("RangeDisplay"):
+					rangeNode.queue_free()
+			await get_tree().create_timer(0.1).timeout
+			_range_display()
 		
 func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}

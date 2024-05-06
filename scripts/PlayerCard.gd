@@ -52,6 +52,14 @@ func _data_init() -> void:
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData
+	if data.has("rotation"):
+		while abs(data["rotation"]) > 0.000001:
+			data["rotation"] = fmod(data["rotation"] + 90, 360)
+			for rangeIndex in data["range"].size():
+				var aRange = data["range"][rangeIndex]
+				data["range"][rangeIndex] = [-aRange[1], aRange[0]]
+	else:
+		data["rotation"] = 0
 	
 func get_deck(success : bool) -> Array:
 	var deckCards = []
