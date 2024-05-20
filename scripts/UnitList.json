@@ -20,6 +20,7 @@
 		"range": [[-1, -1], [0, -1], [1, -1]],
 		"range-desc": "Slash three space, one space in front and both front diagonal",
 		"cost": 5,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-1"
 		},
@@ -45,6 +46,7 @@
 		"range": [[0, -2]],
 		"range-desc": "Shoot one space, two spaces in front",
 		"cost": 3,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-1"
 		},
@@ -63,13 +65,14 @@
 	},
 	"P4-1": {
 		"name": "building1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/basic_building1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
 		"cost": 5,
+		"rotatable": false,
 		"on-death": {
 			"becomes": "P6-2"
 		},
@@ -81,7 +84,14 @@
 		},
 		"on-completion": {
 			"victory": 5,
-			"gives": ["P7-3"]
+			"deck": ["P7-3"]
+		},
+		"on-hand-completion": {
+			"victory": 10,
+			"deck": ["P4-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-2"]
 		}
 	},
 	"P5-1": {
@@ -92,11 +102,18 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
+		"on-victory": {
+			"supply": 5
+		},
 		"on-death": {
 			"becomes": "P6-2"
 		},
 		"on-completion": {
 			"deck": ["P7-1"]
+		},
+		"on-fail": {
+			"deck": ["P9-1"]
 		}
 	},
 	"P5-2": {
@@ -107,11 +124,18 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
+		"on-victory": {
+			"supply": 3
+		},
 		"on-death": {
 			"becomes": "P6-2"
 		},
 		"on-completion": {
 			"deck": ["P7-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-1"]
 		}
 	},
 	"P6-1": {
@@ -122,7 +146,11 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-1"]
+		},
+		"on-fail": {
 			"deck": ["P8-1"]
 		}
 	},
@@ -134,7 +162,11 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-2"]
+		},
+		"on-fail": {
 			"deck": ["P8-2"]
 		}
 	},
@@ -146,7 +178,11 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-3"]
+		},
+		"on-fail": {
 			"deck": ["P8-3"]
 		}
 	},
@@ -158,7 +194,11 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-4"]
+		},
+		"on-fail": {
 			"deck": ["P8-4"]
 		}
 	},
@@ -171,6 +211,7 @@
 		"range": [[-1, -1], [0, -1], [1, -1]],
 		"range-desc": "Slash three space, one space in front and both front diagonal",
 		"upgrades": 0,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-3"
 		},
@@ -190,6 +231,7 @@
 		"range": [[0, -2]],
 		"range-desc": "Shoot one space, two spaces in front",
 		"upgrades": 0,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-3"
 		},
@@ -208,6 +250,7 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-death": {
 			"becomes": "P6-4"
 		},
@@ -224,10 +267,14 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-all-kill": {
 			"soul": 1
 		},
 		"on-completion": {
+			"deck": ["P8-1"]
+		},
+		"on-fail": {
 			"deck": ["P8-1"]
 		}
 	},
@@ -239,10 +286,14 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-victory": {
 			"scrap": 1
 		},
 		"on-completion": {
+			"deck": ["P8-2"]
+		},
+		"on-fail": {
 			"deck": ["P8-2"]
 		}
 	},
@@ -254,6 +305,7 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": true,
 		"on-victory": {
 			"honour": 1
 		},
@@ -261,6 +313,9 @@
 			"soul": 1
 		},
 		"on-completion": {
+			"deck": ["P8-3"]
+		},
+		"on-fail": {
 			"deck": ["P8-3"]
 		}
 	},
@@ -272,11 +327,15 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-victory": {
 			"supply": 2,
 			"scrap": 1
 		},
 		"on-completion": {
+			"deck": ["P8-4"]
+		},
+		"on-fail": {
 			"deck": ["P8-4"]
 		}
 	},
@@ -288,7 +347,11 @@
 		"attack": 1,
 		"range": [0, -1],
 		"range-desc": "Slash one space, one space in front",
+		"rotatable": true,
 		"on-completion": {
+			"deck": ["P9-1"]
+		},
+		"on-fail": {
 			"deck": ["P9-1"]
 		}
 	},
@@ -300,8 +363,12 @@
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
-			"deck": ["P9-1"]
+			"deck": ["P9-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-2"]
 		}
 	}
 }
