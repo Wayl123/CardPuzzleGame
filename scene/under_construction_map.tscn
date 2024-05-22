@@ -1,0 +1,235 @@
+[gd_scene load_steps=5 format=3 uid="uid://np0o7ole11kq"]
+
+[ext_resource type="PackedScene" uid="uid://ba4yefjlvt6nk" path="res://scene/player_ui.tscn" id="1_omtk2"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_unpvo"]
+[ext_resource type="Script" path="res://scripts/MapEvent.gd" id="3_f82t8"]
+[ext_resource type="PackedScene" uid="uid://xn2pp04vux2u" path="res://scene/grid_node.tscn" id="4_jequi"]
+
+[node name="UnderConstructionMap" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("1_omtk2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 320)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("2_unpvo")
+
+[node name="MapGrid" type="Control" parent="." groups=["ActiveMap"]]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+script = ExtResource("3_f82t8")
+
+[node name="GridNode1" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 0
+nodeType = "boulder"
+
+[node name="GridNode2" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+nodeType = "boulder"
+
+[node name="GridNode3" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_right = 2.0
+nodeType = "boulder"
+
+[node name="GridNode4" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_right = 3.0
+nodeType = "boulder"
+
+[node name="GridNode5" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_right = 4.0
+nodeType = "boulder"
+
+[node name="GridNode6" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+nodeType = "boulder"
+
+[node name="GridNode7" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="GridNode8" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 1.0
+anchor_right = 2.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="MapGrid/GridNode8"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Under Construction"
+autowrap_mode = 2
+
+[node name="GridNode9" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 1.0
+anchor_right = 3.0
+anchor_bottom = 1.0
+
+[node name="GridNode10" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 1.0
+anchor_right = 4.0
+anchor_bottom = 1.0
+nodeType = "boulder"
+
+[node name="GridNode11" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 2.0
+anchor_bottom = 2.0
+nodeType = "boulder"
+
+[node name="GridNode12" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 2.0
+anchor_right = 1.0
+anchor_bottom = 2.0
+
+[node name="GridNode13" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 2.0
+anchor_right = 2.0
+anchor_bottom = 2.0
+
+[node name="GridNode14" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 2.0
+anchor_right = 3.0
+anchor_bottom = 2.0
+
+[node name="GridNode15" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 2.0
+anchor_right = 4.0
+anchor_bottom = 2.0
+nodeType = "boulder"
+
+[node name="GridNode16" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0078125
+anchor_top = 3.0
+anchor_right = 0.0078125
+anchor_bottom = 3.0
+nodeType = "boulder"
+
+[node name="GridNode17" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 3.0
+anchor_right = 1.0
+anchor_bottom = 3.0
+
+[node name="GridNode18" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 3.0
+anchor_right = 2.0
+anchor_bottom = 3.0
+
+[node name="GridNode19" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 3.0
+anchor_right = 3.0
+anchor_bottom = 3.0
+
+[node name="GridNode20" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 3.0
+anchor_right = 4.0
+anchor_bottom = 3.0
+nodeType = "boulder"
+
+[node name="GridNode21" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.0
+anchor_bottom = 4.0
+nodeType = "boulder"
+
+[node name="GridNode22" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 4.0
+anchor_right = 1.0
+anchor_bottom = 4.0
+nodeType = "boulder"
+
+[node name="GridNode23" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.0
+anchor_top = 4.0
+anchor_right = 2.0
+anchor_bottom = 4.0
+nodeType = "boulder"
+
+[node name="GridNode24" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.0
+anchor_top = 4.0
+anchor_right = 3.0
+anchor_bottom = 4.0
+nodeType = "boulder"
+
+[node name="GridNode25" parent="MapGrid" instance=ExtResource("4_jequi")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.0
+anchor_top = 4.0
+anchor_right = 4.0
+anchor_bottom = 4.0
+nodeType = "boulder"
+
+[node name="Popup" type="Node2D" parent="." groups=["Popup"]]
+z_index = 2
+z_as_relative = false

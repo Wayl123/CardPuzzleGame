@@ -20,6 +20,7 @@
 		"range": [[-1, -1], [0, -1], [1, -1]],
 		"range-desc": "Slash three space, one space in front and both front diagonal",
 		"cost": 5,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-1"
 		},
@@ -45,6 +46,7 @@
 		"range": [[0, -2]],
 		"range-desc": "Shoot one space, two spaces in front",
 		"cost": 3,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-1"
 		},
@@ -63,13 +65,14 @@
 	},
 	"P4-1": {
 		"name": "building1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/basic_building1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
 		"cost": 5,
+		"rotatable": false,
 		"on-death": {
 			"becomes": "P6-2"
 		},
@@ -81,96 +84,134 @@
 		},
 		"on-completion": {
 			"victory": 5,
-			"gives": ["P7-3"]
+			"deck": ["P7-3"]
+		},
+		"on-hand-completion": {
+			"victory": 10,
+			"deck": ["P4-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-2"]
 		}
 	},
 	"P5-1": {
-		"name": "camp1",
-		"image": "res://image/player/tank_player1.png",
+		"name": "tankCamp1",
+		"image": "res://image/player/camp_tank_player1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
+		"on-victory": {
+			"supply": 5
+		},
 		"on-death": {
 			"becomes": "P6-2"
 		},
 		"on-completion": {
 			"deck": ["P7-1"]
+		},
+		"on-fail": {
+			"deck": ["P9-1"]
 		}
 	},
 	"P5-2": {
-		"name": "camp2",
-		"image": "res://image/player/tank_player1.png",
+		"name": "rangeCamp1",
+		"image": "res://image/player/camp_range_player1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
+		"on-victory": {
+			"supply": 3
+		},
 		"on-death": {
 			"becomes": "P6-2"
 		},
 		"on-completion": {
 			"deck": ["P7-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-1"]
 		}
 	},
 	"P6-1": {
 		"name": "grave1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/grave1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-1"]
+		},
+		"on-fail": {
 			"deck": ["P8-1"]
 		}
 	},
 	"P6-2": {
 		"name": "destroyed1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/destroyed.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-2"]
+		},
+		"on-fail": {
 			"deck": ["P8-2"]
 		}
 	},
 	"P6-3": {
-		"name": "grave2",
-		"image": "res://image/player/tank_player1.png",
+		"name": "graveVet1",
+		"image": "res://image/player/vet_grave1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-3"]
+		},
+		"on-fail": {
 			"deck": ["P8-3"]
 		}
 	},
 	"P6-4": {
-		"name": "destroyed2",
-		"image": "res://image/player/tank_player1.png",
+		"name": "destroyedStruct1",
+		"image": "res://image/player/destroyed.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
+			"deck": ["P8-4"]
+		},
+		"on-fail": {
 			"deck": ["P8-4"]
 		}
 	},
 	"P7-1": {
 		"name": "tankVet1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/vet_tank_player1.png",
 		"max-health": 15,
 		"health": 15,
 		"attack": 1,
 		"range": [[-1, -1], [0, -1], [1, -1]],
 		"range-desc": "Slash three space, one space in front and both front diagonal",
 		"upgrades": 0,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-3"
 		},
@@ -183,13 +224,14 @@
 	},
 	"P7-2": {
 		"name": "rangeVet1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/vet_range_player1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 2,
 		"range": [[0, -2]],
 		"range-desc": "Shoot one space, two spaces in front",
 		"upgrades": 0,
+		"rotatable": true,
 		"on-death": {
 			"becomes": "P6-3"
 		},
@@ -202,12 +244,13 @@
 	},
 	"P7-3": {
 		"name": "structure1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/structure_building1.png",
 		"max-health": 5,
 		"health": 5,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-death": {
 			"becomes": "P6-4"
 		},
@@ -218,42 +261,51 @@
 	},
 	"P8-1": {
 		"name": "ghost1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/ghost1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-all-kill": {
 			"soul": 1
 		},
 		"on-completion": {
 			"deck": ["P8-1"]
+		},
+		"on-fail": {
+			"deck": ["P8-1"]
 		}
 	},
 	"P8-2": {
 		"name": "wreckage1",
-		"image": "res://image/player/tank_player1.png",
+		"image": "res://image/player/wreckage1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-victory": {
 			"scrap": 1
 		},
 		"on-completion": {
 			"deck": ["P8-2"]
+		},
+		"on-fail": {
+			"deck": ["P8-2"]
 		}
 	},
 	"P8-3": {
-		"name": "ghost2",
-		"image": "res://image/player/tank_player1.png",
+		"name": "ghostVet1",
+		"image": "res://image/player/vet_ghost1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": true,
 		"on-victory": {
 			"honour": 1
 		},
@@ -262,46 +314,61 @@
 		},
 		"on-completion": {
 			"deck": ["P8-3"]
+		},
+		"on-fail": {
+			"deck": ["P8-3"]
 		}
 	},
 	"P8-4": {
-		"name": "wreckage2",
-		"image": "res://image/player/tank_player1.png",
+		"name": "wreckageStruct1",
+		"image": "res://image/player/struct_wreckage1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-victory": {
 			"supply": 2,
 			"scrap": 1
 		},
 		"on-completion": {
 			"deck": ["P8-4"]
+		},
+		"on-fail": {
+			"deck": ["P8-4"]
 		}
 	},
 	"P9-1": {
-		"name": "conscript",
-		"image": "res://image/player/tank_player1.png",
+		"name": "conscript1",
+		"image": "res://image/player/conscript1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 1,
 		"range": [0, -1],
 		"range-desc": "Slash one space, one space in front",
+		"rotatable": true,
 		"on-completion": {
+			"deck": ["P9-1"]
+		},
+		"on-fail": {
 			"deck": ["P9-1"]
 		}
 	},
 	"P9-2": {
-		"name": "housing",
-		"image": "res://image/player/tank_player1.png",
+		"name": "housing1",
+		"image": "res://image/player/housing1.png",
 		"max-health": -1,
 		"health": -1,
 		"attack": 0,
 		"range": [],
 		"range-desc": "None",
+		"rotatable": false,
 		"on-completion": {
-			"deck": ["P9-1"]
+			"deck": ["P9-2"]
+		},
+		"on-fail": {
+			"deck": ["P9-2"]
 		}
 	}
 }

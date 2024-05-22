@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw5akhv1ds70a"]
+[gd_scene load_steps=5 format=3 uid="uid://cw5akhv1ds70a"]
 
 [ext_resource type="Script" path="res://scripts/ShopMenu.gd" id="2_8wn64"]
-[ext_resource type="Texture2D" uid="uid://byu7bwy1ihagj" path="res://image/enemies/basic_enemy1.png" id="3_f5mrw"]
 [ext_resource type="Script" path="res://scripts/ShopItemDetail.gd" id="3_tqqgs"]
 [ext_resource type="Script" path="res://scripts/BuyItem.gd" id="4_ye00d"]
 
@@ -154,4 +153,3 @@ script = ExtResource("4_ye00d")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("3_f5mrw")
