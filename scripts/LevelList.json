@@ -13,8 +13,8 @@
 	},
 	"1": {
 		"name": "Level1",
-		"scene": "res://scene/tutorial_map.tscn",
-		"image": "res://image/level_select/level_preview/level0.png",
+		"scene": "res://scene/under_construction_map.tscn",
+		"image": "res://image/level_select/level_preview/levelWIP.png",
 		"locked": true,
 		"completion-unlock": [],
 		"deck-slot": 2,
