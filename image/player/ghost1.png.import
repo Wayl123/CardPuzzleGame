@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl4ganpcl5ef3"
-path="res://.godot/imported/UnitFlowChart_v0.0.1.png-d20e64a5baa5382b946e52b1fc93d703.ctex"
+uid="uid://doxf0k06pxm0b"
+path="res://.godot/imported/ghost1.png-ca5f7ecfe720d30347902594baaa0019.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image/UnitFlowChart_v0.0.1.png"
-dest_files=["res://.godot/imported/UnitFlowChart_v0.0.1.png-d20e64a5baa5382b946e52b1fc93d703.ctex"]
+source_file="res://image/player/ghost1.png"
+dest_files=["res://.godot/imported/ghost1.png-ca5f7ecfe720d30347902594baaa0019.ctex"]
 
 [params]
 

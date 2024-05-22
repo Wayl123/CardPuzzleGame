@@ -35,7 +35,7 @@ func _set_node() -> void:
 			
 	if fogGroup:
 		content.set_disabled(true)
-		content.set_texture_normal(load("res://image/fog.png"))
+		content.set_texture_normal(load("res://image/map/fog.png"))
 		content.add_to_group(fogGroup)
 		content.remove_from_group("TargetableNode")
 		for fogCovered in content.get_children():
