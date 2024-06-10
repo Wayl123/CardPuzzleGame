@@ -18,7 +18,7 @@
 		"health": 10,
 		"attack": 1,
 		"range": [[-1, -1], [0, -1], [1, -1]],
-		"range-desc": "Slash three space, one space in front and both front diagonal",
+		"range-desc": "Slash three spaces, one space in front and both front diagonal",
 		"cost": 5,
 		"rotatable": true,
 		"on-death": {
@@ -35,7 +35,28 @@
 		},
 		"on-fail": {
 			"deck": ["P9-1"]
-		}
+		},
+		"on-death-desc": "Becomes grave1",
+		"on-victory-desc": "Becomes tankCamp1",
+		"on-completion-desc": "Decks tankVet1",
+		"on-hand-completion-desc": "Decks tank2",
+		"on-fail-desc": "Decks conscript1"
+	},
+	"P1-2": {
+		"name": "tank2",
+		"image": "res://image/player/tank_player1.png",
+		"max-health": 15,
+		"health": 15,
+		"attack": 1,
+		"range": [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0]],
+		"range-desc": "Slash five spaces, one space in front, both front diagonal and both side",
+		"cost": 15,
+		"rotatable": true,
+		"on-death-desc": "TBD",
+		"on-victory-desc": "TBD",
+		"on-completion-desc": "TBD",
+		"on-hand-completion-desc": "TBD",
+		"on-fail-desc": "TBD"
 	},
 	"P2-1": {
 		"name": "range1",
@@ -61,7 +82,28 @@
 		},
 		"on-fail": {
 			"deck": ["P9-1"]
-		}
+		},
+		"on-death-desc": "Becomes grave1",
+		"on-victory-desc": "Becomes rangeCamp1",
+		"on-completion-desc": "Decks rangeVet1",
+		"on-hand-completion-desc": "Decks range2",
+		"on-fail-desc": "Decks conscript1"
+	},
+	"P2-2": {
+		"name": "range2",
+		"image": "res://image/player/range_player1.png",
+		"max-health": 3,
+		"health": 3,
+		"attack": 2,
+		"range": [[-1, -2], [1, -2]],
+		"range-desc": "Shoot two spaces, the front diagonal 2 space forward 1 space to the side",
+		"cost": 10,
+		"rotatable": true,
+		"on-death-desc": "TBD",
+		"on-victory-desc": "TBD",
+		"on-completion-desc": "TBD",
+		"on-hand-completion-desc": "TBD",
+		"on-fail-desc": "TBD"
 	},
 	"P4-1": {
 		"name": "building1",
@@ -92,7 +134,28 @@
 		},
 		"on-fail": {
 			"deck": ["P9-2"]
-		}
+		},
+		"on-death-desc": "Becomes destroyed1",
+		"on-victory-desc": "Gain 10 coins",
+		"on-completion-desc": "Gain 5 victory points, Decks structure1",
+		"on-hand-completion-desc": "Gain 10 victory points, Decks building2",
+		"on-fail-desc": "Decks housing1",
+	},
+	"P4-2": {
+		"name": "building2",
+		"image": "res://image/player/basic_building1.png",
+		"max-health": 8,
+		"health": 8,
+		"attack": 0,
+		"range": [],
+		"range-desc": "None",
+		"cost": 20,
+		"rotatable": false,
+		"on-death-desc": "TBD",
+		"on-victory-desc": "TBD",
+		"on-completion-desc": "TBD",
+		"on-hand-completion-desc": "TBD",
+		"on-fail-desc": "TBD"
 	},
 	"P5-1": {
 		"name": "tankCamp1",
@@ -114,7 +177,11 @@
 		},
 		"on-fail": {
 			"deck": ["P9-1"]
-		}
+		},
+		"on-death-desc": "Becomes destroyed1",
+		"on-victory-desc": "Gain 5 supply",
+		"on-completion-desc": "Decks tankVet1",
+		"on-fail-desc": "Decks conscript1"
 	},
 	"P5-2": {
 		"name": "rangeCamp1",
@@ -136,7 +203,11 @@
 		},
 		"on-fail": {
 			"deck": ["P9-1"]
-		}
+		},
+		"on-death-desc": "Becomes destroyed1",
+		"on-victory-desc": "Gain 3 supply",
+		"on-completion-desc": "Decks rangeVet1",
+		"on-fail-desc": "Decks conscript1"
 	},
 	"P6-1": {
 		"name": "grave1",
@@ -152,7 +223,9 @@
 		},
 		"on-fail": {
 			"deck": ["P8-1"]
-		}
+		},
+		"on-completion-desc": "Decks ghost1",
+		"on-fail-desc": "Decks ghost1"
 	},
 	"P6-2": {
 		"name": "destroyed1",
@@ -168,7 +241,9 @@
 		},
 		"on-fail": {
 			"deck": ["P8-2"]
-		}
+		},
+		"on-completion-desc": "Decks wreckage1",
+		"on-fail-desc": "Decks wreckage1"
 	},
 	"P6-3": {
 		"name": "graveVet1",
@@ -184,7 +259,9 @@
 		},
 		"on-fail": {
 			"deck": ["P8-3"]
-		}
+		},
+		"on-completion-desc": "Decks ghostVet1",
+		"on-fail-desc": "Decks ghostVet1"
 	},
 	"P6-4": {
 		"name": "destroyedStruct1",
@@ -200,13 +277,15 @@
 		},
 		"on-fail": {
 			"deck": ["P8-4"]
-		}
+		},
+		"on-completion-desc": "Decks wreckageStruct1",
+		"on-fail-desc": "Decks wreckageStruct1"
 	},
 	"P7-1": {
 		"name": "tankVet1",
 		"image": "res://image/player/vet_tank_player1.png",
-		"max-health": 15,
-		"health": 15,
+		"max-health": 20,
+		"health": 20,
 		"attack": 1,
 		"range": [[-1, -1], [0, -1], [1, -1]],
 		"range-desc": "Slash three space, one space in front and both front diagonal",
@@ -220,14 +299,20 @@
 		},
 		"on-all-kill": {
 			"honour": 1
-		}
+		},
+		"on-death-desc": "Becomes graveVet1",
+		"on-victory-desc": "Gain 5 honour points",
+		"on-all-kill-desc": "Gain 1 honour point",
+		"on-completion-desc": "TBD",
+		"on-hand-completion-desc": "TBD",
+		"on-fail-desc": "TBD"
 	},
 	"P7-2": {
 		"name": "rangeVet1",
 		"image": "res://image/player/vet_range_player1.png",
 		"max-health": 5,
 		"health": 5,
-		"attack": 2,
+		"attack": 3,
 		"range": [[0, -2]],
 		"range-desc": "Shoot one space, two spaces in front",
 		"upgrades": 0,
@@ -236,11 +321,17 @@
 			"becomes": "P6-3"
 		},
 		"on-victory": {
-			"honour": 5
+			"honour": 3
 		},
 		"on-all-kill": {
 			"honour": 1
-		}
+		},
+		"on-death-desc": "Becomes graveVet1",
+		"on-victory-desc": "Gain 3 honour points",
+		"on-all-kill-desc": "Gain 1 honour point",
+		"on-completion-desc": "TBD",
+		"on-hand-completion-desc": "TBD",
+		"on-fail-desc": "TBD"
 	},
 	"P7-3": {
 		"name": "structure1",
@@ -257,7 +348,12 @@
 		"on-victory": {
 			"research": 5,
 			"supply": 5
-		}
+		},
+		"on-death-desc": "Becomes destroyedStruct1",
+		"on-victory-desc": "Gain 5 research points, Gain 5 supply",
+		"on-completion-desc": "TBD",
+		"on-hand-completion-desc": "TBD",
+		"on-fail-desc": "TBD"
 	},
 	"P8-1": {
 		"name": "ghost1",
@@ -276,7 +372,10 @@
 		},
 		"on-fail": {
 			"deck": ["P8-1"]
-		}
+		},
+		"on-all-kill-desc": "Gain 1 soul",
+		"on-completion-desc": "Decks ghost1",
+		"on-fail-desc": "Decks ghost1"
 	},
 	"P8-2": {
 		"name": "wreckage1",
@@ -295,7 +394,10 @@
 		},
 		"on-fail": {
 			"deck": ["P8-2"]
-		}
+		},
+		"on-victory-desc": "Gain 1 scrap",
+		"on-completion-desc": "Decks wreckage1",
+		"on-fail-desc": "Decks wreckage1"
 	},
 	"P8-3": {
 		"name": "ghostVet1",
@@ -317,7 +419,11 @@
 		},
 		"on-fail": {
 			"deck": ["P8-3"]
-		}
+		},
+		"on-victory-desc": "Gain 1 honour point",
+		"on-all-kill-desc": "Gain 1 soul",
+		"on-completion-desc": "Decks ghostVet1",
+		"on-fail-desc": "Decks ghostVet1"
 	},
 	"P8-4": {
 		"name": "wreckageStruct1",
@@ -337,7 +443,10 @@
 		},
 		"on-fail": {
 			"deck": ["P8-4"]
-		}
+		},
+		"on-victory-desc": "Gain 2 supply, Gain 1 scrap",
+		"on-completion-desc": "Decks wreckageStruct1",
+		"on-fail-desc": "Decks wreckageStruct1"
 	},
 	"P9-1": {
 		"name": "conscript1",
@@ -353,7 +462,9 @@
 		},
 		"on-fail": {
 			"deck": ["P9-1"]
-		}
+		},
+		"on-completion-desc": "Decks conscript1",
+		"on-fail-desc": "Decks conscript1"
 	},
 	"P9-2": {
 		"name": "housing1",
@@ -369,6 +480,8 @@
 		},
 		"on-fail": {
 			"deck": ["P9-2"]
-		}
+		},
+		"on-completion-desc": "Decks housing1",
+		"on-fail-desc": "Decks housing1"
 	}
 }
