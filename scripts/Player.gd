@@ -9,17 +9,17 @@ func _ready() -> void:
 	add_to_group("PlayerUnits")
 	
 func _process(delta : float) -> void:
-	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and not get_parent().is_disabled():
+	if Rect2(Vector2(), size).has_point(get_local_mouse_position()) and not get_parent().disabled:
 		if Input.is_action_just_pressed("RotateRight") or Input.is_action_just_pressed("RotateLeft"):
 			if Input.is_action_just_pressed("RotateRight"):
-				data["rotation"] = fmod(get_rotation_degrees() + 90, 360)
-				set_rotation_degrees(data["rotation"])
+				data["rotation"] = fmod(rotation_degrees + 90, 360)
+				rotation_degrees = data["rotation"]
 				for rangeIndex in data["range"].size():
 					var aRange = data["range"][rangeIndex]
 					data["range"][rangeIndex] = [-aRange[1], aRange[0]]
 			else:
-				data["rotation"] = fmod(get_rotation_degrees() - 90, 360)
-				set_rotation_degrees(data["rotation"])
+				data["rotation"] = fmod(rotation_degrees - 90, 360)
+				rotation_degrees = data["rotation"]
 				for rangeIndex in data["range"].size():
 					var aRange = data["range"][rangeIndex]
 					data["range"][rangeIndex] = [aRange[1], -aRange[0]]
@@ -32,20 +32,20 @@ func _process(delta : float) -> void:
 func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}
 	
-	if not get_parent().is_disabled():
+	if not get_parent().disabled:
 		dataOut["origin_node"] = get_parent()
 		dataOut["origin_child"] = self
 		dataOut["origin_data"] = data
 			
 		var dragPreview = DRAGPREVIEW.instantiate()
-		dragPreview.set_texture(load(data["image"]))
+		dragPreview.texture = load(data["image"])
 		add_child(dragPreview)
 	
 	return dataOut
 
 func lock_player() -> void:
 	if not has_node("../Locked"):
-		get_parent().set_disabled(true)
+		get_parent().disabled = true
 		var locked = LOCKED.instantiate()
 		get_parent().add_child(locked)
 		

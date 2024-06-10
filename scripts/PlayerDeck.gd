@@ -10,16 +10,16 @@ func _ready() -> void:
 	
 func _on_mouse_entered() -> void:
 	if not has_node("HoverDeckInfo"):
-		var deckPosition = get_global_position()
-		if deckPosition.y >= get_viewport().size.y - get_size().y + 128:
+		var deckPosition = global_position
+		if deckPosition.y >= get_viewport().size.y - size.y + 128:
 			deckPosition.y -= 128
-		set_global_position(deckPosition)
+		global_position = deckPosition
 			
 		var hoverDeckInfo = HOVERDECKINFO.instantiate()
 		
-		hoverDeckInfo.set_visible(false)
+		hoverDeckInfo.visible = false
 		hoverDeckInfo.set_text_content(data)
-		hoverDeckInfo.set_position(Vector2(get_size().x, 0))
+		hoverDeckInfo.position = Vector2(size.x, 0)
 		hoverDeckInfo.add_to_group("ActiveHoverDeckInfo")
 		
 		add_child(hoverDeckInfo)
@@ -27,10 +27,10 @@ func _on_mouse_entered() -> void:
 		await get_tree().create_timer(0.2).timeout
 		
 		if is_instance_valid(hoverDeckInfo):
-			hoverDeckInfo.set_visible(true)
+			hoverDeckInfo.visible = true
 	
 func _on_mouse_exited() -> void:
-	var deckPosition = get_global_position()
-	if deckPosition.y < get_viewport().size.y - get_size().y + 128:
+	var deckPosition = global_position
+	if deckPosition.y < get_viewport().size.y - size.y + 128:
 		deckPosition.y += 128
-	set_global_position(deckPosition)
+	global_position = deckPosition

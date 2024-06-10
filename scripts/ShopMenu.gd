@@ -27,7 +27,7 @@ func _process(delta : float) -> void:
 		
 func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion and drag_position != null:
-		set_global_position(get_global_mouse_position() - drag_position)
+		global_position = get_global_mouse_position() - drag_position
 		
 func _init_item_slots() -> void:
 	for i in 18:

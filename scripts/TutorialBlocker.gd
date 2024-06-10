@@ -9,4 +9,4 @@ func _on_viewport_size_changed() -> void:
 	_update_size()
 	
 func _update_size() -> void:
-	set_size(get_viewport().size)
+	size = get_viewport().size

@@ -9,11 +9,11 @@ func _on_menu_select(index : int) -> void:
 	match itemName:
 		"Forfeit":
 			var confirmationBox = CONFIRMATIONBOX.instantiate()
-			confirmationBox.set_title("Confirm Forfeit Level")
-			confirmationBox.set_text("Are you sure you want to forfeit this level?")
+			confirmationBox.title = "Confirm Forfeit Level"
+			confirmationBox.text = "Are you sure you want to forfeit this level?"
 			add_child(confirmationBox)
 			confirmationBox.popup_centered()
-			confirmationBox.set_visible(true)
+			confirmationBox.visible = true
 			confirmationBox.connect("confirmed", Callable(self, "_on_confirm"))
 			
 func _on_confirm() -> void:

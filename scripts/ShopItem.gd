@@ -14,4 +14,4 @@ func _on_button_pressed() -> void:
 func set_item(pData : Dictionary) -> void:
 	data = pData
 	
-	set_texture_normal(load(data["image"]))
+	texture_normal = load(data["image"])

@@ -22,8 +22,8 @@ func _on_viewport_size_changed() -> void:
 
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	set_size(Vector2(viewportSize.x, 64))
-	set_position(Vector2(0, viewportSize.y - 64))
+	size = Vector2(viewportSize.x, 64)
+	position = Vector2(0, viewportSize.y - 64)
 
 func _update_hand() -> void:
 	var viewportSize = get_viewport().size
@@ -40,7 +40,7 @@ func _update_hand() -> void:
 		var centerPosition = Vector2(viewportSize.x * 0.5, viewportSize.y - CARDSIZE.y + 128)
 		centerPosition.x += (spreadCurve.sample(handRatio) * handWidth) - (CARDSIZE.x * 0.5)
 		
-		card.set_global_position(centerPosition)
+		card.global_position = centerPosition
 		
 func _can_drop_data(_pos : Vector2, dataIn : Variant) -> bool:
 	return true
@@ -66,7 +66,7 @@ func _init_hand() -> void:
 func add_unit(pData : Dictionary) -> void:
 	var newCard = PLAYERCARD.instantiate()
 	newCard.set_data(pData)
-	newCard.set_size(CARDSIZE)
+	newCard.size = CARDSIZE
 	add_child(newCard)
 	_update_hand()
 	

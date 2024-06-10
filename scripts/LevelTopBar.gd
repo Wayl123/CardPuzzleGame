@@ -27,7 +27,7 @@ func _init_data() -> void:
 		change_gold(items["gold"])
 		
 func _change_display() -> void:
-	infoGold.set_text(str("Gold: ", data["gold"]))
+	infoGold.text = str("Gold: ", data["gold"])
 	
 func get_gold() -> float:
 	return data["gold"]

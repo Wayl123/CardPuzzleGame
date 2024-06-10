@@ -19,16 +19,16 @@ func _ready() -> void:
 	add_to_group("PlayerCards")
 
 func _on_mouse_entered() -> void:
-	var cardPosition = get_global_position()
-	if cardPosition.y >= get_viewport().size.y - get_size().y + 128:
+	var cardPosition = global_position
+	if cardPosition.y >= get_viewport().size.y - size.y + 128:
 		cardPosition.y -= 128
-	set_global_position(cardPosition)
+	global_position = cardPosition
 	
 func _on_mouse_exited() -> void:
-	var cardPosition = get_global_position()
-	if cardPosition.y < get_viewport().size.y - get_size().y + 128:
+	var cardPosition = global_position
+	if cardPosition.y < get_viewport().size.y - size.y + 128:
 		cardPosition.y += 128
-	set_global_position(cardPosition)
+	global_position = cardPosition
 
 func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}
@@ -38,17 +38,17 @@ func _get_drag_data(_pos : Vector2) -> Variant:
 	dataOut["origin_data"] = data
 	
 	var dragPreview = DRAGPREVIEW.instantiate()
-	dragPreview.set_texture(load(data["image"]))
+	dragPreview.texture = load(data["image"])
 	add_child(dragPreview)
 	
 	return dataOut
 
 func _data_init() -> void:
-	infoName.set_text(data["name"])
-	infoImage.set_texture(load(data["image"]))
-	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoEffect.set_text("Effect Placeholder")
+	infoName.text = data["name"]
+	infoImage.texture = load(data["image"])
+	infoHealth.text = str("Health: ", data["health"], "/", data["max-health"])
+	infoAttack.text = str("Attack: ", data["attack"])
+	infoEffect.text = "Effect Placeholder"
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData

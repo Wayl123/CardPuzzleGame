@@ -15,8 +15,8 @@ func _on_viewport_size_changed() -> void:
 	
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	set_size(Vector2(viewportSize.x * 0.8, viewportSize.y * 0.8))
-	set_position(Vector2(viewportSize.x * 0.1, viewportSize.y * 0.1))
+	size = Vector2(viewportSize.x * 0.8, viewportSize.y * 0.8)
+	position = Vector2(viewportSize.x * 0.1, viewportSize.y * 0.1)
 	
 func _init_level_slot() -> void:
 	var levelData = globalData.get_level_data().values()

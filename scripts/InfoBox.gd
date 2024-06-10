@@ -30,14 +30,14 @@ func _process(delta : float) -> void:
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion and drag_position != null:
-		set_global_position(get_global_mouse_position() - drag_position)
+		global_position = get_global_mouse_position() - drag_position
 
 func _populate_data() -> void:
-	infoName.set_text(data["name"])
-	infoDescription.set_text("Description placeholder")
-	infoImage.set_texture(load(data["image"]))
-	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	infoAttack.set_text(str("Attack: ", data["attack"]))
+	infoName.text = data["name"]
+	infoDescription.text = "Description placeholder"
+	infoImage.texture = load(data["image"])
+	infoHealth.text = str("Health: ", data["health"], "/", data["max-health"])
+	infoAttack.text = str("Attack: ", data["attack"])
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData

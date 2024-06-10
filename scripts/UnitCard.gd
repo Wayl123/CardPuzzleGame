@@ -6,9 +6,7 @@ extends TextureButton
 @onready var playerItem = get_tree().get_first_node_in_group("PlayerItem")
 @onready var playerHand = get_tree().get_first_node_in_group("PlayerHand")
 
-@export var unit_id : String:
-	set (value):
-		unit_id = value
+@export var unit_id : String
 
 var HOVERTOOLTIP = preload("res://scene/hover_tooltip.tscn")
 var INFOBOX = preload("res://scene/info_box.tscn")
@@ -24,19 +22,19 @@ func _ready() -> void:
 	connect("pressed", Callable(self, "_on_button_pressed"))
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	
-	set_pivot_offset(get_size() / 2)
+	pivot_offset = size / 2
 	
 	if not data:
 		data = globalData.get_unit_data_copy(unit_id)
 		data["rotation"] = 0
-		set_texture_normal(load(data["image"]))
+		texture_normal = load(data["image"])
 		
 func _on_button_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	var infoBox = INFOBOX.instantiate()
 	
 	infoBox.set_data(data)
-	infoBox.set_global_position(get_parent().get_global_position() + Vector2(2, 0) * 128)
+	infoBox.global_position = get_parent().global_position + Vector2(2, 0) * 128
 	infoBox.add_to_group("ActiveInfoBox")
 	
 	popup.add_child(infoBox)
@@ -52,7 +50,7 @@ func _on_mouse_entered() -> void:
 	if not get_tree().has_group("ActiveInfoBox"):
 		var hoverTooltip = HOVERTOOLTIP.instantiate()
 		
-		hoverTooltip.set_visible(false)
+		hoverTooltip.visible = false
 		hoverTooltip.set_data(data)
 		hoverTooltip.add_to_group("ActiveHoverTooltip")
 		
@@ -61,7 +59,7 @@ func _on_mouse_entered() -> void:
 		await get_tree().create_timer(0.2).timeout
 		
 		if is_instance_valid(hoverTooltip):
-			hoverTooltip.set_visible(true)
+			hoverTooltip.visible = true
 			
 			_range_display()
 					
@@ -69,11 +67,11 @@ func _range_display() -> void:
 	if not get_tree().has_group("RangeDisplay"):
 		for aRange in data["range"]:
 			var targetPos = Vector2(aRange[0], aRange[1]) * 128
-			var targetGlobalPos = get_parent().get_global_position() + targetPos
+			var targetGlobalPos = get_parent().global_position + targetPos
 			for targetNode in get_tree().get_nodes_in_group("TargetableNode"):
-				if targetNode.get_global_position() == targetGlobalPos:
+				if targetNode.global_position == targetGlobalPos:
 					var attackRange = RANGE.instantiate()
-					attackRange.set_position(targetPos)
+					attackRange.position = targetPos
 					attackRange.add_to_group("RangeDisplay")
 					get_parent().add_child(attackRange)
 
@@ -94,7 +92,7 @@ func get_data() -> Dictionary:
 func take_damage(pDmg : float) -> void:
 	if data["health"] > 0:
 		var damageNumber = DAMAGENUMBER.instantiate()
-		var spawnPosition = get_parent().get_global_position()
+		var spawnPosition = get_parent().global_position
 		spawnPosition.x += 64
 		spawnPosition.y += 64
 		popup.add_child(damageNumber)
@@ -103,12 +101,12 @@ func take_damage(pDmg : float) -> void:
 		data["health"] -= pDmg
 		if data["health"] <= 0:
 			var unitDeath = UNITDEATH.instantiate()
-			unitDeath.set_global_position(spawnPosition)
+			unitDeath.global_position = spawnPosition
 			popup.add_child(unitDeath)
 			if is_in_group("CurrentEnemy") and get_tree().has_group("ActiveMap"):
 				remove_from_group("CurrentEnemy")
 				map.check_enemy_cleared()
-				get_parent().set_disabled(false)
+				get_parent().disabled = false
 				for player in get_tree().get_nodes_in_group("PlayerUnits"):
 					player.on_effect("all-kill")
 			if is_in_group("PlayerUnits"):

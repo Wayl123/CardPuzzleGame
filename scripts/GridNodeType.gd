@@ -15,28 +15,28 @@ func _set_node() -> void:
 	
 	match nodeType:
 		"boulder":
-			content.set_disabled(true)
-			content.set_texture_normal(load("res://image/map/boulder_wall.png"))
+			content.disabled = true
+			content.texture_normal = load("res://image/map/boulder_wall.png")
 		"enemy":
-			content.set_disabled(true)
+			content.disabled = true
 			content.add_unit_by_id(unitId)
 			content.add_to_group("TargetableNode")
 		"player":
 			content.add_unit_by_id(unitId)
 			content.add_to_group("TargetableNode")
 		"shop":
-			content.set_disabled(true)
+			content.disabled = true
 			content.add_unit_by_id(unitId)
 		"portal":
-			content.set_disabled(true)
+			content.disabled = true
 			content.add_unit_by_id("X")
 		_:
 			content.add_to_group("TargetableNode")
 			
 	if fogGroup:
-		content.set_disabled(true)
-		content.set_texture_normal(load("res://image/map/fog.png"))
+		content.disabled = true
+		content.texture_normal = load("res://image/map/fog.png")
 		content.add_to_group(fogGroup)
 		content.remove_from_group("TargetableNode")
 		for fogCovered in content.get_children():
-			fogCovered.set_z_index(-1)
+			fogCovered.z_index = -1

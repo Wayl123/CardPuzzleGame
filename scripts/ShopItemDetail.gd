@@ -15,14 +15,14 @@ var data = {}
 func set_detail(pData : Dictionary) -> void:
 	data = pData
 	
-	infoName.set_text(data["name"])
-	infoDescription.set_text("Description placeholder")
-	infoHealth.set_text(str("Health: ", data["max-health"]))
-	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoRange.set_text(str("Range: ", data["range-desc"]))
+	infoName.text = data["name"]
+	infoDescription.text = "Description placeholder"
+	infoHealth.text = str("Health: ", data["max-health"])
+	infoAttack.text = str("Attack: ", data["attack"])
+	infoRange.text = str("Range: ", data["range-desc"])
 	#infoDeathEffect.set_text(str("On Death: ", data["on-death-desc"]))
-	infoCost.set_text(str("Cost: ", data["cost"]))
-	infoImage.set_texture(load(data["image"]))
+	infoCost.text = str("Cost: ", data["cost"])
+	infoImage.texture = load(data["image"])
 	
 func get_data() -> Dictionary:
 	return data
