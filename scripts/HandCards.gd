@@ -22,7 +22,7 @@ func _on_viewport_size_changed() -> void:
 
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	size = Vector2(viewportSize.x, 64)
+	size = Vector2(viewportSize.x, 256)
 	position = Vector2(0, viewportSize.y - 64)
 
 func _update_hand() -> void:

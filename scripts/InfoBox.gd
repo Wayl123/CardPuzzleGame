@@ -3,10 +3,7 @@ extends Panel
 @onready var infoName = %Name
 @onready var infoDescription = %Description
 @onready var infoImage = %Image
-@onready var infoHealth = %Health
-@onready var infoAttack = %Attack
-@onready var infoDeathEffect = %DeathEffect
-@onready var infoVictoryEffect = %VictoryEffect
+@onready var infoDetail = %Detail
 
 var drag_position = null
 var data = {}
@@ -33,11 +30,24 @@ func _input(event : InputEvent) -> void:
 		global_position = get_global_mouse_position() - drag_position
 
 func _populate_data() -> void:
-	infoName.text = data["name"]
-	infoDescription.text = "Description placeholder"
+	infoName.text = str("[b]", data["name"], "[/b]")
+	infoDescription.text = data["desc"]
 	infoImage.texture = load(data["image"])
-	infoHealth.text = str("Health: ", data["health"], "/", data["max-health"])
-	infoAttack.text = str("Attack: ", data["attack"])
+	infoDetail.text += str("[b]Health:[/b] ", data["health"], "/", data["max-health"], "\n")
+	infoDetail.text += str("[b]Attack:[/b] ", data["attack"], "\n")
+	
+	if data.has("on-death-desc"):
+		infoDetail.text += str("[b]On Death:[/b] ", data["on-death-desc"], "\n")
+	if data.has("on-victory-desc"):
+		infoDetail.text += str("[b]On Victory:[/b] ", data["on-victory-desc"], "\n")
+	if data.has("on-all-kill-desc"):
+		infoDetail.text += str("[b]On All Kill:[/b] ", data["on-all-kill-desc"], "\n")
+	if data.has("on-completion-desc"):
+		infoDetail.text += str("[b]On Completion:[/b] ", data["on-completion-desc"], "\n")
+	if data.has("on-all-kill-desc"):
+		infoDetail.text += str("[b]On Hand Completion:[/b] ", data["on-hand-completion-desc"], "\n")
+	if data.has("on-fail-desc"):
+		infoDetail.text += str("[b]On Fail:[/b] ", data["on-fail-desc"], "\n")
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData

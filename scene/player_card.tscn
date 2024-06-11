@@ -34,11 +34,14 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Name" type="Label" parent="CardLayout/CardTitle/TitleBox"]
+[node name="Name" type="RichTextLabel" parent="CardLayout/CardTitle/TitleBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+size_flags_horizontal = 3
+mouse_filter = 2
+bbcode_enabled = true
 text = "Name"
+fit_content = true
 
 [node name="CardImageMargin" type="MarginContainer" parent="CardLayout"]
 layout_mode = 2
@@ -54,9 +57,10 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 expand_mode = 1
 
-[node name="CardDetail" type="MarginContainer" parent="CardLayout"]
+[node name="CardDetailMargin" type="MarginContainer" parent="CardLayout"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -65,33 +69,13 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 8
 
-[node name="CardDetails" type="VBoxContainer" parent="CardLayout/CardDetail"]
+[node name="CardDetailStroll" type="ScrollContainer" parent="CardLayout/CardDetailMargin"]
 layout_mode = 2
-mouse_filter = 2
 
-[node name="Health" type="Label" parent="CardLayout/CardDetail/CardDetails"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Health"
-
-[node name="Attack" type="Label" parent="CardLayout/CardDetail/CardDetails"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Attack"
-
-[node name="EffectBox" type="HBoxContainer" parent="CardLayout/CardDetail/CardDetails"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="EffectSimplified" type="Label" parent="CardLayout/CardDetail/CardDetails/EffectBox"]
+[node name="CardDetail" type="RichTextLabel" parent="CardLayout/CardDetailMargin/CardDetailStroll"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-text = "Effect"
-
-[node name="SeeEffect" type="Button" parent="CardLayout/CardDetail/CardDetails/EffectBox"]
-layout_mode = 2
-text = "..."
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true

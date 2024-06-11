@@ -54,12 +54,7 @@
 		"range": [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0]],
 		"range-desc": "Slash five spaces, one space in front, both front diagonal and both side",
 		"cost": 15,
-		"rotatable": true,
-		"on-death-desc": "TBD",
-		"on-victory-desc": "TBD",
-		"on-completion-desc": "TBD",
-		"on-hand-completion-desc": "TBD",
-		"on-fail-desc": "TBD"
+		"rotatable": true
 	},
 	"P2-1": {
 		"name": "range1",
@@ -103,12 +98,7 @@
 		"range": [[-1, -2], [1, -2]],
 		"range-desc": "Shoot two spaces, the front diagonal 2 space forward 1 space to the side",
 		"cost": 10,
-		"rotatable": true,
-		"on-death-desc": "TBD",
-		"on-victory-desc": "TBD",
-		"on-completion-desc": "TBD",
-		"on-hand-completion-desc": "TBD",
-		"on-fail-desc": "TBD"
+		"rotatable": true
 	},
 	"P4-1": {
 		"name": "building1",
@@ -143,6 +133,7 @@
 		},
 		"on-death-desc": "Becomes destroyed1",
 		"on-victory-desc": "Gain 10 coins",
+		"on-all-kill-desc": "Gain 1 coin",
 		"on-completion-desc": "Gain 5 victory points, Decks structure1",
 		"on-hand-completion-desc": "Gain 10 victory points, Decks building2",
 		"on-fail-desc": "Decks housing1",
@@ -157,12 +148,7 @@
 		"range": [],
 		"range-desc": "None",
 		"cost": 20,
-		"rotatable": false,
-		"on-death-desc": "TBD",
-		"on-victory-desc": "TBD",
-		"on-completion-desc": "TBD",
-		"on-hand-completion-desc": "TBD",
-		"on-fail-desc": "TBD"
+		"rotatable": false
 	},
 	"P5-1": {
 		"name": "tankCamp1",
@@ -317,10 +303,7 @@
 		},
 		"on-death-desc": "Becomes graveVet1",
 		"on-victory-desc": "Gain 5 honour points",
-		"on-all-kill-desc": "Gain 1 honour point",
-		"on-completion-desc": "TBD",
-		"on-hand-completion-desc": "TBD",
-		"on-fail-desc": "TBD"
+		"on-all-kill-desc": "Gain 1 honour point"
 	},
 	"P7-2": {
 		"name": "rangeVet1",
@@ -344,10 +327,7 @@
 		},
 		"on-death-desc": "Becomes graveVet1",
 		"on-victory-desc": "Gain 3 honour points",
-		"on-all-kill-desc": "Gain 1 honour point",
-		"on-completion-desc": "TBD",
-		"on-hand-completion-desc": "TBD",
-		"on-fail-desc": "TBD"
+		"on-all-kill-desc": "Gain 1 honour point"
 	},
 	"P7-3": {
 		"name": "structure1",
@@ -367,10 +347,7 @@
 			"supply": 5
 		},
 		"on-death-desc": "Becomes destroyedStruct1",
-		"on-victory-desc": "Gain 5 research points, Gain 5 supply",
-		"on-completion-desc": "TBD",
-		"on-hand-completion-desc": "TBD",
-		"on-fail-desc": "TBD"
+		"on-victory-desc": "Gain 5 research points, Gain 5 supply"
 	},
 	"P8-1": {
 		"name": "ghost1",
