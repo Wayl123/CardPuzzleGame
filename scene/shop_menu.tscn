@@ -82,7 +82,12 @@ layout_mode = 2
 text = "Name"
 autowrap_mode = 3
 
-[node name="Description" type="Label" parent="SelectedItem/ItemDetail/ItemTitle"]
+[node name="DescriptionScroll" type="ScrollContainer" parent="SelectedItem/ItemDetail/ItemTitle"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Description" type="Label" parent="SelectedItem/ItemDetail/ItemTitle/DescriptionScroll"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2

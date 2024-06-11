@@ -1,6 +1,7 @@
 {
 	"E1-1": {
 		"name": "basicenemy1",
+		"desc": "Most basic enemy",
 		"image": "res://image/enemies/basic_enemy1.png",
 		"max-health": 10,
 		"health": 10,
@@ -13,6 +14,7 @@
 	},
 	"P1-1": {
 		"name": "tank1",
+		"desc": "Most basic melee unit",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": 10,
 		"health": 10,
@@ -44,6 +46,7 @@
 	},
 	"P1-2": {
 		"name": "tank2",
+		"desc": "Slightly stronger melee unit with wider range and health",
 		"image": "res://image/player/tank_player1.png",
 		"max-health": 15,
 		"health": 15,
@@ -60,6 +63,7 @@
 	},
 	"P2-1": {
 		"name": "range1",
+		"desc": "Most basic range unit",
 		"image": "res://image/player/range_player1.png",
 		"max-health": 3,
 		"health": 3,
@@ -91,6 +95,7 @@
 	},
 	"P2-2": {
 		"name": "range2",
+		"desc": "Slightly stronger range unit that can shoot more target",
 		"image": "res://image/player/range_player1.png",
 		"max-health": 3,
 		"health": 3,
@@ -107,6 +112,7 @@
 	},
 	"P4-1": {
 		"name": "building1",
+		"desc": "Most basic resource building",
 		"image": "res://image/player/basic_building1.png",
 		"max-health": 5,
 		"health": 5,
@@ -143,6 +149,7 @@
 	},
 	"P4-2": {
 		"name": "building2",
+		"desc": "Slightly improved resource building",
 		"image": "res://image/player/basic_building1.png",
 		"max-health": 8,
 		"health": 8,
@@ -159,6 +166,7 @@
 	},
 	"P5-1": {
 		"name": "tankCamp1",
+		"desc": "Tank unit supply camp, most attacking unit in this game only last for 1 wave before retiring to the back line",
 		"image": "res://image/player/camp_tank_player1.png",
 		"max-health": 5,
 		"health": 5,
@@ -185,6 +193,8 @@
 	},
 	"P5-2": {
 		"name": "rangeCamp1",
+		"desc": "Range unit supply camp, most attacking unit in this game only last for 1 wave before retiring to the back line",
+		"desc": "most basic of enemy",
 		"image": "res://image/player/camp_range_player1.png",
 		"max-health": 5,
 		"health": 5,
@@ -211,6 +221,7 @@
 	},
 	"P6-1": {
 		"name": "grave1",
+		"desc": "Dead unit, this space is basically locked out for the rest of this map",
 		"image": "res://image/player/grave1.png",
 		"max-health": -1,
 		"health": -1,
@@ -229,6 +240,7 @@
 	},
 	"P6-2": {
 		"name": "destroyed1",
+		"desc": "Destroyed buildings, this space is basically locked out for the rest of this map",
 		"image": "res://image/player/destroyed.png",
 		"max-health": -1,
 		"health": -1,
@@ -247,6 +259,7 @@
 	},
 	"P6-3": {
 		"name": "graveVet1",
+		"desc": "Dead vet unit, don't really want to lose those units",
 		"image": "res://image/player/vet_grave1.png",
 		"max-health": -1,
 		"health": -1,
@@ -265,6 +278,7 @@
 	},
 	"P6-4": {
 		"name": "destroyedStruct1",
+		"desc": "Destroyed structure, don't really want to lose those units",
 		"image": "res://image/player/destroyed.png",
 		"max-health": -1,
 		"health": -1,
@@ -283,6 +297,7 @@
 	},
 	"P7-1": {
 		"name": "tankVet1",
+		"desc": "Melee unit with some combat experience, gets better at tanking",
 		"image": "res://image/player/vet_tank_player1.png",
 		"max-health": 20,
 		"health": 20,
@@ -309,6 +324,7 @@
 	},
 	"P7-2": {
 		"name": "rangeVet1",
+		"desc": "Range unit with some combat experience, attack has improved slightly",
 		"image": "res://image/player/vet_range_player1.png",
 		"max-health": 5,
 		"health": 5,
@@ -335,6 +351,7 @@
 	},
 	"P7-3": {
 		"name": "structure1",
+		"desc": "Building repurposed for research",
 		"image": "res://image/player/structure_building1.png",
 		"max-health": 5,
 		"health": 5,
@@ -357,6 +374,7 @@
 	},
 	"P8-1": {
 		"name": "ghost1",
+		"desc": "Ghost of the soldiers of the past",
 		"image": "res://image/player/ghost1.png",
 		"max-health": -1,
 		"health": -1,
@@ -379,6 +397,7 @@
 	},
 	"P8-2": {
 		"name": "wreckage1",
+		"desc": "Destroyed remain of buildings",
 		"image": "res://image/player/wreckage1.png",
 		"max-health": -1,
 		"health": -1,
@@ -401,6 +420,7 @@
 	},
 	"P8-3": {
 		"name": "ghostVet1",
+		"desc": "Even in death, their honour will never fade",
 		"image": "res://image/player/vet_ghost1.png",
 		"max-health": -1,
 		"health": -1,
@@ -427,6 +447,7 @@
 	},
 	"P8-4": {
 		"name": "wreckageStruct1",
+		"desc": "Destroyed remain of big buildings, probably can still find some left over supplies from it",
 		"image": "res://image/player/struct_wreckage1.png",
 		"max-health": -1,
 		"health": -1,
@@ -450,6 +471,7 @@
 	},
 	"P9-1": {
 		"name": "conscript1",
+		"desc": "They might have lost the battle, but they have not lost the war yet",
 		"image": "res://image/player/conscript1.png",
 		"max-health": -1,
 		"health": -1,
@@ -468,6 +490,7 @@
 	},
 	"P9-2": {
 		"name": "housing1",
+		"desc": "Building repurposed as housing for the refugee",
 		"image": "res://image/player/housing1.png",
 		"max-health": -1,
 		"health": -1,

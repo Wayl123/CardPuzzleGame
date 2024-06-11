@@ -16,13 +16,17 @@ func set_detail(pData : Dictionary) -> void:
 	data = pData
 	
 	infoName.text = data["name"]
-	infoDescription.text = "Description placeholder"
+	infoDescription.text = data["desc"]
 	infoHealth.text = str("Health: ", data["max-health"])
 	infoAttack.text = str("Attack: ", data["attack"])
 	infoRange.text = str("Range: ", data["range-desc"])
-	#infoDeathEffect.set_text(str("On Death: ", data["on-death-desc"]))
 	infoCost.text = str("Cost: ", data["cost"])
 	infoImage.texture = load(data["image"])
+	
+	if data.has("on-death-desc"):
+		infoDeathEffect.text = str("On Death: ", data["on-death-desc"])
+	if data.has("on-victory-desc"):
+		infoVictoryEffect.text = str("On Victory: ", data["on-victory-desc"])
 	
 func get_data() -> Dictionary:
 	return data

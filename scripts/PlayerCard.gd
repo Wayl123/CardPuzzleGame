@@ -48,7 +48,6 @@ func _data_init() -> void:
 	infoImage.texture = load(data["image"])
 	infoHealth.text = str("Health: ", data["health"], "/", data["max-health"])
 	infoAttack.text = str("Attack: ", data["attack"])
-	infoEffect.text = "Effect Placeholder"
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData
