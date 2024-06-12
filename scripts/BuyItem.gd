@@ -19,4 +19,8 @@ func _on_button_pressed() -> void:
 			playerHand.add_unit(data)
 			playerItem.change_gold(-cost)
 		else:
-			print("Not enough gold") #to be replaced with notification text in gam
+			var dialog = AcceptDialog.new()
+			dialog.title = "Alert"
+			dialog.dialog_text = "Out of gold"
+			add_child(dialog)
+			dialog.popup_centered()

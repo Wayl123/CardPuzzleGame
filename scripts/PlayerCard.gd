@@ -80,6 +80,11 @@ func get_deck(success : bool) -> Array:
 			
 			if onCompletion.has("deck"):
 				deckCards += onCompletion["deck"]
+		elif data.has("on-completion"): #default to completion effect if no on hand completion effect
+			var onCompletion = data["on-completion"]
+			
+			if onCompletion.has("deck"):
+				deckCards += onCompletion["deck"]
 	else:
 		if data.has("on-fail"):
 			var onFail = data["on-fail"]
