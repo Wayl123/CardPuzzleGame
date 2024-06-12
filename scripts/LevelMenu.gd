@@ -10,7 +10,7 @@ func _on_menu_select(index : int) -> void:
 		"Forfeit":
 			var confirmationBox = CONFIRMATIONBOX.instantiate()
 			confirmationBox.title = "Confirm Forfeit Level"
-			confirmationBox.text = "Are you sure you want to forfeit this level?"
+			confirmationBox.dialog_text = "Are you sure you want to forfeit this level?"
 			add_child(confirmationBox)
 			confirmationBox.popup_centered()
 			confirmationBox.visible = true
