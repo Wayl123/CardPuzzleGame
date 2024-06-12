@@ -22,7 +22,7 @@ func _on_viewport_size_changed() -> void:
 
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	set_position(Vector2(0, viewportSize.y - 64))
+	position = Vector2(0, viewportSize.y - 64)
 
 func _update_hand() -> void:
 	var viewportSize = get_viewport().size
@@ -39,7 +39,7 @@ func _update_hand() -> void:
 		var centerPosition = Vector2(viewportSize.x * 0.5, viewportSize.y - DECKSIZE.y + 128)
 		centerPosition.x += (spreadCurve.sample(handRatio) * handWidth) - (DECKSIZE.x * 0.5)
 		
-		deck.set_global_position(centerPosition)
+		deck.global_position = centerPosition
 		
 func _init_decks() -> void:
 	for deck in globalData.get_deck_data():
@@ -48,7 +48,7 @@ func _init_decks() -> void:
 func add_deck(pData : Dictionary) -> void:
 	var newDeck = PLAYERDECK.instantiate()
 	newDeck.set_data(pData)
-	newDeck.set_size(DECKSIZE)
+	newDeck.size = DECKSIZE
 	add_child(newDeck)
 	_update_hand()
 	

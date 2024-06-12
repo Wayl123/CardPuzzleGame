@@ -2,9 +2,7 @@ extends Panel
 
 @onready var infoName = %Name
 @onready var infoImage = %CardImage
-@onready var infoHealth = %Health
-@onready var infoAttack = %Attack
-@onready var infoEffect = %EffectSimplified
+@onready var infoDetail = %CardDetail
 
 var DRAGPREVIEW = preload("res://scene/drag_preview.tscn")
 var PLAYER = preload("res://scene/player.tscn")
@@ -19,16 +17,16 @@ func _ready() -> void:
 	add_to_group("PlayerCards")
 
 func _on_mouse_entered() -> void:
-	var cardPosition = get_global_position()
-	if cardPosition.y >= get_viewport().size.y - get_size().y + 128:
+	var cardPosition = global_position
+	if cardPosition.y >= get_viewport().size.y - size.y + 128:
 		cardPosition.y -= 128
-	set_global_position(cardPosition)
+	global_position = cardPosition
 	
 func _on_mouse_exited() -> void:
-	var cardPosition = get_global_position()
-	if cardPosition.y < get_viewport().size.y - get_size().y + 128:
+	var cardPosition = global_position
+	if cardPosition.y < get_viewport().size.y - size.y + 128:
 		cardPosition.y += 128
-	set_global_position(cardPosition)
+	global_position = cardPosition
 
 func _get_drag_data(_pos : Vector2) -> Variant:
 	var dataOut = {}
@@ -38,17 +36,29 @@ func _get_drag_data(_pos : Vector2) -> Variant:
 	dataOut["origin_data"] = data
 	
 	var dragPreview = DRAGPREVIEW.instantiate()
-	dragPreview.set_texture(load(data["image"]))
+	dragPreview.texture = load(data["image"])
 	add_child(dragPreview)
 	
 	return dataOut
 
 func _data_init() -> void:
-	infoName.set_text(data["name"])
-	infoImage.set_texture(load(data["image"]))
-	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	infoAttack.set_text(str("Attack: ", data["attack"]))
-	infoEffect.set_text("Effect Placeholder")
+	infoName.text = str("[b]", data["name"], "[/b]")
+	infoImage.texture = load(data["image"])
+	infoDetail.text += str("[b]Health:[/b] ", data["health"], "/", data["max-health"], "\n")
+	infoDetail.text += str("[b]Attack:[/b] ", data["attack"], "\n")
+	
+	if data.has("on-death-desc"):
+		infoDetail.text += str("[b]On Death:[/b] ", data["on-death-desc"], "\n")
+	if data.has("on-victory-desc"):
+		infoDetail.text += str("[b]On Victory:[/b] ", data["on-victory-desc"], "\n")
+	if data.has("on-all-kill-desc"):
+		infoDetail.text += str("[b]On All Kill:[/b] ", data["on-all-kill-desc"], "\n")
+	if data.has("on-completion-desc"):
+		infoDetail.text += str("[b]On Completion:[/b] ", data["on-completion-desc"], "\n")
+	if data.has("on-hand-completion-desc"):
+		infoDetail.text += str("[b]On Hand Completion:[/b] ", data["on-hand-completion-desc"], "\n")
+	if data.has("on-fail-desc"):
+		infoDetail.text += str("[b]On Fail:[/b] ", data["on-fail-desc"], "\n")
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData
@@ -67,6 +77,11 @@ func get_deck(success : bool) -> Array:
 	if success:
 		if data.has("on-hand-completion"):
 			var onCompletion = data["on-hand-completion"]
+			
+			if onCompletion.has("deck"):
+				deckCards += onCompletion["deck"]
+		elif data.has("on-completion"): #default to completion effect if no on hand completion effect
+			var onCompletion = data["on-completion"]
 			
 			if onCompletion.has("deck"):
 				deckCards += onCompletion["deck"]

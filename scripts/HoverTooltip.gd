@@ -18,9 +18,9 @@ func _process(delta : float) -> void:
 		queue_free()
 	
 func _populate_data() -> void:
-	infoName.set_text(data["name"])
-	infoHealth.set_text(str("Health: ", data["health"], "/", data["max-health"]))
-	infoAttack.set_text(str("Attack: ", data["attack"]))
+	infoName.text = data["name"]
+	infoHealth.text = str("Health: ", data["health"], "/", data["max-health"])
+	infoAttack.text = str("Attack: ", data["attack"])
 
 func set_data(pData : Dictionary) -> void:
 	data = pData

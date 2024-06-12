@@ -75,14 +75,20 @@ script = ExtResource("3_tqqgs")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Name" type="Label" parent="SelectedItem/ItemDetail/ItemTitle"]
+[node name="Name" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemTitle"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+bbcode_enabled = true
 text = "Name"
-autowrap_mode = 3
+fit_content = true
 
-[node name="Description" type="Label" parent="SelectedItem/ItemDetail/ItemTitle"]
+[node name="DescriptionScroll" type="ScrollContainer" parent="SelectedItem/ItemDetail/ItemTitle"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Description" type="Label" parent="SelectedItem/ItemDetail/ItemTitle/DescriptionScroll"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
@@ -100,38 +106,71 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="Health" type="Label" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+[node name="Health" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+bbcode_enabled = true
 text = "Max Health"
-autowrap_mode = 3
+fit_content = true
 
-[node name="Attack" type="Label" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+[node name="Attack" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+bbcode_enabled = true
 text = "Attack"
-autowrap_mode = 3
+fit_content = true
 
-[node name="Range" type="Label" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+[node name="Range" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+bbcode_enabled = true
 text = "Range"
-autowrap_mode = 3
+fit_content = true
 
-[node name="DeathEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+[node name="DeathEffect" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-autowrap_mode = 3
+bbcode_enabled = true
+fit_content = true
 
-[node name="VictoryEffect" type="Label" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+[node name="VictoryEffect" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
-autowrap_mode = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="AllKillEffect" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="CompletionEffect" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="HandCompletionEffect" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="FailEffect" type="RichTextLabel" parent="SelectedItem/ItemDetail/ItemDetailScroll/ItemDetails"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
 
 [node name="BuyItem" type="VBoxContainer" parent="SelectedItem/ItemDetail"]
 custom_minimum_size = Vector2(48, 0)
@@ -139,10 +178,12 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
-[node name="Cost" type="Label" parent="SelectedItem/ItemDetail/BuyItem"]
+[node name="Cost" type="RichTextLabel" parent="SelectedItem/ItemDetail/BuyItem"]
 unique_name_in_owner = true
 layout_mode = 2
+bbcode_enabled = true
 text = "Cost"
+fit_content = true
 
 [node name="Buy" type="Button" parent="SelectedItem/ItemDetail/BuyItem"]
 layout_mode = 2

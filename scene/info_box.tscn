@@ -26,16 +26,22 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="InfoList/InfoBanner/InfoTitle"]
+[node name="Name" type="RichTextLabel" parent="InfoList/InfoBanner/InfoTitle"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+bbcode_enabled = true
 text = "Name"
+fit_content = true
 
-[node name="Description" type="Label" parent="InfoList/InfoBanner/InfoTitle"]
+[node name="DescriptionScroll" type="ScrollContainer" parent="InfoList/InfoBanner/InfoTitle"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Description" type="Label" parent="InfoList/InfoBanner/InfoTitle/DescriptionScroll"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 12
 text = "Description"
 
@@ -43,24 +49,14 @@ text = "Description"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Health" type="Label" parent="InfoList"]
-unique_name_in_owner = true
+[node name="DetailScroll" type="ScrollContainer" parent="InfoList"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
-text = "Health: -1/-1"
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
-[node name="Attack" type="Label" parent="InfoList"]
+[node name="Detail" type="RichTextLabel" parent="InfoList/DetailScroll"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
-text = "Attack: -1"
-
-[node name="DeathEffect" type="Label" parent="InfoList"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
-
-[node name="VictoryEffect" type="Label" parent="InfoList"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 0.74902)
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true

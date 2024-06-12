@@ -12,4 +12,4 @@ func _on_menu_select(index : int) -> void:
 		"Info":
 			var gameInfo = GAMEINFO.instantiate()
 			add_child(gameInfo)
-			gameInfo.set_global_position(Vector2.ZERO)
+			gameInfo.global_position = Vector2.ZERO

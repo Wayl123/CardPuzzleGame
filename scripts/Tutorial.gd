@@ -43,8 +43,8 @@ func _set_current_dialog() -> void:
 	
 	_remove_blocker()
 	_remove_pointers()
-	dialog.get_ok_button().set_visible(true)
-	dialog.set_text("")
+	dialog.get_ok_button().visible = true
+	dialog.dialog_text = ""
 	dialog.reset_size()
 	
 	match currentDialog["type"]:
@@ -54,7 +54,7 @@ func _set_current_dialog() -> void:
 			_place_blocker()
 			_place_pointer(false)
 		"action":
-			dialog.get_ok_button().set_visible(false)
+			dialog.get_ok_button().visible = false
 			_place_pointer(true)
 	_show_dialog()
 			
@@ -62,10 +62,10 @@ func _show_dialog() -> void:
 	for child in dialog.get_children():
 		dialog.remove_child(child)
 		child.queue_free()
-	dialog.set_text(currentDialog["text"])
-	dialog.set_title(str("Tutorial: ", progress, "/", tutorialData.size()))
+	dialog.dialog_text = currentDialog["text"]
+	dialog.title = str("Tutorial: ", progress, "/", tutorialData.size())
 	dialog.popup_centered()
-	dialog.set_visible(true)
+	dialog.visible = true
 	
 func _place_blocker() -> void:
 	var blocker = TUTORIALBLOCKER.instantiate()
@@ -88,11 +88,11 @@ func _count_close_dialog() -> void:
 	
 func _show_close_dialog() -> void:
 	var confirmationBox = CONFIRMATIONBOX.instantiate()
-	confirmationBox.set_title("Close Tutorial?")
-	confirmationBox.set_text("Do you want to skip the tutorial?")
+	confirmationBox.title = "Close Tutorial?"
+	confirmationBox.dialog_text = "Do you want to skip the tutorial?"
 	dialog.add_child(confirmationBox)
 	confirmationBox.popup_centered()
-	confirmationBox.set_visible(true)
+	confirmationBox.visible = true
 	confirmationBox.connect("confirmed", Callable(self, "_end_tutorial"))
 	confirmationBox.connect("canceled", Callable(self, "_show_dialog"))
 	

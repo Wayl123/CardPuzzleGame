@@ -12,8 +12,8 @@ func _on_viewport_size_changed() -> void:
 
 func _update_size() -> void:
 	var viewportSize = get_viewport().size
-	set_size(Vector2(viewportSize.x, 32))
+	size = Vector2(viewportSize.x, 32)
 	
-	menu.set_position(Vector2(viewportSize.x - 32, 0))
+	menu.position = Vector2(viewportSize.x - 32, 0)
 	
 

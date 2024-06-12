@@ -19,28 +19,28 @@ func _get_drag_data(_pos : Vector2) -> Variant:
 		dataOut["origin_data"] = data
 	
 		var dragPreview = DRAGPREVIEW.instantiate()
-		dragPreview.set_texture(get_texture_normal())
-		dragPreview.set_modulate(deckCover.get_modulate())
+		dragPreview.texture = texture_normal
+		dragPreview.modulate = deckCover.modulate
 		add_child(dragPreview)
 	
 	return dataOut
 	
 func _data_init() -> void:
-	deckCover.set_transform_scale(get_size().x / 128)
-	deckCover.set_position(deckCover.get_position() + (get_size() * 0.5))
+	deckCover.set_transform_scale(size.x / 128)
+	deckCover.position = deckCover.position + (size * 0.5)
 	
 	_set_deck_cover()
 	
 func _set_deck_cover() -> void:
 	if data:
-		set_modulate(Color(1, 1, 1, 1))
+		modulate = Color(1, 1, 1, 1)
 		if data["clear"]:
-			deckCover.set_modulate(Color(0, 1, 0, 0.25))
+			deckCover.modulate = Color(0, 1, 0, 0.25)
 		else:
-			deckCover.set_modulate(Color(1, 0, 0, 0.25))
-		deckLevel.set_texture(load(data["level-image"]))
+			deckCover.modulate = Color(1, 0, 0, 0.25)
+		deckLevel.texture = load(data["level-image"])
 	else:
-		set_modulate(Color(0, 0, 0, 1))
+		modulate = Color(0, 0, 0, 1)
 	
 func set_data(pData : Dictionary) -> void:
 	data = pData
