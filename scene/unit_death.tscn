@@ -18,6 +18,7 @@ gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_apxqf")
 
 [node name="UnitDeath" type="GPUParticles2D"]
+emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_04cc4")
 one_shot = true
