@@ -35,7 +35,7 @@ func set_detail(pData : Dictionary) -> void:
 		infoAllKillEffect.text = str("[b]On All Kill:[/b] ", data["on-all-kill-desc"])
 	if data.has("on-completion-desc"):
 		infoCompletionEffect.text = str("[b]On Completion:[/b] ", data["on-completion-desc"])
-	if data.has("on-all-kill-desc"):
+	if data.has("on-hand-completion-desc"):
 		infoHandCompletionEffect.text = str("[b]On Hand Completion:[/b] ", data["on-hand-completion-desc"])
 	if data.has("on-fail-desc"):
 		infoAllKillEffect.text = str("[b]On Fail:[/b] ", data["on-fail-desc"])

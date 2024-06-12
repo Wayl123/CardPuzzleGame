@@ -44,7 +44,7 @@ func _populate_data() -> void:
 		infoDetail.text += str("[b]On All Kill:[/b] ", data["on-all-kill-desc"], "\n")
 	if data.has("on-completion-desc"):
 		infoDetail.text += str("[b]On Completion:[/b] ", data["on-completion-desc"], "\n")
-	if data.has("on-all-kill-desc"):
+	if data.has("on-hand-completion-desc"):
 		infoDetail.text += str("[b]On Hand Completion:[/b] ", data["on-hand-completion-desc"], "\n")
 	if data.has("on-fail-desc"):
 		infoDetail.text += str("[b]On Fail:[/b] ", data["on-fail-desc"], "\n")
